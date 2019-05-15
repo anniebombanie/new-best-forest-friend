@@ -23,48 +23,43 @@
     <form>
 
       <!-- QUESTION 1 -->
-      <fieldset>
+      <fieldset class="question1">
         <div class="wrapper">
           <h2>1.</h2>
           <p>Which diet is more similar to yours?</p>
-
           <label for="bear">Gimme meat!!</label>
           <!-- "required" on one input is fine if names are all the same -->
           <input type="radio" name="question1" id="bear" value="bear" required>
           <label for="rabbit">I'm vegan.</label>
           <input type="radio" name="question1" id="rabbit" value="rabbit">
-
-          <button type="button" value="submit" class="btn btn-scroll">next</button>
+          <input type="button" value="Next" class="btn btn-scroll">
         </div>
       </fieldset>
 
       <!-- QUESTION 2 -->
-      <fieldset>
+      <fieldset class="question2">
         <div class="wrapper">
           <h2>2.</h2>
           <p>How would you react if a stranger was yelling at you?</p>
-
           <label for="rabbit">Run away as fast as I could.</label>
           <input type="radio" name="question2" id="rabbit" value="rabbit" required>
           <label for="bear">Punch them.</label>
           <input type="radio" name="question2" id="bear" value="bear">
-
-          <button type="button" value="submit" class="btn btn-scroll">next</button>
+          <input type="button" value="Next" class="btn btn-scroll">
         </div>
       </fieldset>
 
       <!-- BUTTON TO SHOW RESULT -->
       <section>
         <div class="wrapper">
-          <button type="submit" class="btn btn-scroll">meet my new forest friend</button>
+          <input type="button" value="Meet my new forest friend" class="btn btn-scroll">
         </div>
       </section>
 
       <!-- DYNAMICALLY INSERTED RESULT -->
       <fieldset class="result">
         <div class="wrapper">
-          <button type="reset" value="reset" class="btn">i want a new best friend</button>
-          <!--- form???!!! -->
+          <input type="reset" value="I want a new best friend!" class="btn">
         </div>
       </fieldset>
     </form>
