@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Josefin+Slab:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
   <title>Quiz: Your New Best (Forest) Friend</title>
 </head>
 
@@ -18,34 +20,63 @@
   </header>
 
   <main>
-    <div class="wrapper">
-      <h2>1.</h2>
-      <p>Which diet is more similar to yours?</p>
-      <ul>
-        <li class="bear">Gimme meat!!</li>
-        <li class="rabbit">I'm vegan.</li>
-      </ul>
-      <button>next</button>
-    </div>
+    <form>
 
-    <h2>2.</h2>
-    <p>How would you react if a stranger was yelling at you?</p>
-    <ul>
-      <li class="rabbit">Run away as fast as you could.</li>
-      <li class="bear">Punch them.</li>
-    </ul>
-    <button>next</button>
+      <!-- QUESTION 1 -->
+      <fieldset>
+        <div class="wrapper">
+          <h2>1.</h2>
+          <p>Which diet is more similar to yours?</p>
 
-    <section class="result">
-    </section>
+          <label for="bear">Gimme meat!!</label>
+          <!-- "required" on one input is fine if names are all the same -->
+          <input type="radio" name="question1" id="bear" value="bear" required>
+          <label for="rabbit">I'm vegan.</label>
+          <input type="radio" name="question1" id="rabbit" value="rabbit">
 
-    <button>I want a new best friend</button>
+          <button type="button" value="submit" class="btn btn-scroll">next</button>
+        </div>
+      </fieldset>
+
+      <!-- QUESTION 2 -->
+      <fieldset>
+        <div class="wrapper">
+          <h2>2.</h2>
+          <p>How would you react if a stranger was yelling at you?</p>
+
+          <label for="rabbit">Run away as fast as I could.</label>
+          <input type="radio" name="question2" id="rabbit" value="rabbit" required>
+          <label for="bear">Punch them.</label>
+          <input type="radio" name="question2" id="bear" value="bear">
+
+          <button type="button" value="submit" class="btn btn-scroll">next</button>
+        </div>
+      </fieldset>
+
+      <!-- BUTTON TO SHOW RESULT -->
+      <section>
+        <div class="wrapper">
+          <button type="submit" class="btn btn-scroll">meet my new forest friend</button>
+        </div>
+      </section>
+
+      <!-- DYNAMICALLY INSERTED RESULT -->
+      <fieldset class="result">
+        <div class="wrapper">
+          <button type="reset" value="reset" class="btn">i want a new best friend</button>
+          <!--- form???!!! -->
+        </div>
+      </fieldset>
+    </form>
   </main>
 
   <footer>
     Copyright &copy; 2019 Annie Liew
   </footer>
 
-</body>
+  <!-- JQUERY & JAVASCRIPT -->
+  <script src='https://code.jquery.com/jquery-3.2.1.min.js'
+    integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous'></script>
+  <script src="./js/main.js"></script>
 
 </html>
