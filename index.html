@@ -15,6 +15,7 @@
     <div class="wrapper">
       <h1>your new best <span>forest</span> friend</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, numquam!</p>
+      <p>A quiz to find your perfect forest paring.</p>
       <button>let's get started</button>
     </div>
   </header>
@@ -23,41 +24,41 @@
     <form>
 
       <!-- QUESTION 1 -->
-      <fieldset class="question1">
+      <fieldset class="question-diet">
         <div class="wrapper">
           <span class="question-num">1.</span>
-          <h2>Which diet is more similar to yours?</h2>
-          <label for="bear">Gimme meat!!</label>
+          <legend>Which diet is more similar to yours?</legend>
+          <label for="bear1">Gimme meat!!</label>
           <!-- "required" on one input is fine if names are all the same -->
-          <input type="radio" name="question1" id="bear" value="bear" required>
-          <label for="rabbit">I'm vegan.</label>
-          <input type="radio" name="question1" id="rabbit" value="rabbit">
+          <input type="radio" name="question1" id="bear1" value="bear" required>
+          <label for="rabbit1">I'm vegan.</label>
+          <input type="radio" name="question1" id="rabbit1" value="rabbit">
           <input type="button" value="Next" class="btn btn-scroll">
         </div>
       </fieldset>
 
       <!-- QUESTION 2 -->
-      <fieldset class="question2">
+      <fieldset class="question-stranger">
         <div class="wrapper">
           <span class="question-num">2.</span>
-          <h2>How would you react if a stranger was yelling at you?</h2>
-          <label for="rabbit">Run away as fast as I could.</label>
-          <input type="radio" name="question2" id="rabbit" value="rabbit" required>
-          <label for="bear">Punch them.</label>
-          <input type="radio" name="question2" id="bear" value="bear">
+          <legend>How would you react if a stranger was yelling at you?</legend>
+          <label for="rabbit2">Run away as fast as I could.</label>
+          <input type="radio" name="question2" id="rabbit2" value="rabbit" required>
+          <label for="bear2">Punch them.</label>
+          <input type="radio" name="question2" id="bear2" value="bear">
           <input type="button" value="Next" class="btn btn-scroll">
         </div>
       </fieldset>
 
       <!-- BUTTON TO SHOW RESULT -->
-      <section>
+      <fieldset class="want-result">
         <div class="wrapper">
-          <input type="button" value="Meet my new forest friend" class="btn btn-scroll">
+          <input type="submit" value="Meet my new forest friend" class="btn btn-scroll">
         </div>
-      </section>
+      </fieldset>
 
       <!-- DYNAMICALLY INSERTED RESULT -->
-      <fieldset class="result">
+      <fieldset class="view-result">
         <div class="wrapper">
           <input type="reset" value="I want a new best friend!" class="btn">
         </div>
