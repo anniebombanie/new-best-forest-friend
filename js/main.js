@@ -51,16 +51,17 @@ forestFriendApp.init = () => {
 
   $(`.btn-scroll`).on(`click`, forestFriendApp.scrollDown);
   $(`input[type=submit]`).on(`click`, forestFriendApp.captureVal);
-
+  $(`input[type=submit]`).on(`click`, forestFriendApp.displayFriend)
 }
 
 // HELPER FUNCTIONS (METHODS)
 forestFriendApp.scrollDown = () => {
   console.log(`button pushed`);
-  //make sure scroll 100vh
+  window.scrollBy(0, window.innerHeight / 2)
 }
 
 forestFriendApp.captureVal = (e) => {
+  //put prevent default here so will run when called in init
   e.preventDefault();
   //get the value of first question and store it in a variable
   const quest1 = $(`input[name=question1]:checked`).val();
@@ -70,9 +71,12 @@ forestFriendApp.captureVal = (e) => {
   console.log(quest2);
 }
 
-// const displayForestFriend = options;
+forestFriendApp.displayFriend= () => {
+  console.log(`return friend`);
+  $(`.display-friend-content`)
+    .append(`<p>Your new forest friend is ${animals.name}</p>`);
+}
 
 $(document).ready(function(){
   forestFriendApp.init()
 });
-// Your new forest friend is: ${ }
