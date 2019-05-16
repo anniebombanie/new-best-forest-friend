@@ -43,9 +43,36 @@ Logic Notes:
 6. if draw, pick from random array in object
  7. print to page
   */
-$(function () {
-  $(`input[type=submit]`).on(`click`, function() {
 
-  });
-})
+const forestFriendApp = {};
+//use one submit button to capture all the values and then use if else to sort and filter
+
+forestFriendApp.init = () => {
+
+  $(`.btn-scroll`).on(`click`, forestFriendApp.scrollDown);
+  $(`input[type=submit]`).on(`click`, forestFriendApp.captureVal);
+
+}
+
+// HELPER FUNCTIONS (METHODS)
+forestFriendApp.scrollDown = () => {
+  console.log(`button pushed`);
+  //make sure scroll 100vh
+}
+
+forestFriendApp.captureVal = (e) => {
+  e.preventDefault();
+  //get the value of first question and store it in a variable
+  const quest1 = $(`input[name=question1]:checked`).val();
+  console.log(quest1);
+  //get the value of second question and store it in a variable
+  const quest2 = $(`input[name=question2]:checked`).val();
+  console.log(quest2);
+}
+
+// const displayForestFriend = options;
+
+$(document).ready(function(){
+  forestFriendApp.init()
+});
 // Your new forest friend is: ${ }
