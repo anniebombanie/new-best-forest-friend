@@ -63,12 +63,12 @@ forestFriendApp.scrollDown = () => {
 
 forestFriendApp.captureVal = (e) => {
   e.preventDefault();
-  //get the value of first question and store it in a variable
-  const q1 = $(`input[name=question1]:checked`).val();
-  console.log(q1);
+  //get the value of questions and store in a new key in forestFriendApp
+  forestFriendApp.q1 = $(`input[name=question1]:checked`).val();
+  console.log(forestFriendApp.q1);
   //get the value of second question and store it in a variable
-  const q2 = $(`input[name=question2]:checked`).val();
-  console.log(q2);
+  forestFriendApp.q2 = $(`input[name=question2]:checked`).val();
+  console.log(forestFriendApp.q2);
 }
 
 forestFriendApp.storeVal = () => {
