@@ -14,20 +14,6 @@
 12. Button underneath to re - start(clears all fields, back to top of page): “I want a new forest friend”
 */
 
-//ARRAY OF POSSIBLE QUIZ RESULTS
-const animals = [
-  {
-    name: `bear`,
-    url: `./../bear.jpg`,
-    description: `bear lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sunt quia mollitia, eum corrupti alias inventore, dolorem consectetur labore iure ipsam, cumque doloremque dolores unde maiores ad officiis eaque itaque.`
-  },
-  {
-    name: `rabbit`,
-    url: `./../rabbit.jpg`,
-    description: `rabbit lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil alias quisquam quos assumenda ipsum voluptates dignissimos. Ex suscipit deserunt cupiditate, accusantium perferendis dolore perspiciatis culpa, ut aliquam, soluta sapiente.`
-  }
-];
-
 /*
 Logic Notes:
 
@@ -44,21 +30,50 @@ Logic Notes:
  7. print to page
   */
 
+  // capture users choice and store in an array
+// look into the app and filter for the largest array
+// return that array as a result
+// if array are draw, pick a random result from the drawn items
+// forestFriendApp.filterChoice = (usersChoice) => {
+//   for (let i = 0); i < usersChoice; i++) {
+
+//   }
   //use one submit button to capture all the values and then use if else to sort and filter
 
 
+
+
+
+
+
+//NAMESPACE: To store "Forest Friend Quiz"
 const ffApp = {};
 
-ffApp.init = () => {
+//ARRAY OF POSSIBLE QUIZ RESULTS
+ffApp.animals = {
+  bear: {
+    name: `bear`,
+    url: `./../bear.jpg`,
+    description: `bear lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sunt quia mollitia, eum corrupti alias inventore, dolorem consectetur labore iure ipsam, cumque doloremque dolores unde maiores ad officiis eaque itaque.`
+    },
+  rabbit: {
+    name: `rabbit`,
+    url: `./../rabbit.jpg`,
+    description: `rabbit lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil alias quisquam quos assumenda ipsum voluptates dignissimos. Ex suscipit deserunt cupiditate, accusantium perferendis dolore perspiciatis culpa, ut aliquam, soluta sapiente.`
+  }
+}
 
+ffApp.init = () => {
+  //When app initalises, run these methods
   $(`.btn-scroll`).on(`click`, ffApp.scrollDown);
   $(`input[type=submit]`).on(`click`, ffApp.captureChoice);
   $(`input[type=submit]`).on(`click`, ffApp.animalCounter);
+  $(`input[type=submit]`).on(`click`, ffApp.displayFriend)
 }
 
-// METHOD 1: Scroll down when button is clicked
+// METHOD 1: Scroll down vh % when button is clicked
 ffApp.scrollDown = () => {
-  console.log(`button pushed - scroll down`);
+  console.log(`scroll down button pushed`);
   window.scrollBy(0, window.innerHeight / 2)
 }
 
@@ -68,10 +83,10 @@ ffApp.captureChoice = (e) => {
   e.preventDefault();
   //create empty object to store user choice
   ffApp.userChoice = {};
-  //get user's choice and store as new key-value pair
+  //get user's choice from which input button is checked and store as new key-value pair in userChoice object
   ffApp.userChoice.choice1 = $(`input[name=question1]:checked`).val();
   ffApp.userChoice.choice2 = $(`input[name=question2]:checked`).val();
-  console.log(ffApp.userChoice);
+  console.log(`capture userchoice: ${ffApp.userChoice}`);
 }
 
 // METHOD 3: Count user choice
@@ -81,63 +96,30 @@ ffApp.animalCounter = () => {
   ffApp.rabbitCount = 0;
   // Then we use a loop to iterate through the ffApp object to count how many of each animal was selected
   for (i in ffApp.userChoice) {
-    console.log(ffApp.bearCount, ffApp.rabbitCount,)
     if (ffApp.userChoice[i] === `bear`) {
       ffApp.bearCount++;
-      // console.log(bearCount);
     } else if (ffApp.userChoice[i] === `rabbit`) {
       ffApp.rabbitCount++;
-      // console.log(rabbitCount);
+      console.log(`animal counter: bear ${ffApp.bearCount}, rabbit: ${ffApp.rabbitCount}`)
     }
    }
   }
 
-$(`input[type=submit]`).on(`click`, ffApp.displayFriend)
-// capture users choice and store in an array
-// look into the app and filter for the largest array
-// return that array as a result
-// if array are draw, pick a random result from the drawn items
-// forestFriendApp.filterChoice = (usersChoice) => {
-//   for (let i = 0); i < usersChoice; i++) {
-
-//   }
-
-
+// METHOD 4: Display new forest friend based on user's choice
 ffApp.displayFriend= () => {
-  console.log(`button pushed - show new friend`);
-  $(`.display-friend-content`)
-    .html(`<p>Your new forest friend is ${animals.name}</p>`)
-    .append(`<p>${animals.description}</p>`)
+  console.log(`display friend button pushed`);
+  if (ffApp.BearCount > ffApp.rabbitCount) {
+    $(`.display-friend-content`)
+      .html(`<p>Your new forest friend is ${ffApp.animals.bear}</p>`)
+      .append(`<p>${animals.description}</p>`)
+  } else {
+    $(`.display-friend-content`)
+      .html(`<p>Your new forest friend is ${ffApp.animals.bear.name}</p>`)
+      .append(`<p>${ffApp.animals.bear.description}</p>`)
+  }
 }
 
 // DOCUMENT READY
 $(document).ready(function(){
   ffApp.init()
 });
-
-
-/*
-
-const App = {
-  choice1: 'bear',
-  choice2: 'bear',
-  choice3: 'rabbit',
-  choice4: 'owl',
-  choice5: 'rabbit'
-}
-
-let bear = 0,
-    rabbit = 0,
-    other = 0
-
-for (key in App) {
-  if (App[key] === 'bear') {
-    bear++
-  } else if(App[key] === 'rabbit') {
-    rabbit++
-  } else {
-    other++
-  };
-}
-
-*/
