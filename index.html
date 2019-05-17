@@ -30,7 +30,7 @@
           <legend>Which diet is more similar to yours?</legend>
           <label for="bear1">Gimme meat!!</label>
           <!-- "required" on one input is fine if names are all the same -->
-          <input type="radio" name="question1" id="bear1" value="bear" required>
+          <input type="radio" name="question1" id="bear1" value="bear" required="required">
           <label for="rabbit1">I'm vegan.</label>
           <input type="radio" name="question1" id="rabbit1" value="rabbit">
           <input type="button" value="Next" class="btn btn-scroll">
@@ -43,7 +43,7 @@
           <span class="question-num">2.</span>
           <legend>How would you react if a stranger was yelling at you?</legend>
           <label for="rabbit2">Run away as fast as I could.</label>
-          <input type="radio" name="question2" id="rabbit2" value="rabbit" required>
+          <input type="radio" name="question2" id="rabbit2" value="rabbit" required="required">
           <label for="bear2">Punch them.</label>
           <input type="radio" name="question2" id="bear2" value="bear">
           <input type="button" value="Next" class="btn btn-scroll">
@@ -60,9 +60,9 @@
       <!-- DYNAMICALLY INSERTED RESULT -->
       <fieldset class="display-friend">
         <div class="wrapper">
-          <input type="reset" value="I want a new best friend!" class="btn">
           <div class="display-friend-content">
           </div>
+          <input type="reset" value="I want a new best friend!" class="btn">
         </div>
       </fieldset>
     </form>

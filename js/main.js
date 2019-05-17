@@ -64,11 +64,11 @@ forestFriendApp.scrollDown = () => {
 forestFriendApp.captureVal = (e) => {
   e.preventDefault();
   //get the value of first question and store it in a variable
-  const quest1 = $(`input[name=question1]:checked`).val();
-  console.log(quest1);
+  const q1 = $(`input[name=question1]:checked`).val();
+  console.log(q1);
   //get the value of second question and store it in a variable
-  const quest2 = $(`input[name=question2]:checked`).val();
-  console.log(quest2);
+  const q2 = $(`input[name=question2]:checked`).val();
+  console.log(q2);
 }
 
 forestFriendApp.storeVal = () => {
@@ -79,7 +79,7 @@ forestFriendApp.displayFriend= () => {
   console.log(`return friend`);
   $(`.display-friend-content`)
     .html(`<p>Your new forest friend is ${animals.name}</p>`)
-    .html(`<p>${animals.description}</p>`)
+    .append(`<p>${animals.description}</p>`)
 }
 
 $(document).ready(function(){
