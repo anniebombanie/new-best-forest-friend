@@ -44,52 +44,57 @@ Logic Notes:
  7. print to page
   */
 
-const forestFriendApp = {};
-//use one submit button to capture all the values and then use if else to sort and filter
+  //use one submit button to capture all the values and then use if else to sort and filter
 
-forestFriendApp.init = () => {
 
-  $(`.btn-scroll`).on(`click`, forestFriendApp.scrollDown);
-  $(`input[type=submit]`).on(`click`, forestFriendApp.captureChoice);
-  $(`input[type=submit]`).on(`click`, forestFriendApp.counter);
+const ffApp = {};
+
+ffApp.init = () => {
+
+  $(`.btn-scroll`).on(`click`, ffApp.scrollDown);
+  $(`input[type=submit]`).on(`click`, ffApp.captureChoice);
+  $(`input[type=submit]`).on(`click`, ffApp.animalCounter);
 }
 
 // METHOD 1: Scroll down when button is clicked
-forestFriendApp.scrollDown = () => {
+ffApp.scrollDown = () => {
   console.log(`button pushed - scroll down`);
   window.scrollBy(0, window.innerHeight / 2)
 }
 
 // METHOD 2: Capture user choice
-forestFriendApp.captureChoice = (e) => {
+ffApp.captureChoice = (e) => {
   //prevent default behaviour of submit button
   e.preventDefault();
-  //get user's choice and store as new array value in forestFriendApp
-  forestFriendApp.choice1 = $(`input[name=question1]:checked`).val();
-  forestFriendApp.choice2 = $(`input[name=question2]:checked`).val();
-  console.log(forestFriendApp.choice2, forestFriendApp.choice2);
+  //create empty object to store user choice
+  ffApp.userChoice = {};
+  //get user's choice and store as new key-value pair
+  ffApp.userChoice.choice1 = $(`input[name=question1]:checked`).val();
+  ffApp.userChoice.choice2 = $(`input[name=question2]:checked`).val();
+  console.log(ffApp.userChoice);
 }
 
-// METHOD 3: Counter
-// To count how many choice of each animal we have, we need to start the counter at 0
-forestFriendApp.counter = () => {
-  let bearCount = 0;
-  let rabbitCount = 0;
-  // Then we use a loop to iterate through the forestFriendApp object to count how many of each animal was selected
-  for (key in forestFriendApp) {
-    if (forestFriendApp[key] === `bear`) {
-      bearCount++
-      console.log(bearCount);
-    } else if (forestFriendApp[key] === `rabbit`) {
-      rabbitCount++
-      console.log(rabbitCount);
+// METHOD 3: Count user choice
+ffApp.animalCounter = () => {
+  // To count how many choice of each animal we have, we need to start the counter at 0. This needs to be globally accessible by another method (displayFriend) so prefix with ffApp
+  ffApp.bearCount = 0;
+  ffApp.rabbitCount = 0;
+  // Then we use a loop to iterate through the ffApp object to count how many of each animal was selected
+  for (i in ffApp.userChoice) {
+    console.log(ffApp.bearCount, ffApp.rabbitCount,)
+    if (ffApp.userChoice[i] === `bear`) {
+      ffApp.bearCount++;
+      // console.log(bearCount);
+    } else if (ffApp.userChoice[i] === `rabbit`) {
+      ffApp.rabbitCount++;
+      // console.log(rabbitCount);
     }
-  };
-}
+   }
+  }
 
-$(`input[type=submit]`).on(`click`, forestFriendApp.displayFriend)
-//capture users choice and store in an array
-//look into the app and filter for the largest array
+$(`input[type=submit]`).on(`click`, ffApp.displayFriend)
+// capture users choice and store in an array
+// look into the app and filter for the largest array
 // return that array as a result
 // if array are draw, pick a random result from the drawn items
 // forestFriendApp.filterChoice = (usersChoice) => {
@@ -98,7 +103,7 @@ $(`input[type=submit]`).on(`click`, forestFriendApp.displayFriend)
 //   }
 
 
-forestFriendApp.displayFriend= () => {
+ffApp.displayFriend= () => {
   console.log(`button pushed - show new friend`);
   $(`.display-friend-content`)
     .html(`<p>Your new forest friend is ${animals.name}</p>`)
@@ -107,7 +112,7 @@ forestFriendApp.displayFriend= () => {
 
 // DOCUMENT READY
 $(document).ready(function(){
-  forestFriendApp.init()
+  ffApp.init()
 });
 
 
