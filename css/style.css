@@ -179,6 +179,10 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   overflow: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 fieldset {
   height: 50vh;
 }
@@ -190,5 +194,10 @@ h1 {
 p,
 form {
   font-family: 'Josefin Slab', serif;
+}
+
+fieldset.question-diet,
+fieldset.show-me-friend {
+  background-color: #ff0;
 }
 /*# sourceMappingURL=style.css.map */

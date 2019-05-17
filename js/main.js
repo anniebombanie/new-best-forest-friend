@@ -19,19 +19,19 @@ const animals = [
     {
       name: `bear`,
       url: `./../bear.jpg`,
-      description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, aut necessitatibus natus accusamus saepe, laborum distinctio aliquid, dolorem voluptatum culpa at? Ipsam obcaecati, cumque molestias iusto sed inventore perferendis dignissimos a dolorum esse consequuntur iure sunt tempore debitis exercitationem deserunt.`
+      description: `bear lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sunt quia mollitia, eum corrupti alias inventore, dolorem consectetur labore iure ipsam, cumque doloremque dolores unde maiores ad officiis eaque itaque.`
     },
     {
       name: `rabbit`,
       url: `./../rabbit.jpg`,
-      description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil alias quisquam quos assumenda ipsum voluptates dignissimos. Ex suscipit deserunt cupiditate, accusantium perferendis dolore perspiciatis culpa, ut aliquam, soluta sapiente.`
+      description: `rabbit lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil alias quisquam quos assumenda ipsum voluptates dignissimos. Ex suscipit deserunt cupiditate, accusantium perferendis dolore perspiciatis culpa, ut aliquam, soluta sapiente.`
     }
 ];
 
 /*
 Logic Notes:
 
-- Use.filter, .attr and.map to grab animals with correct name class.
+- Use.filter, .attr and .map to grab animals with correct name class.
 - Function to say that if .bear.length > .rabbit return .bear
   - If class A.length === class.B.length return random
 
@@ -51,17 +51,17 @@ forestFriendApp.init = () => {
 
   $(`.btn-scroll`).on(`click`, forestFriendApp.scrollDown);
   $(`input[type=submit]`).on(`click`, forestFriendApp.captureVal);
+  
   $(`input[type=submit]`).on(`click`, forestFriendApp.displayFriend)
 }
 
 // HELPER FUNCTIONS (METHODS)
 forestFriendApp.scrollDown = () => {
-  console.log(`button pushed`);
+  console.log(`button pushed - scroll down`);
   window.scrollBy(0, window.innerHeight / 2)
 }
 
 forestFriendApp.captureVal = (e) => {
-  //put prevent default here so will run when called in init
   e.preventDefault();
   //get the value of first question and store it in a variable
   const quest1 = $(`input[name=question1]:checked`).val();
@@ -71,10 +71,15 @@ forestFriendApp.captureVal = (e) => {
   console.log(quest2);
 }
 
+forestFriendApp.storeVal = () => {
+
+}
+
 forestFriendApp.displayFriend= () => {
   console.log(`return friend`);
   $(`.display-friend-content`)
-    .append(`<p>Your new forest friend is ${animals.name}</p>`);
+    .html(`<p>Your new forest friend is ${animals.name}</p>`)
+    .html(`<p>${animals.description}</p>`)
 }
 
 $(document).ready(function(){
