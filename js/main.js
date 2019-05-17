@@ -54,11 +54,13 @@ ffApp.animals = {
   bear: {
     name: `bear`,
     img: `./assets/bear.jpg`,
+    alt: `illustration of a bear.`,
     description: `bear lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sunt quia mollitia, eum corrupti alias inventore, dolorem consectetur labore iure ipsam, cumque doloremque dolores unde maiores ad officiis eaque itaque.`
     },
   rabbit: {
     name: `rabbit`,
     img: `./assets/rabbit.jpg`,
+    alt: `illustration of a rabbit.`,
     description: `rabbit lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil alias quisquam quos assumenda ipsum voluptates dignissimos. Ex suscipit deserunt cupiditate, accusantium perferendis dolore perspiciatis culpa, ut aliquam, soluta sapiente.`
   }
 }
@@ -116,13 +118,15 @@ ffApp.displayFriend= () => {
   if (ffApp.bearCount > ffApp.rabbitCount) {
     $(`.display-friend-content`)
       .html(`<p>Your new forest friend is ${ffApp.animals.bear.name}</p>`)
-      .append(`<img src='${ffApp.animals.bear.img}'>`)
+      .append(`<img src='${ffApp.animals.bear.img}' alt='${ffApp.animals.bear.alt}'>`)
       .append(`<p>${ffApp.animals.bear.description}</p>`)
   } else if (ffApp.bearCount < ffApp.rabbitCount) {
     $(`.display-friend-content`)
       .html(`<p>Your new forest friend is ${ffApp.animals.rabbit.name}</p>`)
-      .append(`<img src='${ffApp.animals.rabbit.img}'>`)
+      .append(`<img src='${ffApp.animals.rabbit.img}' alt='${ffApp.animals.rabbit.alt}'>`)
       .append(`<p>${ffApp.animals.rabbit.description}</p>`)
+  } else if (ffApp.bearCount === ffApp.rabbitCount) {
+    
   } else { 
     $(`.display-friend-content`)
       .html(`<p>Please answer all the questions to find out who your new friend is.</p>`)
