@@ -53,12 +53,12 @@ const ffApp = {};
 ffApp.animals = {
   bear: {
     name: `bear`,
-    url: `./../bear.jpg`,
+    img: `./assets/bear.jpg`,
     description: `bear lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sunt quia mollitia, eum corrupti alias inventore, dolorem consectetur labore iure ipsam, cumque doloremque dolores unde maiores ad officiis eaque itaque.`
     },
   rabbit: {
     name: `rabbit`,
-    url: `./../rabbit.jpg`,
+    img: `./assets/rabbit.jpg`,
     description: `rabbit lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil alias quisquam quos assumenda ipsum voluptates dignissimos. Ex suscipit deserunt cupiditate, accusantium perferendis dolore perspiciatis culpa, ut aliquam, soluta sapiente.`
   }
 }
@@ -67,8 +67,6 @@ ffApp.init = () => {
   //When app initalises, run these methods
   $(`.btn-scroll`).on(`click`, ffApp.scrollDown);
   $(`input[type=submit]`).on(`click`, ffApp.captureChoice);
-  $(`input[type=submit]`).on(`click`, ffApp.animalCounter);
-  $(`input[type=submit]`).on(`click`, ffApp.displayFriend)
 }
 
 // METHOD 1: Scroll down vh % when button is clicked
@@ -87,6 +85,8 @@ ffApp.captureChoice = (e) => {
   ffApp.userChoice.choice1 = $(`input[name=question1]:checked`).val();
   ffApp.userChoice.choice2 = $(`input[name=question2]:checked`).val();
   console.log(`capture userchoice: ${ffApp.userChoice.choice1}, ${ffApp.userChoice.choice2}`);
+  ffApp.animalCounter();
+  ffApp.displayFriend();
 }
 
 // METHOD 3: Count user choice
@@ -110,20 +110,22 @@ ffApp.animalCounter = () => {
 //     .forEach(key => console.log(key, test[key]));
 
 // METHOD 4: Display new forest friend based on user's choice
+//must add math.random
 ffApp.displayFriend= () => {
   console.log(`display friend button pushed`);
   if (ffApp.bearCount > ffApp.rabbitCount) {
     $(`.display-friend-content`)
-      .html(`<p>Your new forest friend is ${ffApp.animals.bear}</p>`)
-      .append(`<p>${animals.description}</p>`)
+      .html(`<p>Your new forest friend is ${ffApp.animals.bear.name}</p>`)
+      .append(`<img src='${ffApp.animals.bear.img}'>`)
+      .append(`<p>${ffApp.animals.bear.description}</p>`)
   } else if (ffApp.bearCount < ffApp.rabbitCount) {
     $(`.display-friend-content`)
       .html(`<p>Your new forest friend is ${ffApp.animals.rabbit.name}</p>`)
+      .append(`<img src='${ffApp.animals.rabbit.img}'>`)
       .append(`<p>${ffApp.animals.rabbit.description}</p>`)
-  } else { //math.random
+  } else { 
     $(`.display-friend-content`)
-      .html(`<p>Your new forest friend is ${ffApp.animals.rabbit.name}</p>`)
-      .append(`<p>${ffApp.animals.rabbit.description}</p>`)
+      .html(`<p>Please answer all the questions to find out who your new friend is.</p>`)
   }
 }
 
