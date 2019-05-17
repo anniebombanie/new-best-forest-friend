@@ -126,7 +126,22 @@ ffApp.displayFriend= () => {
       .append(`<img src='${ffApp.animals.rabbit.img}' alt='${ffApp.animals.rabbit.alt}'>`)
       .append(`<p>${ffApp.animals.rabbit.description}</p>`)
   } else if (ffApp.bearCount === ffApp.rabbitCount) {
-    
+    //create a box to put new array and grab the values of animals objects and store them there
+    const animalPropertiesArr = Object.values(ffApp.animals);
+      console.log(animalPropertiesArr);
+      //this will generate a random number of 0 or 1 that we need to store
+    const randomAnimalChoice = Math.floor(Math.random() * animalPropertiesArr.length);
+    if (randomAnimalChoice === 1) {
+      $(`.display-friend-content`)
+        .html(`<p>Your new forest friend is ${ffApp.animals.bear.name}</p>`)
+        .append(`<img src='${ffApp.animals.bear.img}' alt='${ffApp.animals.bear.alt}'>`)
+        .append(`<p>${ffApp.animals.bear.description}</p>`)
+    } else {
+      $(`.display-friend-content`)
+      .html(`<p>Your new forest friend is ${ffApp.animals.rabbit.name}</p>`)
+      .append(`<img src='${ffApp.animals.rabbit.img}' alt='${ffApp.animals.rabbit.alt}'>`)
+      .append(`<p>${ffApp.animals.rabbit.description}</p>`)
+    }
   } else { 
     $(`.display-friend-content`)
       .html(`<p>Please answer all the questions to find out who your new friend is.</p>`)
