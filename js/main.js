@@ -14,18 +14,18 @@
 12. Button underneath to re - start(clears all fields, back to top of page): “I want a new forest friend”
 */
 
-//Store quiz results in a array filled with objects
+//ARRAY OF POSSIBLE QUIZ RESULTS
 const animals = [
-    {
-      name: `bear`,
-      url: `./../bear.jpg`,
-      description: `bear lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sunt quia mollitia, eum corrupti alias inventore, dolorem consectetur labore iure ipsam, cumque doloremque dolores unde maiores ad officiis eaque itaque.`
-    },
-    {
-      name: `rabbit`,
-      url: `./../rabbit.jpg`,
-      description: `rabbit lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil alias quisquam quos assumenda ipsum voluptates dignissimos. Ex suscipit deserunt cupiditate, accusantium perferendis dolore perspiciatis culpa, ut aliquam, soluta sapiente.`
-    }
+  {
+    name: `bear`,
+    url: `./../bear.jpg`,
+    description: `bear lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sunt quia mollitia, eum corrupti alias inventore, dolorem consectetur labore iure ipsam, cumque doloremque dolores unde maiores ad officiis eaque itaque.`
+  },
+  {
+    name: `rabbit`,
+    url: `./../rabbit.jpg`,
+    description: `rabbit lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil alias quisquam quos assumenda ipsum voluptates dignissimos. Ex suscipit deserunt cupiditate, accusantium perferendis dolore perspiciatis culpa, ut aliquam, soluta sapiente.`
+  }
 ];
 
 /*
@@ -51,35 +51,88 @@ forestFriendApp.init = () => {
 
   $(`.btn-scroll`).on(`click`, forestFriendApp.scrollDown);
   $(`input[type=submit]`).on(`click`, forestFriendApp.captureChoice);
-  
-  $(`input[type=submit]`).on(`click`, forestFriendApp.displayFriend)
+  $(`input[type=submit]`).on(`click`, forestFriendApp.counter);
 }
 
-// HELPER FUNCTIONS (METHODS)
+// METHOD 1: Scroll down when button is clicked
 forestFriendApp.scrollDown = () => {
   console.log(`button pushed - scroll down`);
   window.scrollBy(0, window.innerHeight / 2)
 }
 
+// METHOD 2: Capture user choice
 forestFriendApp.captureChoice = (e) => {
+  //prevent default behaviour of submit button
   e.preventDefault();
-  //get the value of questions and store in a new key in forestFriendApp
+  //get user's choice and store as new array value in forestFriendApp
   forestFriendApp.choice1 = $(`input[name=question1]:checked`).val();
   forestFriendApp.choice2 = $(`input[name=question2]:checked`).val();
   console.log(forestFriendApp.choice2, forestFriendApp.choice2);
 }
 
-forestFriendApp.storeVal = () => {
-
+// METHOD 3: Counter
+// To count how many choice of each animal we have, we need to start the counter at 0
+forestFriendApp.counter = () => {
+  let bearCount = 0;
+  let rabbitCount = 0;
+  // Then we use a loop to iterate through the forestFriendApp object to count how many of each animal was selected
+  for (key in forestFriendApp) {
+    if (forestFriendApp[key] === `bear`) {
+      bearCount++
+      console.log(bearCount);
+    } else if (forestFriendApp[key] === `rabbit`) {
+      rabbitCount++
+      console.log(rabbitCount);
+    }
+  };
 }
 
+$(`input[type=submit]`).on(`click`, forestFriendApp.displayFriend)
+//capture users choice and store in an array
+//look into the app and filter for the largest array
+// return that array as a result
+// if array are draw, pick a random result from the drawn items
+// forestFriendApp.filterChoice = (usersChoice) => {
+//   for (let i = 0); i < usersChoice; i++) {
+
+//   }
+
+
 forestFriendApp.displayFriend= () => {
-  console.log(`return friend`);
+  console.log(`button pushed - show new friend`);
   $(`.display-friend-content`)
     .html(`<p>Your new forest friend is ${animals.name}</p>`)
     .append(`<p>${animals.description}</p>`)
 }
 
+// DOCUMENT READY
 $(document).ready(function(){
   forestFriendApp.init()
 });
+
+
+/*
+
+const App = {
+  choice1: 'bear',
+  choice2: 'bear',
+  choice3: 'rabbit',
+  choice4: 'owl',
+  choice5: 'rabbit'
+}
+
+let bear = 0,
+    rabbit = 0,
+    other = 0
+
+for (key in App) {
+  if (App[key] === 'bear') {
+    bear++
+  } else if(App[key] === 'rabbit') {
+    rabbit++
+  } else {
+    other++
+  };
+}
+
+*/
