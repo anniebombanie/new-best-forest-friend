@@ -183,8 +183,10 @@ html {
   scroll-behavior: smooth;
 }
 
+header,
 fieldset {
   height: 50vh;
+  padding-top: 10%;
 }
 
 h1 {

@@ -114,8 +114,8 @@ ffApp.displayFriend= () => {
       .append(`<p>${animals.description}</p>`)
   } else {
     $(`.display-friend-content`)
-      .html(`<p>Your new forest friend is ${ffApp.animals.bear.name}</p>`)
-      .append(`<p>${ffApp.animals.bear.description}</p>`)
+      .html(`<p>Your new forest friend is ${ffApp.animals.rabbit.name}</p>`)
+      .append(`<p>${ffApp.animals.rabbit.description}</p>`)
   }
 }
 
