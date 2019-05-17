@@ -86,7 +86,7 @@ ffApp.captureChoice = (e) => {
   //get user's choice from which input button is checked and store as new key-value pair in userChoice object
   ffApp.userChoice.choice1 = $(`input[name=question1]:checked`).val();
   ffApp.userChoice.choice2 = $(`input[name=question2]:checked`).val();
-  console.log(`capture userchoice: ${ffApp.userChoice}`);
+  console.log(`capture userchoice: ${ffApp.userChoice.choice1}, ${ffApp.userChoice.choice2}`);
 }
 
 // METHOD 3: Count user choice
@@ -105,14 +105,22 @@ ffApp.animalCounter = () => {
    }
   }
 
+// Object.keys(test)
+//   .filter(key => /alex/.test(key)
+//     .forEach(key => console.log(key, test[key]));
+
 // METHOD 4: Display new forest friend based on user's choice
 ffApp.displayFriend= () => {
   console.log(`display friend button pushed`);
-  if (ffApp.BearCount > ffApp.rabbitCount) {
+  if (ffApp.bearCount > ffApp.rabbitCount) {
     $(`.display-friend-content`)
       .html(`<p>Your new forest friend is ${ffApp.animals.bear}</p>`)
       .append(`<p>${animals.description}</p>`)
-  } else {
+  } else if (ffApp.bearCount < ffApp.rabbitCount) {
+    $(`.display-friend-content`)
+      .html(`<p>Your new forest friend is ${ffApp.animals.rabbit.name}</p>`)
+      .append(`<p>${ffApp.animals.rabbit.description}</p>`)
+  } else { //math.random
     $(`.display-friend-content`)
       .html(`<p>Your new forest friend is ${ffApp.animals.rabbit.name}</p>`)
       .append(`<p>${ffApp.animals.rabbit.description}</p>`)
