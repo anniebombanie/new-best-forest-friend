@@ -219,6 +219,10 @@ legend {
   font-weight: 700;
 }
 
+.container__reset {
+  display: none;
+}
+
 .btn {
   background-color: #ff7581;
   padding: 1rem;

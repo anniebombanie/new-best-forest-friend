@@ -125,15 +125,17 @@ ffQuiz.printResult= () => {
   //create methods to hold the html results that will be displayed when called
   const printBear = () => {
     $(`.container__display-result`)
-      .html(`<div class="wrapper"><p>Your new forest friend is: ${ffQuiz.results.bear.name}!</p>`)
+      .html(`<p>Your new forest friend is: ${ffQuiz.results.bear.name}!</p>`)
       .append(`<img src='${ffQuiz.results.bear.img}' alt='${ffQuiz.results.bear.alt}'>`)
-      .append(`<p>${ffQuiz.results.bear.description}</p></div>`)
+      .append(`<p>${ffQuiz.results.bear.description}</p>`);
+    $(`.container__reset`).css(`display`, `block`);
     };
   const printRabbit = () => {
     $(`.container__display-result`)
-      .html(`<div class="wrapper"><p>Your new forest friend is: ${ffQuiz.results.rabbit.name}!</p>`)
+      .html(`<p>Your new forest friend is: ${ffQuiz.results.rabbit.name}!</p>`)
       .append(`<img src='${ffQuiz.results.rabbit.img}' alt='${ffQuiz.results.rabbit.alt}'>`)
-      .append(`<p>${ffQuiz.results.rabbit.description}</p></div>`)
+      .append(`<p>${ffQuiz.results.rabbit.description}</p>`);
+    $(`.container__reset`).css(`display`, `block`);
     };
   
   //make it required for input fields to be clicked
@@ -150,9 +152,9 @@ ffQuiz.printResult= () => {
 
       //create box to store new array and grab the values of "results" objects (= "animal" objects)
       const animalPropertiesArr = Object.values(ffQuiz.results);
-      //this will generate a random number of 0 or 1 that we need to store in "randomAnimalChoice"
+      //generate a random number of 0 or 1 that we need to store in "randomAnimalChoice"
       const randomAnimalChoice = Math.floor(Math.random() * animalPropertiesArr.length);
-
+      //if 1 comes up, make it a Rabbit, if 0, then Bear
       if (randomAnimalChoice === 1) {
         console.log(`randomAnimalChoice`, randomAnimalChoice);
         printRabbit();
