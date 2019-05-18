@@ -83,10 +83,17 @@ ffQuiz.scrollDown = () => {
 ffQuiz.runQuiz = (e) => {
   //prevent default behaviour of submit button
   e.preventDefault();
+  ffQuiz.resetCounter();
   ffQuiz.captureChoice();
   ffQuiz.choiceCounter();
   ffQuiz.printResult();
 }
+
+//METHOD: Reset counter to 0. Can't use ONCE function with submit button because when reset fields, doesn't reload DOM and submit button is out of action
+ffQuiz.resetCounter = () => {
+  ffQuiz.results.bear.counter = 0;
+  ffQuiz.results.rabbit.counter = 0;
+};
 
 // METHOD: Captures user choice
 ffQuiz.captureChoice = () => {
@@ -95,7 +102,7 @@ ffQuiz.captureChoice = () => {
   //get user choice from checked input button and store as new key-value pair in "userChoice" object
   ffQuiz.userChoice.choice1 = $(`input[name=q-diet]:checked`).val();
   ffQuiz.userChoice.choice2 = $(`input[name=q-stranger]:checked`).val();
-  // console.log(`capture userchoice: ${ffQuiz.userChoice.choice1}, ${ffQuiz.userChoice.choice2}`);
+  console.log(`capture userchoice: ${ffQuiz.userChoice.choice1}, ${ffQuiz.userChoice.choice2}`);
 }
 
 // METHOD: Counts user choice
@@ -108,7 +115,7 @@ ffQuiz.choiceCounter = () => {
       ffQuiz.results.rabbit.counter++;
     }
    }
-  console.log(`counter is working`, `animal counter: bear ${ffQuiz.results.bear.counter}, rabbit: ${ffQuiz.results.rabbit.counter}`)
+  // console.log(`counter is working`, `animal counter: bear ${ffQuiz.results.bear.counter}, rabbit: ${ffQuiz.results.rabbit.counter}`)
   }
 
 // METHOD: Displays result (new forest friend)
@@ -118,36 +125,48 @@ ffQuiz.printResult= () => {
   //create methods to hold the html results that will be displayed when called
   const printBear = () => {
     $(`.container__display-result`)
-      .html(`<p>Your new forest friend is: ${ffQuiz.results.bear.name}!</p>`)
+      .html(`<div class="wrapper"><p>Your new forest friend is: ${ffQuiz.results.bear.name}!</p>`)
       .append(`<img src='${ffQuiz.results.bear.img}' alt='${ffQuiz.results.bear.alt}'>`)
-      .append(`<p>${ffQuiz.results.bear.description}</p>`);
-  };
+      .append(`<p>${ffQuiz.results.bear.description}</p></div>`)
+    };
   const printRabbit = () => {
     $(`.container__display-result`)
-      .html(`<p>Your new forest friend is: ${ffQuiz.results.rabbit.name}!</p>`)
+      .html(`<div class="wrapper"><p>Your new forest friend is: ${ffQuiz.results.rabbit.name}!</p>`)
       .append(`<img src='${ffQuiz.results.rabbit.img}' alt='${ffQuiz.results.rabbit.alt}'>`)
-      .append(`<p>${ffQuiz.results.rabbit.description}</p>`);
-  };
-
-  //display appropriate result onto page based on counter results
-  if (ffQuiz.results.bear.counter > ffQuiz.results.rabbit.counter) {   
-    printBear();
-  } else if (ffQuiz.results.bear.counter < ffQuiz.results.rabbit.counter) {
-    printRabbit();
-  } else if (ffQuiz.results.bear.counter === ffQuiz.results.rabbit.counter) {
-    //create box to store new array and grab the values of "results" objects (= "animal" objects)
-    const animalPropertiesArr = Object.values(ffQuiz.results);
-      // console.log(animalPropertiesArr);
-      //this will generate a random number of 0 or 1 that we need to store
-    const randomAnimalChoice = Math.floor(Math.random() * animalPropertiesArr.length);
-    if (randomAnimalChoice === 1) {
-      printRabbit();
-    } else {
-      printBear();
+      .append(`<p>${ffQuiz.results.rabbit.description}</p></div>`)
     };
-  } else { 
-    $(`.container__display-result`)
-      .html(`<p>Please answer all the questions to find out who your new best friend is!</p>`)
+  
+  //make it required for input fields to be clicked
+  if ($('input[name=q-diet]:checked').val() && $('input[name=q-stranger]:checked').val()) {
+    console.log(`both input checked`);
+    
+    //display appropriate result onto page based on counter results
+    if (ffQuiz.results.bear.counter > ffQuiz.results.rabbit.counter) {
+      printBear();
+    }
+    else if (ffQuiz.results.bear.counter < ffQuiz.results.rabbit.counter) {
+      printRabbit();
+    } else if (ffQuiz.results.bear.counter === 1 && ffQuiz.results.rabbit.counter === 1) {
+
+      //create box to store new array and grab the values of "results" objects (= "animal" objects)
+      const animalPropertiesArr = Object.values(ffQuiz.results);
+      //this will generate a random number of 0 or 1 that we need to store in "randomAnimalChoice"
+      const randomAnimalChoice = Math.floor(Math.random() * animalPropertiesArr.length);
+
+      if (randomAnimalChoice === 1) {
+        console.log(`randomAnimalChoice`, randomAnimalChoice);
+        printRabbit();
+      } else {
+        printBear();
+      };
+    };
+  } else {
+  console.log(`an input field is unselected`);
+  $(`.container__display-result`)
+    .html(
+      `<div class="wrapper">
+            <p class="alert">Please answer all the questions to find out who your new best friend is!</p>
+          </div>`);
   };
 };
 
