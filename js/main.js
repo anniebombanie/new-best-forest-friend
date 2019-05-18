@@ -117,16 +117,21 @@ ffQuiz.animalCounter = () => {
 //must add math.random
 ffQuiz.displayFriend= () => {
   console.log(`display friend button pushed`);
-  if (ffQuiz.bearCount > ffQuiz.rabbitCount) {
-    $(`.container__display-result`)
-      .html(`<p>Your new forest friend is ${ffQuiz.results.bear.name}</p>`)
-      .append(`<img src='${ffQuiz.results.bear.img}' alt='${ffQuiz.results.bear.alt}'>`)
-      .append(`<p>${ffQuiz.results.bear.description}</p>`)
+
+  const displayBear = $(`.container__display-result`)
+    .html(`<p>Your new forest friend is ${ffQuiz.results.bear.name}</p>`)
+    .append(`<img src='${ffQuiz.results.bear.img}' alt='${ffQuiz.results.bear.alt}'>`)
+    .append(`<p>${ffQuiz.results.bear.description}</p>`);
+
+  const displayRabbit = $(`.container__display-result`)
+    .html(`<p>Your new forest friend is ${ffQuiz.results.rabbit.name}</p>`)
+    .append(`<img src='${ffQuiz.results.rabbit.img}' alt='${ffQuiz.results.rabbit.alt}'>`)
+    .append(`<p>${ffQuiz.results.rabbit.description}</p>`);
+
+  if (ffQuiz.bearCount > ffQuiz.rabbitCount) {   
+    displayBear      
   } else if (ffQuiz.bearCount < ffQuiz.rabbitCount) {
-    $(`.container__display-result`)
-      .html(`<p>Your new forest friend is ${ffQuiz.results.rabbit.name}</p>`)
-      .append(`<img src='${ffQuiz.results.rabbit.img}' alt='${ffQuiz.results.rabbit.alt}'>`)
-      .append(`<p>${ffQuiz.results.rabbit.description}</p>`)
+    displayRabbit
   } else if (ffQuiz.bearCount === ffQuiz.rabbitCount) {
     //create a box to put new array and grab the values of results objects and store them there
     const animalPropertiesArr = Object.values(ffQuiz.results);
@@ -134,15 +139,9 @@ ffQuiz.displayFriend= () => {
       //this will generate a random number of 0 or 1 that we need to store
     const randomAnimalChoice = Math.floor(Math.random() * animalPropertiesArr.length);
     if (randomAnimalChoice === 1) {
-      $(`.container__display-result`)
-        .html(`<p>Your new forest friend is: ${ffQuiz.results.bear.name}!</p>`)
-        .append(`<img src='${ffQuiz.results.bear.img}' alt='${ffQuiz.results.bear.alt}'>`)
-        .append(`<p>${ffQuiz.results.bear.description}</p>`)
+      displayBear
     } else {
-      $(`.display-friend-content`)
-        .html(`<p>Your new forest friend is: ${ffQuiz.results.rabbit.name}!</p>`)
-      .append(`<img src='${ffQuiz.results.rabbit.img}' alt='${ffQuiz.results.rabbit.alt}'>`)
-      .append(`<p>${ffQuiz.results.rabbit.description}</p>`)
+      displayRabbit
     }
   } else { 
     $(`.display-friend-content`)
