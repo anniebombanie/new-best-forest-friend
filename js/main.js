@@ -55,23 +55,25 @@ ffQuiz.results = {
     name: `bear`,
     img: `./assets/bear.jpg`,
     alt: `illustration of a bear.`,
-    description: `You are fearless and confident and your larger-than-life character inspires respect and admiration. Together with your new best forest friend, BEAR, you'll be sure to have no problems getting through the forest safe and sound.`
+    description: `You are fearless and confident and your larger-than-life character inspires respect and admiration. Together with your new best forest friend, BEAR, you'll be sure to have no problems getting through the forest safe and sound.`,
+    counter: 0
     },
   rabbit: {
     name: `rabbit`,
     img: `./assets/rabbit.jpg`,
     alt: `illustration of a rabbit.`,
-    description: `You remind persistent in tough situations and are considerate of others. While navigating thtough the forest, you stay alert and together with your new best forest friend, RABBIT, you'll avoid any dangers that might happen to pop up.`
+    description: `You remind persistent in tough situations and are considerate of others. While navigating thtough the forest, you stay alert and together with your new best forest friend, RABBIT, you'll avoid any dangers that might happen to pop up.`,
+    counter: 0
   }
 }
 
-// METHOD: When app initalises, run these methods
+// METHOD: When app initalises, run these methods using event handlers
 ffQuiz.init = () => {
   $(`.btn__scroll--down`).on(`click`, ffQuiz.scrollDown);
   $(`input[type=submit]`).on(`click`, ffQuiz.runQuiz);
 }
 
-// METHOD: Scroll down to element when button is clicked
+// METHOD: Scrolls down to element when button is clicked
 ffQuiz.scrollDown = () => {
   console.log(`scroll down button pushed`);
   window.scrollBy(0, window.innerHeight / 2)
@@ -89,24 +91,21 @@ ffQuiz.runQuiz = (e) => {
 ffQuiz.captureChoice = (e) => {
   //create object to hold user choice. Prefix with ffQuiz to be globally accessible
   ffQuiz.userChoice = {};
-  //get user's choice from which input button is checked and store as new key-value pair in userChoice object
+  //get user's choice from checked input button and store as new key-value pair in userChoice object
   ffQuiz.userChoice.choice1 = $(`input[name=q-diet]:checked`).val();
   ffQuiz.userChoice.choice2 = $(`input[name=q-stranger]:checked`).val();
   console.log(`capture userchoice: ${ffQuiz.userChoice.choice1}, ${ffQuiz.userChoice.choice2}`);
 }
 
-// METHOD: Count user choice
+// METHOD: Counts user choice
 ffQuiz.animalCounter = () => {
-  //to count how many choice of each animal we have, we need to start the counter at 0.
-  ffQuiz.bearCount = 0;
-  ffQuiz.rabbitCount = 0;
-  //then we use a loop to iterate through the ffQuiz object to count how many of each animal was selected
+  //use a for-in loop to iterate through the ffQuiz object to count how many of each animal was selected and update the counter key-value stored in global results object
   for (i in ffQuiz.userChoice) {
     if (ffQuiz.userChoice[i] === `bear`) {
-      ffQuiz.bearCount++;
+      ffQuiz.results.bear.counter++;
     } else if (ffQuiz.userChoice[i] === `rabbit`) {
-      ffQuiz.rabbitCount++;
-      console.log(`animal counter: bear ${ffQuiz.bearCount}, rabbit: ${ffQuiz.rabbitCount}`)
+      ffQuiz.results.bear.counter++;
+      console.log(`animal counter: bear ${ffQuiz.results.bear.counter}, rabbit: ${ffQuiz.results.bear.counter}`)
     }
    }
   }
