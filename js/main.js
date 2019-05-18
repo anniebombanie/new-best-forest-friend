@@ -135,12 +135,12 @@ ffQuiz.displayFriend= () => {
     const randomAnimalChoice = Math.floor(Math.random() * animalPropertiesArr.length);
     if (randomAnimalChoice === 1) {
       $(`.container__display-result`)
-        .html(`<p>Your new forest friend is ${ffQuiz.results.bear.name}</p>`)
+        .html(`<p>Your new forest friend is: ${ffQuiz.results.bear.name}!</p>`)
         .append(`<img src='${ffQuiz.results.bear.img}' alt='${ffQuiz.results.bear.alt}'>`)
         .append(`<p>${ffQuiz.results.bear.description}</p>`)
     } else {
       $(`.display-friend-content`)
-        .html(`<p>Your new forest friend is ${ffQuiz.results.rabbit.name}</p>`)
+        .html(`<p>Your new forest friend is: ${ffQuiz.results.rabbit.name}!</p>`)
       .append(`<img src='${ffQuiz.results.rabbit.img}' alt='${ffQuiz.results.rabbit.alt}'>`)
       .append(`<p>${ffQuiz.results.rabbit.description}</p>`)
     }
