@@ -90,8 +90,8 @@ ffQuiz.captureChoice = (e) => {
   //create object to hold user choice. Prefix with ffQuiz to be globally accessible
   ffQuiz.userChoice = {};
   //get user's choice from which input button is checked and store as new key-value pair in userChoice object
-  ffQuiz.userChoice.choice1 = $(`input[name=answr1]:checked`).val();
-  ffQuiz.userChoice.choice2 = $(`input[name=answr2]:checked`).val();
+  ffQuiz.userChoice.choice1 = $(`input[name=q-diet]:checked`).val();
+  ffQuiz.userChoice.choice2 = $(`input[name=q-stranger]:checked`).val();
   console.log(`capture userchoice: ${ffQuiz.userChoice.choice1}, ${ffQuiz.userChoice.choice2}`);
 }
 
