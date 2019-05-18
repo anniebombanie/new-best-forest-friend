@@ -84,8 +84,8 @@ ffQuiz.runQuiz = (e) => {
   //prevent default behaviour of submit button
   e.preventDefault();
   ffQuiz.captureChoice();
-  ffQuiz.animalCounter();
-  ffQuiz.displayFriend();
+  ffQuiz.choiceCounter();
+  ffQuiz.displayResult();
 }
 // METHOD: Captures user choice
 ffQuiz.captureChoice = (e) => {
@@ -98,8 +98,8 @@ ffQuiz.captureChoice = (e) => {
 }
 
 // METHOD: Counts user choice
-ffQuiz.animalCounter = () => {
-  //use a for-in loop to iterate through the ffQuiz object to count how many of each animal was selected and update the counter key-value stored in global results object
+ffQuiz.choiceCounter = () => {
+  //use a for-in loop to iterate through userChoice to count how many of each animal was selected, then update the counter key-value stored in global results object
   for (i in ffQuiz.userChoice) {
     if (ffQuiz.userChoice[i] === `bear`) {
       ffQuiz.results.bear.counter++;
@@ -110,15 +110,10 @@ ffQuiz.animalCounter = () => {
    }
   }
 
-// Object.keys(test)
-//   .filter(key => /alex/.test(key)
-//     .forEach(key => console.log(key, test[key]));
-
-// METHOD: Display new forest friend based on user's choice
-//must add math.random
-ffQuiz.displayFriend= () => {
+// METHOD: Displays result (new forest friend)
+ffQuiz.displayResult= () => {
   console.log(`display friend button pushed`);
-
+  //create variables to hold the html results that will be displayed
   const displayBear = $(`.container__display-result`)
     .html(`<p>Your new forest friend is: ${ffQuiz.results.bear.name}!</p>`)
     .append(`<img src='${ffQuiz.results.bear.img}' alt='${ffQuiz.results.bear.alt}'>`)
@@ -128,11 +123,11 @@ ffQuiz.displayFriend= () => {
     .append(`<img src='${ffQuiz.results.rabbit.img}' alt='${ffQuiz.results.rabbit.alt}'>`)
     .append(`<p>${ffQuiz.results.rabbit.description}</p>`);
 
-  if (ffQuiz.bearCount > ffQuiz.rabbitCount) {   
+  if (ffQuiz.results.bear.counter > ffQuiz.results.rabbit.counter) {   
     displayBear      
-  } else if (ffQuiz.bearCount < ffQuiz.rabbitCount) {
+  } else if (ffQuiz.results.bear.counter < ffQuiz.results.rabbit.counter) {
     displayRabbit
-  } else if (ffQuiz.bearCount === ffQuiz.rabbitCount) {
+  } else if (ffQuiz.results.bear.counter === ffQuiz.results.rabbit.counter) {
     //create a box to put new array and grab the values of results objects and store them there
     const animalPropertiesArr = Object.values(ffQuiz.results);
       console.log(animalPropertiesArr);
