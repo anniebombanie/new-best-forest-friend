@@ -46,7 +46,7 @@ Logic Notes:
 
 
 
-//NAMESPACE: To store "Forest Friend Quiz"
+//NAMESPACE: Store "Forest Friend Quiz"
 const ffQuiz = {};
 
 //OBJECT OF POSSIBLE QUIZ RESULTS
@@ -79,7 +79,7 @@ ffQuiz.scrollDown = () => {
   window.scrollBy(0, window.innerHeight / 2)
 }
 
-// METHOD: Holds methods that runs when submit button is clicked
+// METHOD: Stores methods that runs when submit button is clicked
 ffQuiz.runQuiz = (e) => {
   //prevent default behaviour of submit button
   e.preventDefault();
@@ -89,10 +89,10 @@ ffQuiz.runQuiz = (e) => {
 }
 
 // METHOD: Captures user choice
-ffQuiz.captureChoice = (e) => {
+ffQuiz.captureChoice = () => {
   //create object to hold user choice. Prefix with ffQuiz to be globally accessible
   ffQuiz.userChoice = {};
-  //get user's choice from checked input button and store as new key-value pair in userChoice object
+  //get user choice from checked input button and store as new key-value pair in "userChoice" object
   ffQuiz.userChoice.choice1 = $(`input[name=q-diet]:checked`).val();
   ffQuiz.userChoice.choice2 = $(`input[name=q-stranger]:checked`).val();
   // console.log(`capture userchoice: ${ffQuiz.userChoice.choice1}, ${ffQuiz.userChoice.choice2}`);
@@ -100,53 +100,59 @@ ffQuiz.captureChoice = (e) => {
 
 // METHOD: Counts user choice
 ffQuiz.choiceCounter = () => {
-  //use for-in loop to iterate through userChoice to count how many of each animal was selected, then update the counter key-value by 1 each time
+  //use for-in loop to iterate through "userChoice" to count how many of each animal was selected, then update "counter" value by 1 each time
   for (i in ffQuiz.userChoice) {
     if (ffQuiz.userChoice[i] === `bear`) {
       ffQuiz.results.bear.counter++;
     } else if (ffQuiz.userChoice[i] === `rabbit`) {
-      ffQuiz.results.bear.counter++;
-      console.log(`animal counter: bear ${ffQuiz.results.bear.counter}, rabbit: ${ffQuiz.results.bear.counter}`)
+      ffQuiz.results.rabbit.counter++;
     }
    }
+  console.log(`counter is working`, `animal counter: bear ${ffQuiz.results.bear.counter}, rabbit: ${ffQuiz.results.rabbit.counter}`)
   }
 
 // METHOD: Displays result (new forest friend)
 ffQuiz.printResult= () => {
-  console.log(`display friend button pushed`);
-  //create variables to hold the html results that will be displayed
-  const displayBear = $(`.container__display-result`)
-    .html(`<p>Your new forest friend is: ${ffQuiz.results.bear.name}!</p>`)
-    .append(`<img src='${ffQuiz.results.bear.img}' alt='${ffQuiz.results.bear.alt}'>`)
-    .append(`<p>${ffQuiz.results.bear.description}</p>`);
-  const displayRabbit = $(`.container__display-result`)
-    .html(`<p>Your new forest friend is: ${ffQuiz.results.rabbit.name}!</p>`)
-    .append(`<img src='${ffQuiz.results.rabbit.img}' alt='${ffQuiz.results.rabbit.alt}'>`)
-    .append(`<p>${ffQuiz.results.rabbit.description}</p>`);
+  // console.log(`display friend button pushed`);
+
+  //create methods to hold the html results that will be displayed when called
+  const printBear = () => {
+    $(`.container__display-result`)
+      .html(`<p>Your new forest friend is: ${ffQuiz.results.bear.name}!</p>`)
+      .append(`<img src='${ffQuiz.results.bear.img}' alt='${ffQuiz.results.bear.alt}'>`)
+      .append(`<p>${ffQuiz.results.bear.description}</p>`);
+  };
+  const printRabbit = () => {
+    $(`.container__display-result`)
+      .html(`<p>Your new forest friend is: ${ffQuiz.results.rabbit.name}!</p>`)
+      .append(`<img src='${ffQuiz.results.rabbit.img}' alt='${ffQuiz.results.rabbit.alt}'>`)
+      .append(`<p>${ffQuiz.results.rabbit.description}</p>`);
+  };
+
   //display appropriate result onto page based on counter results
   if (ffQuiz.results.bear.counter > ffQuiz.results.rabbit.counter) {   
-    displayBear      
+    printBear();
   } else if (ffQuiz.results.bear.counter < ffQuiz.results.rabbit.counter) {
-    displayRabbit
+    printRabbit();
   } else if (ffQuiz.results.bear.counter === ffQuiz.results.rabbit.counter) {
-    //create a box to put new array and grab the values of results objects and store them there
+    //create box to store new array and grab the values of "results" objects (= "animal" objects)
     const animalPropertiesArr = Object.values(ffQuiz.results);
-      console.log(animalPropertiesArr);
+      // console.log(animalPropertiesArr);
       //this will generate a random number of 0 or 1 that we need to store
     const randomAnimalChoice = Math.floor(Math.random() * animalPropertiesArr.length);
     if (randomAnimalChoice === 1) {
-      displayBear
+      printRabbit();
     } else {
-      displayRabbit
-    }
+      printBear();
+    };
   } else { 
     $(`.container__display-result`)
       .html(`<p>Please answer all the questions to find out who your new best friend is!</p>`)
-  }
-}
+  };
+};
 
 // DOCUMENT READY
 $(function () {
   //initialise quiz when DOM is ready and loaded
-  ffQuiz.init()
+  ffQuiz.init();
 });
