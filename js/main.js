@@ -71,13 +71,13 @@ ffQuiz.init = () => {
   $(`input[type=submit]`).on(`click`, ffQuiz.runQuiz);
 }
 
-// METHOD: Scroll down vh % when button is clicked
+// METHOD: Scroll down to element when button is clicked
 ffQuiz.scrollDown = () => {
   console.log(`scroll down button pushed`);
   window.scrollBy(0, window.innerHeight / 2)
 }
 
-// METHOD: Holds events that occurs when submit button is clicked
+// METHOD: Holds methods that runs when submit button is clicked
 ffQuiz.runQuiz = (e) => {
   //prevent default behaviour of submit button
   e.preventDefault();
@@ -85,21 +85,22 @@ ffQuiz.runQuiz = (e) => {
   ffQuiz.animalCounter();
   ffQuiz.displayFriend();
 }
-// METHOD: Capture user choice
+// METHOD: Captures user choice
 ffQuiz.captureChoice = (e) => {
+  //create object to hold user choice. Prefix with ffQuiz to be globally accessible
   ffQuiz.userChoice = {};
   //get user's choice from which input button is checked and store as new key-value pair in userChoice object
-  ffQuiz.userChoice.choice1 = $(`input[name=question1]:checked`).val();
-  ffQuiz.userChoice.choice2 = $(`input[name=question2]:checked`).val();
+  ffQuiz.userChoice.choice1 = $(`input[name=answr1]:checked`).val();
+  ffQuiz.userChoice.choice2 = $(`input[name=answr2]:checked`).val();
   console.log(`capture userchoice: ${ffQuiz.userChoice.choice1}, ${ffQuiz.userChoice.choice2}`);
 }
 
 // METHOD: Count user choice
 ffQuiz.animalCounter = () => {
-  // To count how many choice of each animal we have, we need to start the counter at 0. This needs to be globally accessible by another method (displayFriend) so prefix with ffQuiz
+  //to count how many choice of each animal we have, we need to start the counter at 0.
   ffQuiz.bearCount = 0;
   ffQuiz.rabbitCount = 0;
-  // Then we use a loop to iterate through the ffQuiz object to count how many of each animal was selected
+  //then we use a loop to iterate through the ffQuiz object to count how many of each animal was selected
   for (i in ffQuiz.userChoice) {
     if (ffQuiz.userChoice[i] === `bear`) {
       ffQuiz.bearCount++;

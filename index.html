@@ -24,54 +24,54 @@
     <form>
 
       <!-- QUESTION 1 -->
-      <fieldset class="container container__question--diet" required="required">
+      <fieldset class="container container__question--diet" id="guestion1">
         <div class="wrapper">
           <legend><span class="question-num">1.</span> Which diet is more similar to yours?</legend>
           <div>
             <label for="bear1">Gimme meat!!</label>
             <!-- "required" on one input is fine if names are all the same -->
-            <input type="radio" name="question1" id="bear1" value="bear">
+            <input type="radio" name="answr1" id="bear1" value="bear">
           </div>
           <div>
             <label for="rabbit1">I'm vegan.</label>
-            <input type="radio" name="question1" id="rabbit1" value="rabbit">
+            <input type="radio" name="answr1" id="rabbit1" value="rabbit">
           </div>
           <input type="button" value="Next" class="btn btn__scroll--down">
         </div>
       </fieldset>
 
       <!-- QUESTION 2 -->
-      <fieldset class="container">
+      <fieldset class="container" id="guestion2">
         <div class="wrapper">
           <legend><span class="question-num">2.</span> How would you react if a stranger was yelling at you?</legend>
           <div>
             <label for="rabbit2">Run away as fast as I could.</label>
-            <input type="radio" name="question2" id="rabbit2" value="rabbit" required="required">
+            <input type="radio" name="answr2" id="rabbit2" value="rabbit" required="required">
           </div>
           <div>
             <label for="bear2">Punch them. (How dare they yell at you!)</label>
-            <input type="radio" name="question2" id="bear2" value="bear">
+            <input type="radio" name="answr2" id="bear2" value="bear">
           </div>
           <input type="button" value="Next" class="btn btn__scroll--down">
         </div>
       </fieldset>
 
       <!-- BUTTON TO SHOW RESULT -->
-      <fieldset class="container container__meet-friend-btn">
+      <fieldset class="container container__meet-friend-btn" id="submit">
         <div class="wrapper">
           <input type="submit" value="Meet my new forest friend!" class="btn btn__scroll--down">
         </div>
       </fieldset>
 
       <!-- DYNAMICALLY INSERTED RESULT -->
-      <div class="container container__display-result">
+      <div class="container container__display-result" id="display-result">
         <div class="wrapper">
           <div class="display-result--content">
           </div>
         </div>
       </div>
 
-      <fieldset>
+      <fieldset id="reset">
         <div class="wrapper">
           <p>Sooo urrmmm... yeah, we had a fight.</p>
           <input type="reset" value="I want a new best friend!" class="btn btn__scroll--top" onclick="#top">
