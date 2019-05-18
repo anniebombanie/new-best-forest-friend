@@ -1,10 +1,12 @@
 // BUTTONS
 
 .btn {
-  background-color: $l-brown;
+  background-color: $pink;
   padding: 1rem;
   border: none;
+  color: #fff;
   &:hover {
-    background-color: $d-brown;
+    background-color: $l-brown;
+    color: #000;
   }
 }

@@ -5,11 +5,17 @@ html {
 
 body {
   font-family: $font-primary;
+  background-color: $green;
 }
 
 header,
 fieldset {
-  padding-top: 10%;
+  padding-top:  15%;
+  padding-bottom: 15%;
+}
+
+fieldset {
+  border: none;
 }
 
 h1{
@@ -28,10 +34,6 @@ img {
   padding: 0 1rem;
 }
 
-.background-a {
-  background-color: $green;
-}
-
-.background-b {
-  background-color: $pink;
+legend {
+  font-weight: 700;
 }

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <header id="top" class="background-a">
+  <header id="top">
     <div class="wrapper">
       <h1>your new best <span>forest</span> friend</h1>
       <p>Life's tough enough without a best friend. If by chance you're navigating through a forest without one, it might even be perilous.</p>
@@ -24,7 +24,7 @@
     <form>
 
       <!-- QUESTION 1 -->
-      <fieldset class="container container__question--diet background-b" required="required">
+      <fieldset class="container container__question--diet" required="required">
         <div class="wrapper">
           <legend><span class="question-num">1.</span> Which diet is more similar to yours?</legend>
           <div>
@@ -41,7 +41,7 @@
       </fieldset>
 
       <!-- QUESTION 2 -->
-      <fieldset class="container background-a">
+      <fieldset class="container">
         <div class="wrapper">
           <legend><span class="question-num">2.</span> How would you react if a stranger was yelling at you?</legend>
           <div>
@@ -57,21 +57,21 @@
       </fieldset>
 
       <!-- BUTTON TO SHOW RESULT -->
-      <fieldset class="container container__meet-friend-btn background-b">
+      <fieldset class="container container__meet-friend-btn">
         <div class="wrapper">
           <input type="submit" value="Meet my new forest friend!" class="btn btn__scroll--down">
         </div>
       </fieldset>
 
       <!-- DYNAMICALLY INSERTED RESULT -->
-      <div class="container container__display-result background-a">
+      <div class="container container__display-result">
         <div class="wrapper">
           <div class="display-result--content">
           </div>
         </div>
       </div>
 
-      <fieldset class="background-b">
+      <fieldset>
         <div class="wrapper">
           <p>Sooo urrmmm... yeah, we had a fight.</p>
           <input type="reset" value="I want a new best friend!" class="btn btn__scroll--top" onclick="#top">
@@ -83,7 +83,9 @@
   </main>
 
   <footer>
-    Copyright &copy; 2019 Annie Liew
+    <div class="wrapper">
+      <p>Copyright &copy; 2019 Annie Liew</p>
+    </div>
   </footer>
 
   <!-- JQUERY & JAVASCRIPT -->
