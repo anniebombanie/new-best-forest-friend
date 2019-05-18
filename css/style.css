@@ -180,7 +180,12 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 html {
+  font-size: 125%;
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Josefin Slab", serif;
 }
 
 header,
@@ -190,21 +195,22 @@ fieldset {
 }
 
 h1 {
-  font-family: 'Fascinate Inline', cursive;
+  font-family: "Fascinate Inline", cursive;
 }
 
-p,
-form {
-  font-family: 'Josefin Slab', serif;
+.container__question--diet,
+.container--display-result {
+  background-color: #cad3db;
 }
 
-fieldset.question-diet,
-fieldset.show-me-friend {
-  background-color: #ff0;
+img {
+  display: block;
+  width: 100%;
+  min-width: 100%;
 }
 
 .wrapper {
-  width: 500px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 /*# sourceMappingURL=style.css.map */

@@ -47,10 +47,10 @@ Logic Notes:
 
 
 //NAMESPACE: To store "Forest Friend Quiz"
-const ffApp = {};
+const ffQuiz = {};
 
-//ARRAY OF POSSIBLE QUIZ RESULTS
-ffApp.animals = {
+//OBJECT OF POSSIBLE QUIZ RESULTS
+ffQuiz.results = {
   bear: {
     name: `bear`,
     img: `./assets/bear.jpg`,
@@ -65,44 +65,46 @@ ffApp.animals = {
   }
 }
 
-ffApp.init = () => {
+ffQuiz.init = () => {
   //When app initalises, run these methods
-  $(`.btn-scroll`).on(`click`, ffApp.scrollDown);
-  $(`input[type=submit]`).on(`click`, ffApp.captureChoice);
+  $(`.btn__scroll--down`).on(`click`, ffQuiz.scrollDown);
+  $(`input[type=submit]`).on(`click`, ffQuiz.captureChoice);
 }
 
 // METHOD 1: Scroll down vh % when button is clicked
-ffApp.scrollDown = () => {
+ffQuiz.scrollDown = () => {
   console.log(`scroll down button pushed`);
   window.scrollBy(0, window.innerHeight / 2)
 }
 
+$()
+
 // METHOD 2: Capture user choice
-ffApp.captureChoice = (e) => {
+ffQuiz.captureChoice = (e) => {
   //prevent default behaviour of submit button
   e.preventDefault();
   //create empty object to store user choice
-  ffApp.userChoice = {};
+  ffQuiz.userChoice = {};
   //get user's choice from which input button is checked and store as new key-value pair in userChoice object
-  ffApp.userChoice.choice1 = $(`input[name=question1]:checked`).val();
-  ffApp.userChoice.choice2 = $(`input[name=question2]:checked`).val();
-  console.log(`capture userchoice: ${ffApp.userChoice.choice1}, ${ffApp.userChoice.choice2}`);
-  ffApp.animalCounter();
-  ffApp.displayFriend();
+  ffQuiz.userChoice.choice1 = $(`input[name=question1]:checked`).val();
+  ffQuiz.userChoice.choice2 = $(`input[name=question2]:checked`).val();
+  console.log(`capture userchoice: ${ffQuiz.userChoice.choice1}, ${ffQuiz.userChoice.choice2}`);
+  ffQuiz.animalCounter();
+  ffQuiz.displayFriend();
 }
 
 // METHOD 3: Count user choice
-ffApp.animalCounter = () => {
-  // To count how many choice of each animal we have, we need to start the counter at 0. This needs to be globally accessible by another method (displayFriend) so prefix with ffApp
-  ffApp.bearCount = 0;
-  ffApp.rabbitCount = 0;
-  // Then we use a loop to iterate through the ffApp object to count how many of each animal was selected
-  for (i in ffApp.userChoice) {
-    if (ffApp.userChoice[i] === `bear`) {
-      ffApp.bearCount++;
-    } else if (ffApp.userChoice[i] === `rabbit`) {
-      ffApp.rabbitCount++;
-      console.log(`animal counter: bear ${ffApp.bearCount}, rabbit: ${ffApp.rabbitCount}`)
+ffQuiz.animalCounter = () => {
+  // To count how many choice of each animal we have, we need to start the counter at 0. This needs to be globally accessible by another method (displayFriend) so prefix with ffQuiz
+  ffQuiz.bearCount = 0;
+  ffQuiz.rabbitCount = 0;
+  // Then we use a loop to iterate through the ffQuiz object to count how many of each animal was selected
+  for (i in ffQuiz.userChoice) {
+    if (ffQuiz.userChoice[i] === `bear`) {
+      ffQuiz.bearCount++;
+    } else if (ffQuiz.userChoice[i] === `rabbit`) {
+      ffQuiz.rabbitCount++;
+      console.log(`animal counter: bear ${ffQuiz.bearCount}, rabbit: ${ffQuiz.rabbitCount}`)
     }
    }
   }
@@ -113,34 +115,34 @@ ffApp.animalCounter = () => {
 
 // METHOD 4: Display new forest friend based on user's choice
 //must add math.random
-ffApp.displayFriend= () => {
+ffQuiz.displayFriend= () => {
   console.log(`display friend button pushed`);
-  if (ffApp.bearCount > ffApp.rabbitCount) {
+  if (ffQuiz.bearCount > ffQuiz.rabbitCount) {
     $(`.display-friend-content`)
-      .html(`<p>Your new forest friend is ${ffApp.animals.bear.name}</p>`)
-      .append(`<img src='${ffApp.animals.bear.img}' alt='${ffApp.animals.bear.alt}'>`)
-      .append(`<p>${ffApp.animals.bear.description}</p>`)
-  } else if (ffApp.bearCount < ffApp.rabbitCount) {
+      .html(`<p>Your new forest friend is ${ffQuiz.results.bear.name}</p>`)
+      .append(`<img src='${ffQuiz.results.bear.img}' alt='${ffQuiz.results.bear.alt}'>`)
+      .append(`<p>${ffQuiz.results.bear.description}</p>`)
+  } else if (ffQuiz.bearCount < ffQuiz.rabbitCount) {
     $(`.display-friend-content`)
-      .html(`<p>Your new forest friend is ${ffApp.animals.rabbit.name}</p>`)
-      .append(`<img src='${ffApp.animals.rabbit.img}' alt='${ffApp.animals.rabbit.alt}'>`)
-      .append(`<p>${ffApp.animals.rabbit.description}</p>`)
-  } else if (ffApp.bearCount === ffApp.rabbitCount) {
-    //create a box to put new array and grab the values of animals objects and store them there
-    const animalPropertiesArr = Object.values(ffApp.animals);
+      .html(`<p>Your new forest friend is ${ffQuiz.results.rabbit.name}</p>`)
+      .append(`<img src='${ffQuiz.results.rabbit.img}' alt='${ffQuiz.results.rabbit.alt}'>`)
+      .append(`<p>${ffQuiz.results.rabbit.description}</p>`)
+  } else if (ffQuiz.bearCount === ffQuiz.rabbitCount) {
+    //create a box to put new array and grab the values of results objects and store them there
+    const animalPropertiesArr = Object.values(ffQuiz.results);
       console.log(animalPropertiesArr);
       //this will generate a random number of 0 or 1 that we need to store
     const randomAnimalChoice = Math.floor(Math.random() * animalPropertiesArr.length);
     if (randomAnimalChoice === 1) {
       $(`.display-friend-content`)
-        .html(`<p>Your new forest friend is ${ffApp.animals.bear.name}</p>`)
-        .append(`<img src='${ffApp.animals.bear.img}' alt='${ffApp.animals.bear.alt}'>`)
-        .append(`<p>${ffApp.animals.bear.description}</p>`)
+        .html(`<p>Your new forest friend is ${ffQuiz.results.bear.name}</p>`)
+        .append(`<img src='${ffQuiz.results.bear.img}' alt='${ffQuiz.results.bear.alt}'>`)
+        .append(`<p>${ffQuiz.results.bear.description}</p>`)
     } else {
       $(`.display-friend-content`)
-      .html(`<p>Your new forest friend is ${ffApp.animals.rabbit.name}</p>`)
-      .append(`<img src='${ffApp.animals.rabbit.img}' alt='${ffApp.animals.rabbit.alt}'>`)
-      .append(`<p>${ffApp.animals.rabbit.description}</p>`)
+        .html(`<p>Your new forest friend is ${ffQuiz.results.rabbit.name}</p>`)
+      .append(`<img src='${ffQuiz.results.rabbit.img}' alt='${ffQuiz.results.rabbit.alt}'>`)
+      .append(`<p>${ffQuiz.results.rabbit.description}</p>`)
     }
   } else { 
     $(`.display-friend-content`)
@@ -150,5 +152,5 @@ ffApp.displayFriend= () => {
 
 // DOCUMENT READY
 $(document).ready(function(){
-  ffApp.init()
+  ffQuiz.init()
 });

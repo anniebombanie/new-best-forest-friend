@@ -1,0 +1,34 @@
+html {
+	font-size: 125%;
+	scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-primary;
+}
+
+header,
+fieldset {
+  height: 50vh;
+  padding-top: 10%;
+}
+
+h1 {
+  font-family: $font-secondary;
+} 
+
+.container__question--diet,
+.container--display-result {
+  background-color: $grey;
+}
+
+img {
+	display: block;
+	width: 100%;
+	min-width: 100%;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
