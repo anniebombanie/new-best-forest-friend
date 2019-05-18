@@ -21,8 +21,6 @@ ffQuiz.results = {
 
 //when reset button gets clicked, scrolls to top
 $('.btn__scroll--top').on("click", function () {
-  console.log(`scroll-up`);
-
   $(window).scrollTop(0);
 });
 
@@ -46,9 +44,9 @@ ffQuiz.runQuiz = (e) => {
   ffQuiz.captureChoice();
   ffQuiz.choiceCounter();
   ffQuiz.printResult();
-}
+};
 
-//METHOD: Reset counter to 0. Can't use ONCE function with submit button because when reset fields, doesn't reload DOM and submit button is out of action
+//METHOD: Resets counter to 0. (Can't use ONCE function with submit button because reset fields doesn't reload DOM and puts submit button out of action)
 ffQuiz.resetCounter = () => {
   ffQuiz.results.bear.counter = 0;
   ffQuiz.results.rabbit.counter = 0;
@@ -62,7 +60,7 @@ ffQuiz.captureChoice = () => {
   ffQuiz.userChoice.choice1 = $(`input[name=q-diet]:checked`).val();
   ffQuiz.userChoice.choice2 = $(`input[name=q-stranger]:checked`).val();
   console.log(`capture userchoice: ${ffQuiz.userChoice.choice1}, ${ffQuiz.userChoice.choice2}`);
-}
+};
 
 // METHOD: Counts user choice
 ffQuiz.choiceCounter = () => {
@@ -72,10 +70,11 @@ ffQuiz.choiceCounter = () => {
       ffQuiz.results.bear.counter++;
     } else if (ffQuiz.userChoice[i] === `rabbit`) {
       ffQuiz.results.rabbit.counter++;
-    }
-   }
-  // console.log(`counter is working`, `animal counter: bear ${ffQuiz.results.bear.counter}, rabbit: ${ffQuiz.results.rabbit.counter}`)
-  }
+    } else {
+      $(this).find('.error').text('Pick an answer!');
+    };
+   };
+  };
 
 // METHOD: Displays result (new forest friend)
 ffQuiz.printResult= () => {
@@ -99,7 +98,6 @@ ffQuiz.printResult= () => {
   
   //make it required for input fields to be clicked
   if ($('input[name=q-diet]:checked').val() && $('input[name=q-stranger]:checked').val()) {
-    console.log(`both input checked`);
     
     //display appropriate result onto page based on counter results
     if (ffQuiz.results.bear.counter > ffQuiz.results.rabbit.counter) {
@@ -115,14 +113,12 @@ ffQuiz.printResult= () => {
       const randomAnimalChoice = Math.floor(Math.random() * animalPropertiesArr.length);
       //if 1 comes up, make it a Rabbit, if 0, then Bear
       if (randomAnimalChoice === 1) {
-        console.log(`randomAnimalChoice`, randomAnimalChoice);
         printRabbit();
       } else {
         printBear();
       };
     };
   } else {
-  console.log(`an input field is unselected`);
   $(`.container__display-result`)
     .html(
       `<div class="wrapper">
