@@ -43,9 +43,6 @@ Logic Notes:
 
 
 
-
-
-
 //NAMESPACE: Store "Forest Friend Quiz"
 const ffQuiz = {};
 
@@ -66,6 +63,13 @@ ffQuiz.results = {
     counter: 0
   }
 }
+
+//when reset button gets clicked, scrolls to top
+$('.btn__scroll--top').on("click", function () {
+  console.log(`scroll-up`);
+
+  $(window).scrollTop(0);
+});
 
 // METHOD: When app initalises, run these methods using event handlers
 ffQuiz.init = () => {
