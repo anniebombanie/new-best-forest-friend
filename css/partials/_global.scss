@@ -12,14 +12,9 @@ fieldset {
   padding-top: 10%;
 }
 
-h1 {
+h1{
   font-family: $font-secondary;
 } 
-
-.container__question--diet,
-.container--display-result {
-  background-color: $grey;
-}
 
 img {
 	display: block;
@@ -27,7 +22,28 @@ img {
 	min-width: 100%;
 }
 
+.container__question--diet,
+.container--display-result {
+}
+
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.background-l-brown {
+  background-color: $l-brown;
+}
+
+.background-green {
+  background-color: $green;
+}
+
+// BUTTONS
+
+.btn {
+  background-color: $pink;
+  padding: 1rem;
+  border: none;
 }

@@ -190,17 +190,11 @@ body {
 
 header,
 fieldset {
-  height: 50vh;
   padding-top: 10%;
 }
 
 h1 {
   font-family: "Fascinate Inline", cursive;
-}
-
-.container__question--diet,
-.container--display-result {
-  background-color: #cad3db;
 }
 
 img {
@@ -212,5 +206,20 @@ img {
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.background-l-brown {
+  background-color: #d1c5ba;
+}
+
+.background-green {
+  background-color: #c2ea78;
+}
+
+.btn {
+  background-color: #ff7581;
+  padding: 1rem;
+  border: none;
 }
 /*# sourceMappingURL=style.css.map */

@@ -61,7 +61,7 @@ ffQuiz.results = {
     name: `rabbit`,
     img: `./assets/rabbit.jpg`,
     alt: `illustration of a rabbit.`,
-    description: `You avoid quarrels as much as possible and are considerate of others. While navigating thtough the forest, you stay alert and together with your new best forest friend, RABBIT, you'll avoid any dangers that might happen to pop up.`
+    description: `You remind persistent in tough situations and are considerate of others. While navigating thtough the forest, you stay alert and together with your new best forest friend, RABBIT, you'll avoid any dangers that might happen to pop up.`
   }
 }
 
