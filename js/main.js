@@ -28,13 +28,35 @@ $('.btn__scroll--top').on("click", function () {
 ffQuiz.init = () => {
   $(`.btn__scroll--down`).on(`click`, ffQuiz.scrollDown);
   $(`input[type=submit]`).on(`click`, ffQuiz.runQuiz);
-}
+  $(`input[value="Next"]`).on(`click`, ffQuiz.showError);
+};
 
 // METHOD: Scrolls down to element when button is clicked
 ffQuiz.scrollDown = () => {
   // console.log(`scroll down button pushed`);
   window.scrollBy(0, window.innerHeight / 2)
+};
+
+// ffQuiz.checkIfFilled = () => {
+  
+//     // ffQuiz.showError();
+//   $(this).next('.error').text('Pick an answer!')
+//   console.log(this);
+  
+//   };
+// // };
+
+//checks if the radio button is selected- returns boolean (if > 0 = true, then go ahead )
+function noRadioSelected() {
+  return ($(`input[type=radio]:checked`).length > 0);
 }
+
+ffQuiz.showError = function () {
+    if (noRadioSelected() === false) {
+      $(this).next('.error').text('Pick an answer!');
+    };
+};
+// };
 
 // METHOD: Stores methods that runs when submit button is clicked
 ffQuiz.runQuiz = (e) => {
@@ -70,11 +92,9 @@ ffQuiz.choiceCounter = () => {
       ffQuiz.results.bear.counter++;
     } else if (ffQuiz.userChoice[i] === `rabbit`) {
       ffQuiz.results.rabbit.counter++;
-    } else {
-      $(this).find('.error').text('Pick an answer!');
-    };
    };
   };
+};
 
 // METHOD: Displays result (new forest friend)
 ffQuiz.printResult= () => {
