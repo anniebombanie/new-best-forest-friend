@@ -209,17 +209,21 @@ img {
   padding: 0 1rem;
 }
 
-.background-l-brown {
-  background-color: #d1c5ba;
-}
-
-.background-green {
+.background-a {
   background-color: #c2ea78;
 }
 
-.btn {
+.background-b {
   background-color: #ff7581;
+}
+
+.btn {
+  background-color: #d1c5ba;
   padding: 1rem;
   border: none;
+}
+
+.btn:hover {
+  background-color: #997965;
 }
 /*# sourceMappingURL=style.css.map */

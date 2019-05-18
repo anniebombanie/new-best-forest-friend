@@ -1,0 +1,10 @@
+// BUTTONS
+
+.btn {
+  background-color: $l-brown;
+  padding: 1rem;
+  border: none;
+  &:hover {
+    background-color: $d-brown;
+  }
+}
