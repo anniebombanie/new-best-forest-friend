@@ -65,35 +65,36 @@ ffQuiz.results = {
   }
 }
 
+// METHOD: When app initalises, run these methods
 ffQuiz.init = () => {
-  //When app initalises, run these methods
   $(`.btn__scroll--down`).on(`click`, ffQuiz.scrollDown);
-  $(`input[type=submit]`).on(`click`, ffQuiz.captureChoice);
+  $(`input[type=submit]`).on(`click`, ffQuiz.runQuiz);
 }
 
-// METHOD 1: Scroll down vh % when button is clicked
+// METHOD: Scroll down vh % when button is clicked
 ffQuiz.scrollDown = () => {
   console.log(`scroll down button pushed`);
   window.scrollBy(0, window.innerHeight / 2)
 }
 
-$()
-
-// METHOD 2: Capture user choice
-ffQuiz.captureChoice = (e) => {
+// METHOD: Holds events that occurs when submit button is clicked
+ffQuiz.runQuiz = (e) => {
   //prevent default behaviour of submit button
   e.preventDefault();
-  //create empty object to store user choice
+  ffQuiz.captureChoice();
+  ffQuiz.animalCounter();
+  ffQuiz.displayFriend();
+}
+// METHOD: Capture user choice
+ffQuiz.captureChoice = (e) => {
   ffQuiz.userChoice = {};
   //get user's choice from which input button is checked and store as new key-value pair in userChoice object
   ffQuiz.userChoice.choice1 = $(`input[name=question1]:checked`).val();
   ffQuiz.userChoice.choice2 = $(`input[name=question2]:checked`).val();
   console.log(`capture userchoice: ${ffQuiz.userChoice.choice1}, ${ffQuiz.userChoice.choice2}`);
-  ffQuiz.animalCounter();
-  ffQuiz.displayFriend();
 }
 
-// METHOD 3: Count user choice
+// METHOD: Count user choice
 ffQuiz.animalCounter = () => {
   // To count how many choice of each animal we have, we need to start the counter at 0. This needs to be globally accessible by another method (displayFriend) so prefix with ffQuiz
   ffQuiz.bearCount = 0;
@@ -113,18 +114,17 @@ ffQuiz.animalCounter = () => {
 //   .filter(key => /alex/.test(key)
 //     .forEach(key => console.log(key, test[key]));
 
-// METHOD 4: Display new forest friend based on user's choice
+// METHOD: Display new forest friend based on user's choice
 //must add math.random
 ffQuiz.displayFriend= () => {
   console.log(`display friend button pushed`);
 
   const displayBear = $(`.container__display-result`)
-    .html(`<p>Your new forest friend is ${ffQuiz.results.bear.name}</p>`)
+    .html(`<p>Your new forest friend is: ${ffQuiz.results.bear.name}!</p>`)
     .append(`<img src='${ffQuiz.results.bear.img}' alt='${ffQuiz.results.bear.alt}'>`)
     .append(`<p>${ffQuiz.results.bear.description}</p>`);
-
   const displayRabbit = $(`.container__display-result`)
-    .html(`<p>Your new forest friend is ${ffQuiz.results.rabbit.name}</p>`)
+    .html(`<p>Your new forest friend is: ${ffQuiz.results.rabbit.name}!</p>`)
     .append(`<img src='${ffQuiz.results.rabbit.img}' alt='${ffQuiz.results.rabbit.alt}'>`)
     .append(`<p>${ffQuiz.results.rabbit.description}</p>`);
 
@@ -144,8 +144,8 @@ ffQuiz.displayFriend= () => {
       displayRabbit
     }
   } else { 
-    $(`.display-friend-content`)
-      .html(`<p>Please answer all the questions to find out who your new friend is.</p>`)
+    $(`.container__display-result`)
+      .html(`<p>Please answer all the questions to find out who your new best friend is!</p>`)
   }
 }
 
