@@ -55,13 +55,13 @@ ffQuiz.results = {
     name: `bear`,
     img: `./assets/bear.jpg`,
     alt: `illustration of a bear.`,
-    description: `bear lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sunt quia mollitia, eum corrupti alias inventore, dolorem consectetur labore iure ipsam, cumque doloremque dolores unde maiores ad officiis eaque itaque.`
+    description: `You are fearless and confident and your larger-than-life character inspires respect and admiration. Together with your new best forest friend, BEAR, you'll be sure to have no problems getting through the forest safe and sound.`
     },
   rabbit: {
     name: `rabbit`,
     img: `./assets/rabbit.jpg`,
     alt: `illustration of a rabbit.`,
-    description: `rabbit lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil alias quisquam quos assumenda ipsum voluptates dignissimos. Ex suscipit deserunt cupiditate, accusantium perferendis dolore perspiciatis culpa, ut aliquam, soluta sapiente.`
+    description: `You avoid quarrels as much as possible and are considerate of others. While navigating thtough the forest, you stay alert and together with your new best forest friend, RABBIT, you'll avoid any dangers that might happen to pop up.`
   }
 }
 
@@ -118,12 +118,12 @@ ffQuiz.animalCounter = () => {
 ffQuiz.displayFriend= () => {
   console.log(`display friend button pushed`);
   if (ffQuiz.bearCount > ffQuiz.rabbitCount) {
-    $(`.display-friend-content`)
+    $(`.container__display-result`)
       .html(`<p>Your new forest friend is ${ffQuiz.results.bear.name}</p>`)
       .append(`<img src='${ffQuiz.results.bear.img}' alt='${ffQuiz.results.bear.alt}'>`)
       .append(`<p>${ffQuiz.results.bear.description}</p>`)
   } else if (ffQuiz.bearCount < ffQuiz.rabbitCount) {
-    $(`.display-friend-content`)
+    $(`.container__display-result`)
       .html(`<p>Your new forest friend is ${ffQuiz.results.rabbit.name}</p>`)
       .append(`<img src='${ffQuiz.results.rabbit.img}' alt='${ffQuiz.results.rabbit.alt}'>`)
       .append(`<p>${ffQuiz.results.rabbit.description}</p>`)
@@ -134,7 +134,7 @@ ffQuiz.displayFriend= () => {
       //this will generate a random number of 0 or 1 that we need to store
     const randomAnimalChoice = Math.floor(Math.random() * animalPropertiesArr.length);
     if (randomAnimalChoice === 1) {
-      $(`.display-friend-content`)
+      $(`.container__display-result`)
         .html(`<p>Your new forest friend is ${ffQuiz.results.bear.name}</p>`)
         .append(`<img src='${ffQuiz.results.bear.img}' alt='${ffQuiz.results.bear.alt}'>`)
         .append(`<p>${ffQuiz.results.bear.description}</p>`)
