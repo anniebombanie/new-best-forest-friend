@@ -75,7 +75,7 @@ ffQuiz.init = () => {
 
 // METHOD: Scrolls down to element when button is clicked
 ffQuiz.scrollDown = () => {
-  console.log(`scroll down button pushed`);
+  // console.log(`scroll down button pushed`);
   window.scrollBy(0, window.innerHeight / 2)
 }
 
@@ -85,8 +85,9 @@ ffQuiz.runQuiz = (e) => {
   e.preventDefault();
   ffQuiz.captureChoice();
   ffQuiz.choiceCounter();
-  ffQuiz.displayResult();
+  ffQuiz.printResult();
 }
+
 // METHOD: Captures user choice
 ffQuiz.captureChoice = (e) => {
   //create object to hold user choice. Prefix with ffQuiz to be globally accessible
@@ -94,12 +95,12 @@ ffQuiz.captureChoice = (e) => {
   //get user's choice from checked input button and store as new key-value pair in userChoice object
   ffQuiz.userChoice.choice1 = $(`input[name=q-diet]:checked`).val();
   ffQuiz.userChoice.choice2 = $(`input[name=q-stranger]:checked`).val();
-  console.log(`capture userchoice: ${ffQuiz.userChoice.choice1}, ${ffQuiz.userChoice.choice2}`);
+  // console.log(`capture userchoice: ${ffQuiz.userChoice.choice1}, ${ffQuiz.userChoice.choice2}`);
 }
 
 // METHOD: Counts user choice
 ffQuiz.choiceCounter = () => {
-  //use a for-in loop to iterate through userChoice to count how many of each animal was selected, then update the counter key-value stored in global results object
+  //use for-in loop to iterate through userChoice to count how many of each animal was selected, then update the counter key-value by 1 each time
   for (i in ffQuiz.userChoice) {
     if (ffQuiz.userChoice[i] === `bear`) {
       ffQuiz.results.bear.counter++;
@@ -111,7 +112,7 @@ ffQuiz.choiceCounter = () => {
   }
 
 // METHOD: Displays result (new forest friend)
-ffQuiz.displayResult= () => {
+ffQuiz.printResult= () => {
   console.log(`display friend button pushed`);
   //create variables to hold the html results that will be displayed
   const displayBear = $(`.container__display-result`)
@@ -122,7 +123,7 @@ ffQuiz.displayResult= () => {
     .html(`<p>Your new forest friend is: ${ffQuiz.results.rabbit.name}!</p>`)
     .append(`<img src='${ffQuiz.results.rabbit.img}' alt='${ffQuiz.results.rabbit.alt}'>`)
     .append(`<p>${ffQuiz.results.rabbit.description}</p>`);
-
+  //display appropriate result onto page based on counter results
   if (ffQuiz.results.bear.counter > ffQuiz.results.rabbit.counter) {   
     displayBear      
   } else if (ffQuiz.results.bear.counter < ffQuiz.results.rabbit.counter) {
@@ -145,6 +146,7 @@ ffQuiz.displayResult= () => {
 }
 
 // DOCUMENT READY
-$(document).ready(function(){
+$(function () {
+  //initialise quiz when DOM is ready and loaded
   ffQuiz.init()
 });
