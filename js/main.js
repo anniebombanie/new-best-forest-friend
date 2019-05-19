@@ -1,40 +1,42 @@
-//NAMESPACE: Store "Best Forest Friend App"
+//NAMESPACE: Store "Best Forest Friend App" (No let/const in front of methods stored inside as they exist as objects)
 const bffApp = {};
-
-bffApp.questionNumber = 1;
 
 //OBJECT OF POSSIBLE QUIZ RESULTS
 bffApp.results = {
   bear: {
     name: `bear`,
-    img: `./assets/bear.jpg`,
+    img: `./assets/bear.svg`,
     alt: `illustration of a bear.`,
     description: `Like your new forest friend, BEAR, you are fearless and confident with a larger-than-life character. Danger in the forest? Pffttp- you laugh in the face of danger.`,
     counter: 0
     },
   rabbit: {
     name: `rabbit`,
-    img: `./assets/rabbit.jpg`,
+    img: `./assets/rabbit.svg`,
     alt: `illustration of a rabbit.`,
     description: `While navigating thtough the forest, you stay alert and vigilant. Together with your new best forest friend, RABBIT, you'll avoid any dangers that might pop up.`,
     counter: 0
   }
 }
 
-//when reset button gets clicked, scrolls to top
-$('.btn__scroll--top').on("click", function () {
-  $(window).scrollTop(0);
-});
-
 // METHOD: When app initalises, run these methods using event handlers
 bffApp.init = () => {
   $(`.btn__scroll--down`).on(`click`, bffApp.scrollDown);
-  $(`input[type=submit]`).on(`click`, bffApp.runQuiz);
+  $(`input[type=submit]`).on(`click`, bffApp.compileResult);
   $(`input[value="Next"]`).on(`click`, bffApp.showError);
+  //when reset button gets clicked, scrolls to top
+  $('.btn__scroll--top').on("click", function () {
+    $(window).scrollTop(0);
+  });
 };
 
+//counter for how many questions are have been checked
+bffApp.qNum = 1;
 
-bffApp.
+bffApp.nextBtnClicked = () => {
+  noRadioSelected()
+};
+
 // METHOD: Scrolls down to element when button is clicked
 bffApp.scrollDown = () => {
   // console.log(`scroll down button pushed`);
@@ -54,8 +56,8 @@ function noRadioSelected() {
     }
   });
 
-  if (numChecked === bffApp.questionNumber) {
-    bffApp.questionNumber += 1;
+  if (numChecked === bffApp.qNum) {
+    bffApp.qNum += 1;
     return true;
   } else {
     return false;
@@ -71,7 +73,7 @@ bffApp.showError = function () {
 // };
 
 // METHOD: Stores methods that runs when submit button is clicked
-bffApp.runQuiz = (e) => {
+bffApp.compileResult = (e) => {
   //prevent default behaviour of submit button
   e.preventDefault();
   bffApp.resetCounter();
@@ -115,14 +117,16 @@ bffApp.printResult= () => {
   //create methods to hold the html results that will be displayed when called
   const printBear = () => {
     $(`.container__display-result`)
-      .html(`<p>Your new forest friend is: ${bffApp.results.bear.name}!</p>`)
+      .html(`<p>Your new forest friend is:</p>
+      <h2>${bffApp.results.bear.name}!</h2>`)
       .append(`<img src='${bffApp.results.bear.img}' alt='${bffApp.results.bear.alt}'>`)
       .append(`<p>${bffApp.results.bear.description}</p>`);
     $(`.container__reset`).css(`display`, `block`);
     };
   const printRabbit = () => {
     $(`.container__display-result`)
-      .html(`<p>Your new forest friend is: ${bffApp.results.rabbit.name}!</p>`)
+      .html(`<p>Your new forest friend is:</p>
+      <h2>${bffApp.results.rabbit.name}</h2>`)
       .append(`<img src='${bffApp.results.rabbit.img}' alt='${bffApp.results.rabbit.alt}'>`)
       .append(`<p>${bffApp.results.rabbit.description}</p>`);
     $(`.container__reset`).css(`display`, `block`);

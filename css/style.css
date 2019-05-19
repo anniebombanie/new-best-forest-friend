@@ -186,7 +186,7 @@ html {
 
 body {
   font-family: "Josefin Slab", serif;
-  background-color: #c2ea78;
+  background-color: #f8f3e1;
 }
 
 header,
@@ -211,7 +211,7 @@ img {
 }
 
 .wrapper {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -230,14 +230,14 @@ label {
 }
 
 .btn {
-  background-color: #ff7581;
-  padding: 1rem;
+  background-color: #f8842d;
+  padding: 1rem 1.5rem;
   border: none;
-  color: #fff;
+  color: #000000;
 }
 
 .btn:hover {
-  background-color: #d1c5ba;
-  color: #000;
+  background-color: #696d31;
+  color: #f8f3e1;
 }
 /*# sourceMappingURL=style.css.map */

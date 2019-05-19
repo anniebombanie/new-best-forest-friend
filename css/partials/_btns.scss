@@ -1,12 +1,12 @@
 // BUTTONS
 
 .btn {
-  background-color: $pink;
-  padding: 1rem;
+  background-color: $orange;
+  padding: 1rem 1.5rem;
   border: none;
-  color: #fff;
+  color: $black;
   &:hover {
-    background-color: $l-brown;
-    color: #000;
+    background-color: $green;
+    color: $beige;
   }
 }
