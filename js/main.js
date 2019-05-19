@@ -44,7 +44,7 @@ function noRadioSelected() {
 
 ffQuiz.showError = function () {
     if (noRadioSelected() === false) {
-      $(this).next('.error').text('Pick an answer!');
+      $(this).next('.error-next-btn').text('Pick an answer!');
     };
 };
 // };
