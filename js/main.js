@@ -1,6 +1,8 @@
 //NAMESPACE: Store "Forest Friend Quiz"
 const ffQuiz = {};
 
+ffQuiz.questionNumber = 1;
+
 //OBJECT OF POSSIBLE QUIZ RESULTS
 ffQuiz.results = {
   bear: {
@@ -39,11 +41,28 @@ ffQuiz.scrollDown = () => {
 
 //checks if the radio button is selected- returns boolean (0 = false, 1 = true)
 function noRadioSelected() {
-  return ($(`input[type=radio]:checked`).length > 0);
-}
+  // OLD CODE return ($(`input[type=radio]:checked`).length > 0);
+
+  const radios = Array.from($(`input[type=radio]`));
+
+  let numChecked = 0;
+  radios.forEach(radio => {
+    if (radio.checked) {
+      numChecked +=1;
+    }
+  });
+
+  if (numChecked === ffQuiz.questionNumber) {
+    ffQuiz.questionNumber += 1;
+    return true;
+  } else {
+    return false;
+  };
+};
+
 
 ffQuiz.showError = function () {
-    if (noRadioSelected() === false) {
+    if (!noRadioSelected()) {
       $(this).next('.error-next-btn').text('Pick an answer!');
     };
 };
@@ -143,3 +162,22 @@ $(function () {
   //initialise quiz when DOM is ready and loaded
   ffQuiz.init();
 });
+
+
+
+
+
+/*
+
+Eventually if you were loopijng over your questions to render them with 
+the jquery html method you could do
+
+  questions.forEach((question, index) => (
+    gameArea.html(`
+		<div class="question" data-questionnum={index}>
+		//Question HTML here
+		</div>
+	`)
+  )}
+
+  */
