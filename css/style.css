@@ -217,10 +217,15 @@ img {
 
 legend {
   font-weight: 700;
+  padding-bottom: 1rem;
 }
 
 .container__reset {
   display: none;
+}
+
+label {
+  padding-bottom: .5rem;
 }
 
 .btn {

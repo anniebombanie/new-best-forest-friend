@@ -37,16 +37,7 @@ ffQuiz.scrollDown = () => {
   window.scrollBy(0, window.innerHeight / 2)
 };
 
-// ffQuiz.checkIfFilled = () => {
-  
-//     // ffQuiz.showError();
-//   $(this).next('.error').text('Pick an answer!')
-//   console.log(this);
-  
-//   };
-// // };
-
-//checks if the radio button is selected- returns boolean (if > 0 = true, then go ahead )
+//checks if the radio button is selected- returns boolean (0 = false, 1 = true)
 function noRadioSelected() {
   return ($(`input[type=radio]:checked`).length > 0);
 }
@@ -116,7 +107,7 @@ ffQuiz.printResult= () => {
     $(`.container__reset`).css(`display`, `block`);
     };
   
-  //make it required for input fields to be clicked
+  //if answer has been selected for both questions, show result. else, display error message
   if ($('input[name=q-diet]:checked').val() && $('input[name=q-stranger]:checked').val()) {
     
     //display appropriate result onto page based on counter results
