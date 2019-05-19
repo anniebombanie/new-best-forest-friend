@@ -36,7 +36,7 @@ ffQuiz.init = () => {
 // METHOD: Scrolls down to element when button is clicked
 ffQuiz.scrollDown = () => {
   // console.log(`scroll down button pushed`);
-  window.scrollBy(0, window.innerHeight / 2)
+  window.scrollBy(0, window.innerHeight)
 };
 
 //checks if the radio button is selected- returns boolean (0 = false, 1 = true)
