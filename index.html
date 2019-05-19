@@ -5,12 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Josefin+Slab:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Josefin+Slab:400,400i,700,700i" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
   <title>Quiz: Your New Best (Forest) Friend</title>
 </head>
 
 <body>
+
+  <!-- HEADER -->
   <header id="top">
     <div class="wrapper">
       <h1>your new best <span>forest</span> friend</h1>
@@ -24,11 +26,11 @@
     <form>
 
       <!-- QUESTION 1 -->
-      <fieldset class="container container__question--diet" id="guestion1">
+      <fieldset class="container container__q--diet" id="q-diet">
         <div class="wrapper">
-          <legend><span class="question-num">1.</span> Which diet is more similar to yours?</legend>
+          <legend><span class="q-num">1.</span> Which diet is more similar to yours?</legend>
           <div>
-            <label for="bear1">Meat all the wayyyy!!</label>
+            <label for="bear1">Meat. Delicious meat.</label>
             <!-- "required" on one input is fine if names are all the same -->
             <input type="radio" name="q-diet" id="bear1" value="bear">
           </div>
@@ -37,24 +39,24 @@
             <input type="radio" name="q-diet" id="rabbit1" value="rabbit">
           </div>
           <input type="button" value="Next" class="btn btn__scroll--down">
-          <p class="error-next-btn"></p>
+          <p class="error--no-radio-selected"></p>
         </div>
       </fieldset>
 
       <!-- QUESTION 2 -->
-      <fieldset class="container" id="guestion2">
+      <fieldset class="container" id="q-stranger">
         <div class="wrapper">
-          <legend><span class="question-num">2.</span> How would you react if a stranger was yelling at you?</legend>
+          <legend><span class="q-num">2.</span> How would you react if a stranger was yelling angrily at you?</legend>
           <div>
-          k   <label for="rabbit2">Run away as fast as I could.</label>
+          k   <label for="rabbit2">Run away as fast and far as I could.</label>
             <input type="radio" name="q-stranger" id="rabbit2" value="rabbit" required="required">
           </div>
           <div>
-            <label for="bear2">Punch them. (How dare they yell at you!)</label>
+            <label for="bear2">Punch them. (Noisy human.)</label>
             <input type="radio" name="q-stranger" id="bear2" value="bear">
           </div>
           <input type="button" value="Next" class="btn btn__scroll--down">
-          <p class="error-next-btn"></p>
+          <p class="error--no-radio-selected"></p>
         </div>
       </fieldset>
 
@@ -62,7 +64,7 @@
       <fieldset class="container container__meet-friend-btn" id="submit">
         <div class="wrapper">
           <input type="submit" value="Meet my new forest friend!" class="btn btn__scroll--down">
-          <p class="error-show-result"></p>
+          <p class="error--missing-radio-selected"></p>
         </div>
       </fieldset>
 
