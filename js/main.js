@@ -27,12 +27,9 @@ bffApp.init = () => {
   //when reset button gets clicked, scrolls to top
   $('.btn__scroll--top').on("click", function () {
     $(window).scrollTop(0);
+    $(`.container__reset`).css(`display`, `none`);
   });
 };
-
-//start number of quiz questions counter at 1, for error handling below
-bffApp.questnNum = 1;
-
 
 /*
 function name() {
@@ -60,11 +57,11 @@ bffApp.nextBtnClicked = function() {
   //METHOD: Show error
   bffApp.showError = function (nextBtnElement) {
     //passing parameter here instead of THIS keyword because THIS is just difficult to scope
-    if (!bffApp.noRadioSelected()) {
+    if (!bffApp.noRadioSelected($(nextBtnElement).data(`questn-num`))) {
       console.log(`show error running`);
 
       $(nextBtnElement).next('.error--no-radio-selected').text('Please pick an answer!');
-      console.log(nextBtnElement);
+      console.log(nextBtnElement, `WHAT IS DATA`, $(nextBtnElement).data(`questn-num`));
     } else {
       //this clear error message
       $(nextBtnElement).next('.error--no-radio-selected').text('');
@@ -73,30 +70,19 @@ bffApp.nextBtnClicked = function() {
     }
   };
 
-//METHOD: Checks if the radio button is selected and creates an array 
-bffApp.noRadioSelected = () => {
+//METHOD: Checks if the radio button is selected and creates an array of these fieldsets
+bffApp.noRadioSelected = (questnKey) => {
   console.log(`no radio selcted running- THIS WORKS`);
   //variable to store array of actual html inputs// gets an array like object and using from, converts to an array
 
   // debugger
-  const radios = Array.from($(`input[type=radio]`));
+  const radios = Array.from($(`.container__${questnKey} input[type=radio]`));
   console.log(`RETURNING RADIOS ARRAY:`, radios, $(`input[type=radio]`));
 
-  //checks total number of radio buttons clicked and for each checked, add one to the counter
-  let numChecked = 0;
-  radios.forEach(radio => {
-    if (radio.checked) {
-      numChecked += 1;
-    }
+  // radios.some(radio => radio.checked)
+  return radios.some(radio => { //instead of foreach because for each you'll have to mutate anything and write many times for each radio instance
+    return radio.checked;
   });
-
-  //checks if number of radio buttons clicked === the number of quiz questions and if so, add one so that the qNum counter so that it's accumulative
-  if (numChecked === bffApp.questnNum) {
-    bffApp.questnNum += 1;
-    return true;
-  } else {
-    return false;
-  }
 };
 
 
@@ -127,8 +113,8 @@ bffApp.captureChoice = () => {
   //create object to hold user choice. Prefix with bffApp to be globally accessible
   bffApp.userChoice = {};
   //get user choice from checked input button and store as new key-value pair in "userChoice" object
-  bffApp.userChoice.choice1 = $(`input[name=q-diet]:checked`).val();
-  bffApp.userChoice.choice2 = $(`input[name=q-stranger]:checked`).val();
+  bffApp.userChoice.choice1 = $(`input[name=questn-diet]:checked`).val();
+  bffApp.userChoice.choice2 = $(`input[name=questn-stranger]:checked`).val();
   console.log(`capture userchoice: ${bffApp.userChoice.choice1}, ${bffApp.userChoice.choice2}`);
 };
 
@@ -167,7 +153,7 @@ bffApp.printResult= () => {
     };
   
   //if answer has been selected for both questions, show result. else, display error message
-  if ($('input[name=q-diet]:checked').val() && $('input[name=q-stranger]:checked').val()) {
+  if ($('input[name=questn-diet]:checked').val() && $('input[name=questn-stranger]:checked').val()) {
     
     //display appropriate result onto page based on counter results
     if (bffApp.results.bear.counter > bffApp.results.rabbit.counter) {

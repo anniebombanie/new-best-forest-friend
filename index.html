@@ -27,25 +27,25 @@
     <form>
 
       <!-- QUESTION 1 -->
-      <fieldset class="container container__questn--diet" id="questn-diet">
+      <fieldset class="container container__questn--diet">
         <div class="wrapper">
           <legend><span class="questn-num">1.</span> Which diet is more similar to yours?</legend>
           <div>
             <label for="bear1">Meat. Delicious meat.</label>
             <!-- "required" on one input is fine if names are all the same -->
-            <input type="radio" name="q-diet" id="bear1" value="bear">
+            <input type="radio" name="questn-diet" id="bear1" value="bear">
           </div>
           <div>
             <label for="rabbit1">I'm vegan.</label>
-            <input type="radio" name="q-diet" id="rabbit1" value="rabbit">
+            <input type="radio" name="questn-diet" id="rabbit1" value="rabbit">
           </div>
-          <input type="button" value="Next" class="btn btn__scroll--down">
+          <input type="button" value="Next" class="btn btn__scroll--down" data-questn-num="questn--diet">
           <p class="error--no-radio-selected"></p>
         </div>
       </fieldset>
 
       <!-- QUESTION 2 -->
-      <fieldset class="container" id="questn-stranger">
+      <fieldset class="container container__questn--stranger">
         <div class="wrapper">
           <legend><span class="questn-num">2.</span> How would you react if a stranger was yelling angrily at you?</legend>
           <div>
@@ -56,7 +56,7 @@
             <label for="bear2">Punch them. (Noisy human.)</label>
             <input type="radio" name="questn-stranger" id="bear2" value="bear">
           </div>
-          <input type="button" value="Next" class="btn btn__scroll--down">
+          <input type="button" value="Next" class="btn btn__scroll--down" data-questn-num="questn--stranger">
           <p class="error--no-radio-selected"></p>
         </div>
       </fieldset>
