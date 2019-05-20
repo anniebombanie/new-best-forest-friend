@@ -1,11 +1,22 @@
-// BUTTONS
+// LINKS
+a {
+  text-decoration: none;
+  font-weight: 700;
+  color: $black;
+  &:hover {
+    border-bottom: 2px solid $green;
+  }
+}
 
+// BUTTONS
 .btn {
   background-color: $orange;
   padding: 1rem 1.5rem;
   border: none;
   color: $black;
+  font-size: rem-calc(30px);
   font-weight: 700;
+  width: 100%;
 }
 
 .btn-dark {

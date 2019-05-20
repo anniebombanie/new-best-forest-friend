@@ -207,16 +207,17 @@ html {
 body {
   font-family: "Josefin Slab", serif;
   background-color: #f8f3e1;
+  font-size: 1.1rem;
 }
 
 header,
 .container {
-  height: 100vh;
-}
-
-.container.container-display-result {
   height: 100%;
   min-height: 100vh;
+}
+
+header {
+  text-align: center;
 }
 
 .container.container-display-result,
@@ -227,16 +228,13 @@ header,
 h1 {
   font-family: "Fascinate Inline", cursive;
   text-transform: capitalize;
+  font-size: 1.75rem;
 }
 
 img {
   display: block;
   width: 100%;
   min-width: 100%;
-}
-
-a {
-  text-decoration: none;
 }
 
 .wrapper {
@@ -275,14 +273,26 @@ footer {
 footer p {
   margin-bottom: 0;
   text-align: center;
+  font-size: 0.9rem;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #000000;
+}
+
+a:hover {
+  border-bottom: 2px solid #696d31;
 }
 
 .btn {
   background-color: #f8842d;
   padding: 1rem 1.5rem;
-  border: none;
   color: #000000;
+  font-size: 1.5rem;
   font-weight: 700;
+  width: 100%;
 }
 
 .btn-dark:hover {
