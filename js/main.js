@@ -21,7 +21,7 @@ ffApp.results = {
 
 // FUNCTION: Functions that handle events are called event handlers
 ffApp.init = () => {
-  $(`.btn-scroll-down`).on(`click`, ffApp.nextBtnClicked);
+  $(`input[value="Next"]`).on(`click`, ffApp.nextBtnClicked);
   $(`input[type=submit]`).on(`click`, ffApp.compileResult);
   // $(`input[value="Next"]`).on(`click`, ffApp.showError);
   //when reset button gets clicked, scrolls to top
@@ -58,14 +58,15 @@ ffApp.nextBtnClicked = function() {
   ffApp.showError = function (nextBtnElement) {
     //passing parameter here instead of THIS keyword because THIS is just difficult to scope
     if (!ffApp.noRadioSelected($(nextBtnElement).data(`q-num`))) {
-      console.log(`show error running`);
+      console.log(`SHOW ERROR function has been activated`);
 
-      $(nextBtnElement).next('.error-no-radio-selected').text('Please pick an answer!');
+      //append this alert AFTER the next button
+      $(nextBtnElement).after(`<div class="alert"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i><p>Please pick an answer!</p></div>`);
       console.log(nextBtnElement, `WHAT IS DATA`, $(nextBtnElement).data(`q-num`));
     } else {
-      //this clear error message
-      $(nextBtnElement).next('.error-no-radio-selected').text('');
-      console.log(nextBtnElement);
+      //this clears error message once radio has been selected
+      $(nextBtnElement).after(``);
+      console.log(`CLEAR ALERT has been activated`);
       ffApp.scrollDown();
     }
   };
@@ -75,8 +76,7 @@ ffApp.noRadioSelected = (qKey) => {
   console.log(`no radio selcted running- THIS WORKS`);
   //variable to store array of actual html inputs// gets an array like object and using from, converts to an array
 
-  // debugger
-  const radios = Array.from($(`.container__${qKey} input[type=radio]`));
+  const radios = Array.from($(`.container-${qKey} input[type=radio]`));
   console.log(`RETURNING RADIOS ARRAY:`, radios, $(`input[type=radio]`));
 
   // radios.some(radio => radio.checked)
@@ -175,11 +175,7 @@ ffApp.printResult= () => {
       };
     };
   } else {
-  $(`.container__display-result`)
-    .html(
-      `<div class="wrapper">
-            <p class="alert">Please answer all the questions to find out who your new best friend is!</p>
-          </div>`);
+    $(`input[value="Yes, please!"]`).append(`<i class="fas fa-exclamation-triangle" aria-hidden="true"><p class="alert">Please answer all the questions to find out who your new best friend is!</p>`);
   };
 };
 
