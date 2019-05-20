@@ -5,8 +5,19 @@
   padding: 1rem 1.5rem;
   border: none;
   color: $black;
+  font-weight: 700;
+}
+
+.btn-dark {
   &:hover {
     background-color: $green;
     color: $beige;
+  }
+}
+
+.btn-light {
+  &:hover {
+    background-color: $pink;
+    color: $black;
   }
 }

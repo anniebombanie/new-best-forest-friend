@@ -214,8 +214,9 @@ header,
   height: 100vh;
 }
 
-fieldset {
-  border: none;
+.container.container-display-result {
+  height: 100%;
+  min-height: 100vh;
 }
 
 h1 {
@@ -239,13 +240,20 @@ a {
   padding: 0 1rem;
 }
 
-legend {
+.label {
   font-weight: 700;
+}
+
+.label {
   padding-bottom: 1rem;
 }
 
 .container-reset-quiz {
   display: none;
+}
+
+p {
+  margin-top: 0;
 }
 
 label {
@@ -261,15 +269,31 @@ label {
   background-color: #fdb3d0;
 }
 
+footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+footer p {
+  margin-bottom: 0;
+  text-align: center;
+}
+
 .btn {
   background-color: #f8842d;
   padding: 1rem 1.5rem;
   border: none;
   color: #000000;
+  font-weight: 700;
 }
 
-.btn:hover {
+.btn-dark:hover {
   background-color: #696d31;
   color: #f8f3e1;
+}
+
+.btn-light:hover {
+  background-color: #fdb3d0;
+  color: #000000;
 }
 /*# sourceMappingURL=style.css.map */

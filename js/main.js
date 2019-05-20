@@ -1,7 +1,7 @@
-//NAMESPACE: Store "Best Forest Friend App"
+//NAMESPACE: Stores "Best Forest Friend app"
 const ffApp = {};
 
-//OBJECT OF POSSIBLE QUIZ RESULTS
+//OBJECT: Holds possible quiz results
 ffApp.results = {
   bear: {
     name: `bear`,
@@ -17,42 +17,56 @@ ffApp.results = {
     description: `While navigating thtough the forest, you stay alert and vigilant. Together with your new best forest friend, RABBIT, you'll avoid any dangers that might pop up.`,
     counter: 0
   }
-}
+};
 
-// METHOD: These event handlers run when the quiz has been initialized
+// DOCUMENT READY: Initialise quiz when DOM is ready and loaded
+$(function () {
+  ffApp.init();
+});
+
+// METHOD (INIT): These event handlers run when the quiz has been initialized
 ffApp.init = () => {
   $(`input[value="Let's Get Started!"]`).on(`click`, ffApp.scrollDown);
   $(`input[value="Next"]`).on(`click`, ffApp.nextBtnClicked);
-  $(`input[type=submit]`).on(`click`, ffApp.compileResult);
+  $(`input[type=submit]`).on(`click`, ffApp.submitBtnClicked);
   $('.btn-reset-quiz').on("click", function () {
+    //scrolls to the top of the page
     $(window).scrollTop(0);
+    //removes the results and reset btn area altogether
+    $(`.container-display-result`).css(`display`, `none`);
     $(`.container-reset-quiz`).css(`display`, `none`);
   });
 };
 
-// METHOD: These event handlers run when the quiz has been initialized
+// METHOD: Scrolls down by 100%vh when button is clicked
+ffApp.scrollDown = () => {
+  window.scrollBy(0, window.innerHeight)
+};
+
+// METHOD: What happens when next button is clicked
 ffApp.nextBtnClicked = function() {
-  console.log(`next btn clicked - THIS WORKS`);
-  ffApp.showError (this); //to do with where its called and passing so parameters 
-  console.log(`THIS IS WHAT THIS IS ON NXTBTNCLICKED`, this);
-  };
+  console.log(`next btn has been clicked`);
+  //THIS is passed here as argument so that it binds to specific "Next" button instead of window
+  ffApp.showError (this); 
+  console.log(`THIS IS WHAT "THIS" IS ON NXTBTNCLICKED`, this);
+};
 
-  //METHOD: Show error
-  ffApp.showError = function (nextBtnElement) {
-    //passing parameter here instead of THIS keyword because THIS is just difficult to scope
-    if (!ffApp.noRadioSelected($(nextBtnElement).data(`q-num`))) {
-      console.log(`SHOW ERROR function has been activated`);
+//METHOD: Show error
+ffApp.showError = function (nextBtnElement) {
+  //passing parameter here (instead of THIS keyword) because otherwise binded t ???
+  if (!ffApp.noRadioSelected($(nextBtnElement).data(`q-num`))) {
+    console.log(`SHOW ERROR function has been activated`);
 
-      //append this alert AFTER the next button
-      $(nextBtnElement).after(`<div class="alert"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i><p>Please pick an answer!</p></div>`);
-      console.log(nextBtnElement, `WHAT IS DATA`, $(nextBtnElement).data(`q-num`));
-    } else {
-      //this clears error message once radio has been selected
-      $(nextBtnElement).after(``);
-      console.log(`CLEAR ALERT has been activated`);
-      ffApp.scrollDown();
-    }
-  };
+    //append this alert AFTER the next button
+    $(nextBtnElement).after(`<div class="alert"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i><p>Please pick an answer!</p></div>`);
+    console.log(nextBtnElement, `WHAT IS DATA`, $(nextBtnElement).data(`q-num`));
+  } else {
+    //this clears error message once radio has been selected NOT WORKING ???
+    $(nextBtnElement).after(``);
+    console.log(`CLEAR ALERT has been activated`);
+    ffApp.scrollDown();
+  }
+};
 
 //METHOD: Checks if the radio button is selected and creates an array of these fieldsets
 ffApp.noRadioSelected = (qKey) => {
@@ -68,13 +82,8 @@ ffApp.noRadioSelected = (qKey) => {
   });
 };
 
-// METHOD: Scrolls down by a 100%vh when button is clicked
-ffApp.scrollDown = () => {
-  window.scrollBy(0, window.innerHeight)
-};
-
 // METHOD: Stores methods that runs when submit button is clicked
-ffApp.compileResult = (e) => {
+ffApp.submitBtnClicked = (e) => {
   //prevent default behaviour of submit button
   e.preventDefault();
   ffApp.resetCounter();
@@ -115,36 +124,32 @@ ffApp.choiceCounter = () => {
 ffApp.printResult= () => {
   // console.log(`display friend button pushed`);
 
-  //create methods to hold the html results that will be displayed when called
+  //METHODS: To hold the html results that will be displayed when called
   const printBear = () => {
     $(`.container-display-result`)
-      .html(`<p>Your new forest friend is:</p>
+      .html(`<div class="wrapper"><p>Your new forest friend is:</p>
       <h2>${ffApp.results.bear.name}!</h2>`)
-      .append(`<img src='${ffApp.results.bear.img}' alt='${ffApp.results.bear.alt}'>`)
-      .append(`<p>${ffApp.results.bear.description}</p>`);
+      .append(`<img src='${ffApp.results.bear.img}' alt='${ffApp.results.bear.alt}'><p>${ffApp.results.bear.description}</p></div>`);
     $(`.container-reset-quiz`).css(`display`, `block`);
     };
   const printRabbit = () => {
     $(`.container-display-result`)
-      .html(`<p>Your new forest friend is:</p>
+      .html(`<div class="wrapper"><p>Your new forest friend is:</p>
       <h2>${ffApp.results.rabbit.name}</h2>`)
-      .append(`<img src='${ffApp.results.rabbit.img}' alt='${ffApp.results.rabbit.alt}'>`)
-      .append(`<p>${ffApp.results.rabbit.description}</p>`);
+      .append(`<img src='${ffApp.results.rabbit.img}' alt='${ffApp.results.rabbit.alt}'><p>${ffApp.results.rabbit.description}</p></div>`);
     $(`.container-reset-quiz`).css(`display`, `block`);
     };
   
-  //if answer has been selected for both questions, show result. else, display error message
+  //if answer has been selected for both questions, show result. Else, display error message
   if ($('input[name=q-diet]:checked').val() && $('input[name=q-stranger]:checked').val()) {
-    
+    ffApp.scrollDown();
     //display appropriate result onto page based on counter results
     if (ffApp.results.bear.counter > ffApp.results.rabbit.counter) {
       printBear();
-    }
-    else if (ffApp.results.bear.counter < ffApp.results.rabbit.counter) {
+    } else if (ffApp.results.bear.counter < ffApp.results.rabbit.counter) {
       printRabbit();
     } else if (ffApp.results.bear.counter === 1 && ffApp.results.rabbit.counter === 1) {
-
-      //create box to store new array and grab the values of "results" objects (= "animal" objects)
+      //create box to store new array, holding values of "results" objects
       const animalPropertiesArr = Object.values(ffApp.results);
       //generate a random number of 0 or 1 that we need to store in "randomAnimalChoice"
       const randomAnimalChoice = Math.floor(Math.random() * animalPropertiesArr.length);
@@ -153,15 +158,11 @@ ffApp.printResult= () => {
         printRabbit();
       } else {
         printBear();
-      };
-    };
+      }
+    }
   } else {
-    $(`input[value="Yes, please!"]`).append(`<i class="fas fa-exclamation-triangle" aria-hidden="true"><p class="alert">Please answer all the questions to find out who your new best friend is!</p>`);
-  };
+    $(`input[value="Yes, please!"]`).after(`<i class="fas fa-exclamation-triangle" aria-hidden="true"><p class="alert">Whoops- you're an eager beaver but please answer all the questions above!</p>`);
+    //removes/resets the error message when clicked again NOT WORKING ???
+    $(`input[value="Yes, please!"]`).after(``);  
+  }
 };
-
-// DOCUMENT READY
-$(function () {
-  //initialise quiz when DOM is ready and loaded
-  ffApp.init();
-});
