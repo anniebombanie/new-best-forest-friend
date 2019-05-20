@@ -53,9 +53,24 @@ const name = () => {
 
 bffApp.nextBtnClicked = function() {
   console.log(`next btn clicked - THIS WORKS`);
-  bffApp.showError ();
-  console.log(this);
-  
+  bffApp.showError (this); //to do with where its called and passing so parameters 
+  console.log(`THIS IS WHAT THIS IS ON NXTBTNCLICKED`, this);
+  };
+
+  //METHOD: Show error
+  bffApp.showError = function (nextBtnElement) {
+    //passing parameter here instead of THIS keyword because THIS is just difficult to scope
+    if (!bffApp.noRadioSelected()) {
+      console.log(`show error running`);
+
+      $(nextBtnElement).next('.error--no-radio-selected').text('Please pick an answer!');
+      console.log(nextBtnElement);
+    } else {
+      //this clear error message
+      $(nextBtnElement).next('.error--no-radio-selected').text('');
+      console.log(nextBtnElement);
+      bffApp.scrollDown();
+    }
   };
 
 //METHOD: Checks if the radio button is selected and creates an array 
@@ -72,7 +87,7 @@ bffApp.noRadioSelected = () => {
   radios.forEach(radio => {
     if (radio.checked) {
       numChecked += 1;
-    };
+    }
   });
 
   //checks if number of radio buttons clicked === the number of quiz questions and if so, add one so that the qNum counter so that it's accumulative
@@ -81,20 +96,9 @@ bffApp.noRadioSelected = () => {
     return true;
   } else {
     return false;
-  };
+  }
 };
 
-//METHOD: Show error
-bffApp.showError = function () {
-  if (!bffApp.noRadioSelected()) {
-    console.log(`show error running`);
-    
-    $(this).next('.error--no-radio-selected').text('Please pick an answer!');
-    console.log(this, $(this).next('.error--no-radio-selected'));
-  } else {
-    bffApp.scrollDown();
-  };
-};
 
 // METHOD: Scrolls down to element when button is clicked
 bffApp.scrollDown = () => {
