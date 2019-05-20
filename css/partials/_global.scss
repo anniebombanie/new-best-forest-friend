@@ -9,7 +9,7 @@ body {
 }
 
 header,
-fieldset {
+.container {
   height: 100vh;
 }
 
@@ -19,12 +19,17 @@ fieldset {
 
 h1{
   font-family: $font-secondary;
+  text-transform: capitalize;
 } 
 
 img {
 	display: block;
 	width: 100%;
 	min-width: 100%;
+}
+
+a {
+  text-decoration: none;
 }
 
 .wrapper {
@@ -46,10 +51,11 @@ label {
   padding-bottom: .5rem;
 }
 
-bg-green {
+.bg-green {
   background-color: $green;
+  color: $beige;
 }
 
-bg-pink {
+.bg-pink {
   background-color: $pink;
 }
