@@ -30,11 +30,11 @@ ffApp.init = () => {
   $(`input[value="Next"]`).on(`click`, ffApp.nextBtnClicked);
   $(`input[type=submit]`).on(`click`, ffApp.submitBtnClicked);
   $('.btn-reset-quiz').on("click", function () {
-    //scrolls to the top of the page
-    $(window).scrollTop(0);
     //removes the results and reset btn area altogether
     $(`.container-display-result`).css(`display`, `none`);
     $(`.container-reset-quiz`).css(`display`, `none`);
+    //scrolls to the top of the page NOT WORKING ???
+    $(window).scrollTop(0);
   });
 };
 
@@ -142,7 +142,6 @@ ffApp.printResult= () => {
   
   //if answer has been selected for both questions, show result. Else, display error message
   if ($('input[name=q-diet]:checked').val() && $('input[name=q-stranger]:checked').val()) {
-    ffApp.scrollDown();
     //display appropriate result onto page based on counter results
     if (ffApp.results.bear.counter > ffApp.results.rabbit.counter) {
       printBear();
@@ -159,7 +158,8 @@ ffApp.printResult= () => {
       } else {
         printBear();
       }
-    }
+    } //scroll down to result AFTER it has been populated, not before (or else mini-scroll)
+    ffApp.scrollDown();
   } else {
     $(`input[value="Yes, please!"]`).after(`<i class="fas fa-exclamation-triangle" aria-hidden="true"><p class="alert">Whoops- you're an eager beaver but please answer all the questions above!</p>`);
     //removes/resets the error message when clicked again NOT WORKING ???
