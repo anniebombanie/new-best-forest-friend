@@ -1,4 +1,4 @@
-//NAMESPACE: Store "Best Forest Friend App" (No let/const in front of methods stored inside as they exist as objects)
+//NAMESPACE: Store "Best Forest Friend App"
 const ffApp = {};
 
 //OBJECT OF POSSIBLE QUIZ RESULTS
@@ -19,35 +19,18 @@ ffApp.results = {
   }
 }
 
-// FUNCTION: Functions that handle events are called event handlers
+// METHOD: These event handlers run when the quiz has been initialized
 ffApp.init = () => {
+  $(`input[value="Let's Get Started!"]`).on(`click`, ffApp.scrollDown);
   $(`input[value="Next"]`).on(`click`, ffApp.nextBtnClicked);
   $(`input[type=submit]`).on(`click`, ffApp.compileResult);
-  // $(`input[value="Next"]`).on(`click`, ffApp.showError);
-  //when reset button gets clicked, scrolls to top
   $('.btn-reset-quiz').on("click", function () {
     $(window).scrollTop(0);
     $(`.container-reset-quiz`).css(`display`, `none`);
   });
 };
 
-/*
-function name() {
-  ...
-}
-
-// using function explictly binds the THIS keyword to when it is called (ES5 used .bind function to bind to a value)
-const name = function() {
-  ...
-}
-
-// using arrow function binds the THIS keyword to when it is declared
-const name = () => {
-  return 1
-}
-*/
-
-
+// METHOD: These event handlers run when the quiz has been initialized
 ffApp.nextBtnClicked = function() {
   console.log(`next btn clicked - THIS WORKS`);
   ffApp.showError (this); //to do with where its called and passing so parameters 
@@ -85,10 +68,8 @@ ffApp.noRadioSelected = (qKey) => {
   });
 };
 
-
-// METHOD: Scrolls down to element when button is clicked
+// METHOD: Scrolls down by a 100%vh when button is clicked
 ffApp.scrollDown = () => {
-  // console.log(`scroll down button pushed`);
   window.scrollBy(0, window.innerHeight)
 };
 
