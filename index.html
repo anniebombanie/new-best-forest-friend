@@ -29,38 +29,48 @@
       <!-- QUESTION 1 -->
       <div role="group" class="container container-q-diet bg-green">
         <div class="wrapper">
-          <div class="label-q-diet">
-            <span class="q-num">1.</span> Which diet is more similar to yours?</div>
-          <div>
-            <label for="bear-1">Meat. Delicious meat.</label>
-            <!-- "required" on one input is fine if names are all the same -->
-            <input type="radio" name="q-diet" id="bear-1" value="bear">
+          <div class="q-num">
+            <span>1.</span>
           </div>
           <div>
-            <label for="rabbit-1">I'm vegan.</label>
-            <input type="radio" name="q-diet" id="rabbit-1" value="rabbit">
+            <div class="q-diet-label">Which diet is more similar to yours?</div>
+            <div class="q-diet-inputs">
+              <div>
+                <label for="bear-1">Meat. Delicious meat.</label>
+                <input type="radio" name="q-diet" id="bear-1" value="bear" required="required">
+              </div>
+              <div>
+                <label for="rabbit-1">I'm vegan.</label>
+                <input type="radio" name="q-diet" id="rabbit-1" value="rabbit">
+              </div>
+              <input type="button" value="Next" class="btn btn-scroll-down btn-light" data-q-num="q-diet">
+              <p class="error-no-radio-selected"></p>
+            </div>
           </div>
-          <input type="button" value="Next" class="btn btn-scroll-down btn-light" data-q-num="q-diet">
-          <p class="error-no-radio-selected"></p>
         </div><!-- /.wrapper -->
       </div>
 
       <!-- QUESTION 2 -->
       <div role="group" class="container container-q-stranger bg-pink">
         <div class="wrapper">
-          <div class="label-q-stranger">
-            <span class="q-num">2.</span> How would you react if a stranger was yelling angrily at you?
+          <div class="q-num">
+            <span>2.</span>
           </div>
           <div>
-            <label for="rabbit-2">Run away as fast and far as I could.</label>
-            <input type="radio" name="q-stranger" id="rabbit-2" value="rabbit" required="required">
+            <div class="q-stranger-label">How would you react if a stranger was yelling angrily at you?</div>
+            <div class="q-diet-inputs">
+              <div>
+                <label for="rabbit-2">Run away as fast and far as I could.</label>
+                <input type="radio" name="q-stranger" id="rabbit-2" value="rabbit" required="required">
+              </div>
+              <div>
+                <label for="bear-2">Yell back at them!</label>
+                <input type="radio" name="q-stranger" id="bear-2" value="bear">
+              </div>
+              <input type="button" value="Next" class="btn btn-scroll-down btn-dark" data-q-num="q-stranger">
+              <p class="error-no-radio-selected"></p>
+            </div>
           </div>
-          <div>
-            <label for="bear-2">Yell back at them.</label>
-            <input type="radio" name="q-stranger" id="bear-2" value="bear">
-          </div>
-          <input type="button" value="Next" class="btn btn-scroll-down btn-dark" data-q-num="q-stranger">
-          <p class="error-no-radio-selected"></p>
         </div><!-- /.wrapper -->
       </div>
 
