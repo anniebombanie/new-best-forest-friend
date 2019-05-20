@@ -29,13 +29,7 @@ ffApp.init = () => {
   $(`input[value="Let's Get Started!"]`).on(`click`, ffApp.scrollDown);
   $(`input[value="Next"]`).on(`click`, ffApp.nextBtnClicked);
   $(`input[type=submit]`).on(`click`, ffApp.submitBtnClicked);
-  $('.btn-reset-quiz').on("click", function () {
-    //removes the results and reset btn area altogether
-    $(`.container-display-result`).css(`display`, `none`);
-    $(`.container-reset-quiz`).css(`display`, `none`);
-    //scrolls to the top of the page NOT WORKING ???
-    $(window).scrollTop(0);
-  });
+  $('.btn-reset-quiz').on("click", ffApp.resetBtnClicked);
 };
 
 // METHOD: Scrolls down by 100%vh when button is clicked
@@ -51,7 +45,7 @@ ffApp.nextBtnClicked = function() {
   console.log(`THIS IS WHAT "THIS" IS ON NXTBTNCLICKED`, this);
 };
 
-//METHOD: Show error
+//METHOD: Show error if no radio button selected
 ffApp.showError = function (nextBtnElement) {
   //passing parameter here (instead of THIS keyword) because otherwise binded t ???
   if (!ffApp.noRadioSelected($(nextBtnElement).data(`q-num`))) {
@@ -68,16 +62,15 @@ ffApp.showError = function (nextBtnElement) {
   }
 };
 
-//METHOD: Checks if the radio button is selected and creates an array of these fieldsets
+//METHOD: Checks if the radio button is selected and creates an array out of the question inputs
 ffApp.noRadioSelected = (qKey) => {
   console.log(`no radio selcted running- THIS WORKS`);
-  //variable to store array of actual html inputs// gets an array like object and using from, converts to an array
-
+  //variable to store array of actual html inputs > returns an array-like object $(`input[type=radio]`) and converts to an array using .from
   const radios = Array.from($(`.container-${qKey} input[type=radio]`));
   console.log(`RETURNING RADIOS ARRAY:`, radios, $(`input[type=radio]`));
 
-  // radios.some(radio => radio.checked)
-  return radios.some(radio => { //instead of foreach because for each you'll have to mutate anything and write many times for each radio instance
+  //.some tests that at least one radio is checked and returns boolean (.foreach will iterate through ALL of them) ???
+  return radios.some(radio => {
     return radio.checked;
   });
 };
@@ -92,7 +85,7 @@ ffApp.submitBtnClicked = (e) => {
   ffApp.printResult();
 };
 
-//METHOD: Resets counter to 0. (Can't use ONCE function with submit button because reset fields doesn't reload DOM and puts submit button out of action)
+//METHOD: Resets counter to 0. (Can't use ONCE function with submit button because reset doesn't reload DOM and puts submit button out of action)
 ffApp.resetCounter = () => {
   ffApp.results.bear.counter = 0;
   ffApp.results.rabbit.counter = 0;
@@ -165,4 +158,13 @@ ffApp.printResult= () => {
     //removes/resets the error message when clicked again NOT WORKING ???
     $(`input[value="Yes, please!"]`).after(``);  
   }
+};
+
+//METHOD: Resets the quiz
+ffApp.resetBtnClicked = () => {
+  //removes the results and reset btn areas altogether
+  $(`.container-display-result`).css(`display`, `none`);
+  $(`.container-reset-quiz`).css(`display`, `none`);
+  //scrolls to the top of the page
+  $(window).scrollTop(0);
 };
