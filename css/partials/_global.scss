@@ -10,8 +10,6 @@ body {
 
 header,
 fieldset {
-  padding-top:  15%;
-  padding-bottom: 15%;
   height: 100vh;
 }
 
@@ -30,7 +28,7 @@ img {
 }
 
 .wrapper {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -40,10 +38,18 @@ legend {
   padding-bottom: 1rem;
 }
 
-.container__reset {
+.container-reset-quiz {
   display: none;
 }
 
 label {
   padding-bottom: .5rem;
+}
+
+bg-green {
+  background-color: $green;
+}
+
+bg-pink {
+  background-color: $pink;
 }

@@ -19,7 +19,7 @@
       <h1>your new best <span>forest</span> friend</h1>
       <p>Life's tough enough without a best friend. If by chance you're navigating through a forest without one, it might even be perilous.</p>
       <p>A quiz to find your perfect forest paring. (And keep yourself safe.)</p>
-      <input type="button" value="Let's get started!" class="btn btn__scroll--down">
+      <input type="button" value="Let's get started!" class="btn btn-scroll-down btn-dark">
     </div>
   </header>
 
@@ -27,77 +27,83 @@
     <form>
 
       <!-- QUESTION 1 -->
-      <fieldset class="container container__questn--diet">
+      <div role="group" class="container container-q-diet bg-green">
         <div class="wrapper">
-          <legend><span class="questn-num">1.</span> Which diet is more similar to yours?</legend>
+          <div class="label-q-diet">
+            <span class="q-num">1.</span> Which diet is more similar to yours?</div>
           <div>
-            <label for="bear1">Meat. Delicious meat.</label>
+            <label for="bear-1">Meat. Delicious meat.</label>
             <!-- "required" on one input is fine if names are all the same -->
-            <input type="radio" name="questn-diet" id="bear1" value="bear">
+            <input type="radio" name="q-diet" id="bear-1" value="bear">
           </div>
           <div>
-            <label for="rabbit1">I'm vegan.</label>
-            <input type="radio" name="questn-diet" id="rabbit1" value="rabbit">
+            <label for="rabbit-1">I'm vegan.</label>
+            <input type="radio" name="q-diet" id="rabbit-1" value="rabbit">
           </div>
-          <input type="button" value="Next" class="btn btn__scroll--down" data-questn-num="questn--diet">
-          <p class="error--no-radio-selected"></p>
-        </div>
-      </fieldset>
-
-      <!-- QUESTION 2 -->
-      <fieldset class="container container__questn--stranger">
-        <div class="wrapper">
-          <legend><span class="questn-num">2.</span> How would you react if a stranger was yelling angrily at you?</legend>
-          <div>
-            <label for="rabbit2">Run away as fast and far as I could.</label>
-            <input type="radio" name="questn-stranger" id="rabbit2" value="rabbit" required="required">
-          </div>
-          <div>
-            <label for="bear2">Punch them. (Noisy human.)</label>
-            <input type="radio" name="questn-stranger" id="bear2" value="bear">
-          </div>
-          <input type="button" value="Next" class="btn btn__scroll--down" data-questn-num="questn--stranger">
-          <p class="error--no-radio-selected"></p>
-        </div>
-      </fieldset>
-
-      <!-- BUTTON TO SHOW RESULT -->
-      <fieldset class="container container__meet-friend-btn" id="submit">
-        <div class="wrapper">
-          <p>Ready to meet your new best friend?</p>
-          <input type="submit" value="Yes, please!" class="btn btn__scroll--down">
-          <p class="error--missing-radio-selected"></p>
-        </div>
-      </fieldset>
-
-      <!-- DYNAMICALLY INSERTED RESULT -->
-      <div class="container container__display-result" id="display-result">
-        <div class="wrapper">
-          <div class="display-result--content">
-          </div>
-        </div>
+          <input type="button" value="Next" class="btn btn-scroll-down btn-light" data-q-num="q-diet">
+          <p class="error-no-radio-selected"></p>
+        </div><!-- /.wrapper -->
       </div>
 
-      <!-- DYNAMICALLY INSERTED RESULT -->
-      <div class="container container__reset">
+      <!-- QUESTION 2 -->
+      <div role="group" class="container container-q-stranger bg-pink">
+        <div class="wrapper">
+          <div class="label-q-stranger">
+            <span class="q-num">2.</span> How would you react if a stranger was yelling angrily at you?
+          </div>
+          <div>
+            <label for="rabbit-2">Run away as fast and far as I could.</label>
+            <input type="radio" name="q-stranger" id="rabbit-2" value="rabbit" required="required">
+          </div>
+          <div>
+            <label for="bear-2">Punch them. (Noisy human.)</label>
+            <input type="radio" name="q-stranger" id="bear-2" value="bear">
+          </div>
+          <input type="button" value="Next" class="btn btn-scroll-down btn-dark" data-q-num="q-stranger">
+          <p class="error-no-radio-selected"></p>
+        </div><!-- /.wrapper -->
+      </div>
+
+      <!-- YES SEE RESULT -->
+      <div role="group" class="container container-meet-friend bg-green">
+        <div class="wrapper">
+          <p>Ready to meet your new forest friend?</p>
+          <input type="submit" value="Yes, please!" class="btn btn-scroll-down btn-light">
+          <p class="error-missing-radio-selected"></p>
+        </div><!-- /.wrapper -->
+      </div>
+
+      <!-- RESULT OF QUIZ -->
+      <div class="container container-display-result">
+        <div class="wrapper">
+          <div class="content-display-result">
+          </div>
+        </div><!-- /.wrapper -->
+      </div>
+
+      <!-- RESET QUIZ -->
+      <div class="container container-reset-quiz bg-green">
         <div class="wrapper">
           <p>One can never have enough friends, so...</p>
-          <input type="reset" value="Another forest friend, please!" class="btn btn__scroll--top">
-        </div>
+          <input type="reset" value="Another forest friend, please!" class="btn btn-reset-quiz btn-light">
+        </div><!-- /.wrapper -->
       </div>
     
     </form>
   </main>
 
-  <footer>
+  <!-- FOOTER -->
+  <footer class="bg-pink">
     <div class="wrapper">
       <p>Hand-coded & designed with ♥ by <a href="www.anniebombanie.com" target="_blank">Annie Liew</a></p>
-    </div>
+    </div><!-- /.wrapper -->
   </footer>
 
   <!-- JQUERY & JAVASCRIPT -->
   <script src='https://code.jquery.com/jquery-3.2.1.min.js'
     integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous'></script>
   <script src="./js/main.js"></script>
+
+</body>
 
 </html>

@@ -1,8 +1,8 @@
 //NAMESPACE: Store "Best Forest Friend App" (No let/const in front of methods stored inside as they exist as objects)
-const bffApp = {};
+const ffApp = {};
 
 //OBJECT OF POSSIBLE QUIZ RESULTS
-bffApp.results = {
+ffApp.results = {
   bear: {
     name: `bear`,
     img: `./assets/bear.svg`,
@@ -20,14 +20,14 @@ bffApp.results = {
 }
 
 // FUNCTION: Functions that handle events are called event handlers
-bffApp.init = () => {
-  $(`.btn__scroll--down`).on(`click`, bffApp.nextBtnClicked);
-  $(`input[type=submit]`).on(`click`, bffApp.compileResult);
-  // $(`input[value="Next"]`).on(`click`, bffApp.showError);
+ffApp.init = () => {
+  $(`.btn-scroll-down`).on(`click`, ffApp.nextBtnClicked);
+  $(`input[type=submit]`).on(`click`, ffApp.compileResult);
+  // $(`input[value="Next"]`).on(`click`, ffApp.showError);
   //when reset button gets clicked, scrolls to top
-  $('.btn__scroll--top').on("click", function () {
+  $('.btn-reset-quiz').on("click", function () {
     $(window).scrollTop(0);
-    $(`.container__reset`).css(`display`, `none`);
+    $(`.container-reset-quiz`).css(`display`, `none`);
   });
 };
 
@@ -48,35 +48,35 @@ const name = () => {
 */
 
 
-bffApp.nextBtnClicked = function() {
+ffApp.nextBtnClicked = function() {
   console.log(`next btn clicked - THIS WORKS`);
-  bffApp.showError (this); //to do with where its called and passing so parameters 
+  ffApp.showError (this); //to do with where its called and passing so parameters 
   console.log(`THIS IS WHAT THIS IS ON NXTBTNCLICKED`, this);
   };
 
   //METHOD: Show error
-  bffApp.showError = function (nextBtnElement) {
+  ffApp.showError = function (nextBtnElement) {
     //passing parameter here instead of THIS keyword because THIS is just difficult to scope
-    if (!bffApp.noRadioSelected($(nextBtnElement).data(`questn-num`))) {
+    if (!ffApp.noRadioSelected($(nextBtnElement).data(`q-num`))) {
       console.log(`show error running`);
 
-      $(nextBtnElement).next('.error--no-radio-selected').text('Please pick an answer!');
-      console.log(nextBtnElement, `WHAT IS DATA`, $(nextBtnElement).data(`questn-num`));
+      $(nextBtnElement).next('.error-no-radio-selected').text('Please pick an answer!');
+      console.log(nextBtnElement, `WHAT IS DATA`, $(nextBtnElement).data(`q-num`));
     } else {
       //this clear error message
-      $(nextBtnElement).next('.error--no-radio-selected').text('');
+      $(nextBtnElement).next('.error-no-radio-selected').text('');
       console.log(nextBtnElement);
-      bffApp.scrollDown();
+      ffApp.scrollDown();
     }
   };
 
 //METHOD: Checks if the radio button is selected and creates an array of these fieldsets
-bffApp.noRadioSelected = (questnKey) => {
+ffApp.noRadioSelected = (qKey) => {
   console.log(`no radio selcted running- THIS WORKS`);
   //variable to store array of actual html inputs// gets an array like object and using from, converts to an array
 
   // debugger
-  const radios = Array.from($(`.container__${questnKey} input[type=radio]`));
+  const radios = Array.from($(`.container__${qKey} input[type=radio]`));
   console.log(`RETURNING RADIOS ARRAY:`, radios, $(`input[type=radio]`));
 
   // radios.some(radio => radio.checked)
@@ -87,84 +87,84 @@ bffApp.noRadioSelected = (questnKey) => {
 
 
 // METHOD: Scrolls down to element when button is clicked
-bffApp.scrollDown = () => {
+ffApp.scrollDown = () => {
   // console.log(`scroll down button pushed`);
   window.scrollBy(0, window.innerHeight)
 };
 
 // METHOD: Stores methods that runs when submit button is clicked
-bffApp.compileResult = (e) => {
+ffApp.compileResult = (e) => {
   //prevent default behaviour of submit button
   e.preventDefault();
-  bffApp.resetCounter();
-  bffApp.captureChoice();
-  bffApp.choiceCounter();
-  bffApp.printResult();
+  ffApp.resetCounter();
+  ffApp.captureChoice();
+  ffApp.choiceCounter();
+  ffApp.printResult();
 };
 
 //METHOD: Resets counter to 0. (Can't use ONCE function with submit button because reset fields doesn't reload DOM and puts submit button out of action)
-bffApp.resetCounter = () => {
-  bffApp.results.bear.counter = 0;
-  bffApp.results.rabbit.counter = 0;
+ffApp.resetCounter = () => {
+  ffApp.results.bear.counter = 0;
+  ffApp.results.rabbit.counter = 0;
 };
 
 // METHOD: Captures user choice
-bffApp.captureChoice = () => {
-  //create object to hold user choice. Prefix with bffApp to be globally accessible
-  bffApp.userChoice = {};
+ffApp.captureChoice = () => {
+  //create object to hold user choice. Prefix with ffApp to be globally accessible
+  ffApp.userChoice = {};
   //get user choice from checked input button and store as new key-value pair in "userChoice" object
-  bffApp.userChoice.choice1 = $(`input[name=questn-diet]:checked`).val();
-  bffApp.userChoice.choice2 = $(`input[name=questn-stranger]:checked`).val();
-  console.log(`capture userchoice: ${bffApp.userChoice.choice1}, ${bffApp.userChoice.choice2}`);
+  ffApp.userChoice.choice1 = $(`input[name=q-diet]:checked`).val();
+  ffApp.userChoice.choice2 = $(`input[name=q-stranger]:checked`).val();
+  console.log(`capture userchoice: ${ffApp.userChoice.choice1}, ${ffApp.userChoice.choice2}`);
 };
 
 // METHOD: Counts user choice
-bffApp.choiceCounter = () => {
+ffApp.choiceCounter = () => {
   //use for-in loop to iterate through "userChoice" to count how many of each animal was selected, then update "counter" value by 1 each time
-  for (i in bffApp.userChoice) {
-    if (bffApp.userChoice[i] === `bear`) {
-      bffApp.results.bear.counter++;
-    } else if (bffApp.userChoice[i] === `rabbit`) {
-      bffApp.results.rabbit.counter++;
+  for (i in ffApp.userChoice) {
+    if (ffApp.userChoice[i] === `bear`) {
+      ffApp.results.bear.counter++;
+    } else if (ffApp.userChoice[i] === `rabbit`) {
+      ffApp.results.rabbit.counter++;
    };
   };
 };
 
 // METHOD: Displays result (new forest friend)
-bffApp.printResult= () => {
+ffApp.printResult= () => {
   // console.log(`display friend button pushed`);
 
   //create methods to hold the html results that will be displayed when called
   const printBear = () => {
-    $(`.container__display-result`)
+    $(`.container-display-result`)
       .html(`<p>Your new forest friend is:</p>
-      <h2>${bffApp.results.bear.name}!</h2>`)
-      .append(`<img src='${bffApp.results.bear.img}' alt='${bffApp.results.bear.alt}'>`)
-      .append(`<p>${bffApp.results.bear.description}</p>`);
-    $(`.container__reset`).css(`display`, `block`);
+      <h2>${ffApp.results.bear.name}!</h2>`)
+      .append(`<img src='${ffApp.results.bear.img}' alt='${ffApp.results.bear.alt}'>`)
+      .append(`<p>${ffApp.results.bear.description}</p>`);
+    $(`.container-reset-quiz`).css(`display`, `block`);
     };
   const printRabbit = () => {
-    $(`.container__display-result`)
+    $(`.container-display-result`)
       .html(`<p>Your new forest friend is:</p>
-      <h2>${bffApp.results.rabbit.name}</h2>`)
-      .append(`<img src='${bffApp.results.rabbit.img}' alt='${bffApp.results.rabbit.alt}'>`)
-      .append(`<p>${bffApp.results.rabbit.description}</p>`);
-    $(`.container__reset`).css(`display`, `block`);
+      <h2>${ffApp.results.rabbit.name}</h2>`)
+      .append(`<img src='${ffApp.results.rabbit.img}' alt='${ffApp.results.rabbit.alt}'>`)
+      .append(`<p>${ffApp.results.rabbit.description}</p>`);
+    $(`.container-reset-quiz`).css(`display`, `block`);
     };
   
   //if answer has been selected for both questions, show result. else, display error message
-  if ($('input[name=questn-diet]:checked').val() && $('input[name=questn-stranger]:checked').val()) {
+  if ($('input[name=q-diet]:checked').val() && $('input[name=q-stranger]:checked').val()) {
     
     //display appropriate result onto page based on counter results
-    if (bffApp.results.bear.counter > bffApp.results.rabbit.counter) {
+    if (ffApp.results.bear.counter > ffApp.results.rabbit.counter) {
       printBear();
     }
-    else if (bffApp.results.bear.counter < bffApp.results.rabbit.counter) {
+    else if (ffApp.results.bear.counter < ffApp.results.rabbit.counter) {
       printRabbit();
-    } else if (bffApp.results.bear.counter === 1 && bffApp.results.rabbit.counter === 1) {
+    } else if (ffApp.results.bear.counter === 1 && ffApp.results.rabbit.counter === 1) {
 
       //create box to store new array and grab the values of "results" objects (= "animal" objects)
-      const animalPropertiesArr = Object.values(bffApp.results);
+      const animalPropertiesArr = Object.values(ffApp.results);
       //generate a random number of 0 or 1 that we need to store in "randomAnimalChoice"
       const randomAnimalChoice = Math.floor(Math.random() * animalPropertiesArr.length);
       //if 1 comes up, make it a Rabbit, if 0, then Bear
@@ -186,5 +186,5 @@ bffApp.printResult= () => {
 // DOCUMENT READY
 $(function () {
   //initialise quiz when DOM is ready and loaded
-  bffApp.init();
+  ffApp.init();
 });
