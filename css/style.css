@@ -219,6 +219,11 @@ header,
   min-height: 100vh;
 }
 
+.container.container-display-result,
+.container-reset-quiz {
+  display: none;
+}
+
 h1 {
   font-family: "Fascinate Inline", cursive;
   text-transform: capitalize;
@@ -242,14 +247,7 @@ a {
 
 .label {
   font-weight: 700;
-}
-
-.label {
   padding-bottom: 1rem;
-}
-
-.container-reset-quiz {
-  display: none;
 }
 
 p {

@@ -126,14 +126,14 @@ ffApp.printResult= () => {
 
   //METHODS: To hold the html results that will be displayed when called
   const printBear = () => {
-    $(`.container-display-result`)
+    $(`.container-display-result`).css(`display`, `block`)
       .html(`<div class="wrapper"><p>Your new forest friend is:</p>
       <h2>${ffApp.results.bear.name}!</h2>`)
       .append(`<img src='${ffApp.results.bear.img}' alt='${ffApp.results.bear.alt}'><p>${ffApp.results.bear.description}</p></div>`);
     $(`.container-reset-quiz`).css(`display`, `block`);
     };
   const printRabbit = () => {
-    $(`.container-display-result`)
+    $(`.container-display-result`).css(`display`, `block`)
       .html(`<div class="wrapper"><p>Your new forest friend is:</p>
       <h2>${ffApp.results.rabbit.name}</h2>`)
       .append(`<img src='${ffApp.results.rabbit.img}' alt='${ffApp.results.rabbit.alt}'><p>${ffApp.results.rabbit.description}</p></div>`);
