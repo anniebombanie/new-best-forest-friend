@@ -21,7 +21,7 @@ bffApp.results = {
 
 // METHOD: When app initalises, run these methods using event handlers
 bffApp.init = () => {
-  $(`.btn__scroll--down`).on(`click`, bffApp.scrollDown);
+  $(`.btn__scroll--down`).on(`click`, bffApp.nextBtnClicked);
   $(`input[type=submit]`).on(`click`, bffApp.compileResult);
   $(`input[value="Next"]`).on(`click`, bffApp.showError);
   //when reset button gets clicked, scrolls to top
@@ -30,11 +30,45 @@ bffApp.init = () => {
   });
 };
 
-//counter for how many questions are have been checked
-bffApp.qNum = 1;
+//start number of quiz questions counter at 1, for error handling below
+bffApp.questnNum = 1;
 
 bffApp.nextBtnClicked = () => {
-  noRadioSelected()
+  console.log(`next btn clicked - THIS WORKS`);
+  bffApp.noRadioSelected ();
+  };
+
+//METHOD: Checks if the radio button is selected and creates an array 
+bffApp.noRadioSelected = () => {
+  console.log(`no radio selcted running- THIS WORKS`);
+  //variable to store array
+  const radios = Array.from($(`input[type=radio]`));
+  console.log(`RETURNING RADIOS ARRAY:`, radios);
+
+    //checks total number of radio buttons clicked and for each checked, add one to the counter
+    let numChecked = 0;
+    radios.forEach(radio => {
+      if (radio.checked) {
+        numChecked += 1;
+      };
+
+    //checks if number of radio buttons clicked === the number of quiz questions and if so, add one so that the qNum counter so that it's accumulative
+    if (numChecked === bffApp.questnNum) {
+      bffApp.questnNum += 1;
+      return true;
+    } else {
+      return false;
+    };
+  });
+};
+
+//METHOD: Show error
+bffApp.showError = function () {
+  if (!bffApp.noRadioSelected()) {
+    $(this).next('error--no-radio-selected').text('Please pick an answer!');
+  } else {
+    bffApp.scrollDown();
+  };
 };
 
 // METHOD: Scrolls down to element when button is clicked
@@ -42,35 +76,6 @@ bffApp.scrollDown = () => {
   // console.log(`scroll down button pushed`);
   window.scrollBy(0, window.innerHeight)
 };
-
-//checks if the radio button is selected- returns boolean (0 = false, 1 = true)
-function noRadioSelected() {
-  // OLD CODE return ($(`input[type=radio]:checked`).length > 0);
-
-  const radios = Array.from($(`input[type=radio]`));
-
-  let numChecked = 0;
-  radios.forEach(radio => {
-    if (radio.checked) {
-      numChecked +=1;
-    }
-  });
-
-  if (numChecked === bffApp.qNum) {
-    bffApp.qNum += 1;
-    return true;
-  } else {
-    return false;
-  };
-};
-
-
-bffApp.showError = function () {
-    if (!noRadioSelected()) {
-      $(this).next('.error-next-btn').text('Pick an answer!');
-    };
-};
-// };
 
 // METHOD: Stores methods that runs when submit button is clicked
 bffApp.compileResult = (e) => {

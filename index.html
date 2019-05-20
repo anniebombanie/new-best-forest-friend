@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Josefin+Slab:400,400i,700,700i" rel="stylesheet">
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css' integrity='sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay' crossorigin='anonymous'>
   <link rel="stylesheet" href="./css/style.css">
-  <title>Quiz: Your New Best (Forest) Friend</title>
+  <title>Quiz: Your New Best Forest Friend</title>
 </head>
 
 <body>
@@ -26,9 +27,9 @@
     <form>
 
       <!-- QUESTION 1 -->
-      <fieldset class="container container__q--diet" id="q-diet">
+      <fieldset class="container container__questn--diet" id="questn-diet">
         <div class="wrapper">
-          <legend><span class="q-num">1.</span> Which diet is more similar to yours?</legend>
+          <legend><span class="questn-num">1.</span> Which diet is more similar to yours?</legend>
           <div>
             <label for="bear1">Meat. Delicious meat.</label>
             <!-- "required" on one input is fine if names are all the same -->
@@ -44,16 +45,16 @@
       </fieldset>
 
       <!-- QUESTION 2 -->
-      <fieldset class="container" id="q-stranger">
+      <fieldset class="container" id="questn-stranger">
         <div class="wrapper">
-          <legend><span class="q-num">2.</span> How would you react if a stranger was yelling angrily at you?</legend>
+          <legend><span class="questn-num">2.</span> How would you react if a stranger was yelling angrily at you?</legend>
           <div>
-          k   <label for="rabbit2">Run away as fast and far as I could.</label>
-            <input type="radio" name="q-stranger" id="rabbit2" value="rabbit" required="required">
+            <label for="rabbit2">Run away as fast and far as I could.</label>
+            <input type="radio" name="questn-stranger" id="rabbit2" value="rabbit" required="required">
           </div>
           <div>
             <label for="bear2">Punch them. (Noisy human.)</label>
-            <input type="radio" name="q-stranger" id="bear2" value="bear">
+            <input type="radio" name="questn-stranger" id="bear2" value="bear">
           </div>
           <input type="button" value="Next" class="btn btn__scroll--down">
           <p class="error--no-radio-selected"></p>
@@ -63,7 +64,8 @@
       <!-- BUTTON TO SHOW RESULT -->
       <fieldset class="container container__meet-friend-btn" id="submit">
         <div class="wrapper">
-          <input type="submit" value="Meet my new forest friend!" class="btn btn__scroll--down">
+          <p>Ready to meet your new best friend?</p>
+          <input type="submit" value="Yes, please!" class="btn btn__scroll--down">
           <p class="error--missing-radio-selected"></p>
         </div>
       </fieldset>
@@ -79,8 +81,8 @@
       <!-- DYNAMICALLY INSERTED RESULT -->
       <div class="container container__reset">
         <div class="wrapper">
-          <p>Sooo urrmmm... yeah, my forest friend and I had a fight.</p>
-          <input type="reset" value="I want a new best friend!" class="btn btn__scroll--top">
+          <p>One can never have enough friends, so...</p>
+          <input type="reset" value="Another forest friend, please!" class="btn btn__scroll--top">
         </div>
       </div>
     
@@ -89,7 +91,7 @@
 
   <footer>
     <div class="wrapper">
-      <p>Copyright &copy; 2019 Annie Liew</p>
+      <p>Hand-coded & designed with ♥ by <a href="www.anniebombanie.com" target="_blank">Annie Liew</a></p>
     </div>
   </footer>
 
