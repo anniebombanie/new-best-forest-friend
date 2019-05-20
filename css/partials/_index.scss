@@ -1,54 +1,23 @@
-html {
-	font-size: 125%;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: $font-primary;
-  background-color: $beige;
-  font-size: rem-calc(22px);
-}
-
-header,
-.container {
-  height: 100%;
-  min-height: 100vh;
-}
-
+// HEADER
 header {
   text-align: center;
-}
-
-.container.container-display-result,
-.container-reset-quiz {
-  display: none;
+  .wrapper p:nth-of-type(2) {
+    margin-bottom: 0;
+  }
 }
 
 h1{
+  margin: 0;
   font-family: $font-secondary;
   text-transform: capitalize;
   font-size: rem-calc(35px);
+  @include text-shadow (rem-calc(2px), rem-calc(2px), $pink);
 } 
 
-img {
-	display: block;
-	width: 100%;
-	min-width: 100%;
-}
-
-.wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
+// QUESTIONS
 .label {
   font-weight: 700;
   padding-bottom: 1rem;
-}
-
-p {
-  margin-top: 0;
 }
 
 label {
@@ -64,11 +33,12 @@ label {
   background-color: $pink;
 }
 
+// FOOTER
 footer {
   padding-top: 1rem;
   padding-bottom: 1rem;
   p {
-    margin-bottom: 0;
+    margin: 0;
     text-align: center;
     font-size: rem-calc(18px);
   }
