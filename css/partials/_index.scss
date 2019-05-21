@@ -10,6 +10,11 @@ header {
       margin-bottom: .5rem;
     }
   }
+
+  @include media(757px) {
+    background: url('./../assets/bckgrnd-pattern.png');
+  }
+
   &::after {
     content: '';
     display: block;
@@ -21,7 +26,20 @@ header {
     @include media(454px) {
       width: rem-calc(450px);
     }
+    @include media(757px) {
+      display: none;
+    }
   } 
+}
+
+.container-header-content {
+    padding: 0;
+
+  @include media(757px) {
+    border: .5rem solid $green;
+    background-color: rgba($beige, .85);
+    padding: 1.5rem 2rem;
+  }
 }
 
 h1{
@@ -33,9 +51,12 @@ h1{
   @include text-shadow (rem-calc(2px), rem-calc(2px), $pink);
 
   @include media (454px) {
-    font-size: rem-calc(46px);
+    font-size: rem-calc(40px);
   }
-  @include media (625px) {
+  @include media (554px) {
+    font-size: rem-calc(50px);
+  }
+   @include media (732px) {
     font-size: rem-calc(60px);
   }
 }
@@ -76,14 +97,14 @@ label {
     &::after {
       @include bg-img ('bear.svg');
       width: rem-calc(490px);
-      height: rem-calc(327px);
+      height: 100%;
     }
   }
   .img-result-rabbit {
     &::after {
       @include bg-img ('rabbit.svg');
       width: rem-calc(471px);
-      height: rem-calc(341px);
+      height: 100%;
     }
   }
 }
@@ -102,6 +123,12 @@ label {
 
     @include media(454px) {
       width: rem-calc(400px);
+    }
+    @include media(700px) {
+      width: rem-calc(480px);
+    }
+    @include media(1240px) {
+      width: rem-calc(550px);
     }
   }
 }
@@ -131,13 +158,20 @@ h2 {
     content: '';
     display: block;
     @include bg-img ('mushroom.svg');
-    @include position (absolute, 0, rem-calc(-270px), null, null);
+    @include position (absolute, null, rem-calc(-270px), -1.2rem, null);
     height: 100%;
     width: rem-calc(490px); 
 
     @include media (454px) {
-    font-size: rem-calc(520px);
-  }
+      font-size: rem-calc(520px);
+    }
+    @include media(700px) {
+      width: rem-calc(600px);
+      @include position (null, null, rem-calc(-250px), null, null);
+    }
+    @include media(1240px) {
+      width: rem-calc(750px);
+    }
   }
 }
 
