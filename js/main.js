@@ -144,7 +144,7 @@ ffApp.printResult= () => {
       printBear();
     } else if (ffApp.results.bear.counter < ffApp.results.rabbit.counter) {
       printRabbit();
-    } else if (ffApp.results.bear.counter === 1 && ffApp.results.rabbit.counter === 1) {
+    } else {
       //create box to store new array, holding values of "results" objects
       const animalPropertiesArr = Object.values(ffApp.results);
       //generate a random number of 0 or 1 that we need to store in "randomAnimalChoice"
