@@ -3,7 +3,7 @@ a {
   text-decoration: none;
   font-weight: 700;
   color: $black;
-  transition: bborder-bottom .2s;
+  transition: border-bottom .2s;
   &:hover {
     border-bottom: 2px solid $green;
   }
@@ -19,8 +19,6 @@ a {
   font-size: rem-calc(30px);
   font-weight: 700;
   width: 100%;
-  //for cases when background pic goes on top
-  z-index: 10;
   transition-duration: .2s;
   transition-property: background-color, color, transform;
   &:active,

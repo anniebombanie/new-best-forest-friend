@@ -17,7 +17,6 @@ header {
     @include position (absolute, rem-calc(-115px), rem-calc(-150px), null, null);
     height: rem-calc(300px);
     width: rem-calc(400px);
-    z-index: -10;  
   } 
 }
 

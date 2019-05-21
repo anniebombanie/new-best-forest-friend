@@ -206,6 +206,7 @@ img {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 1rem;
+  z-index: 10;
 }
 
 .container,
@@ -307,7 +308,6 @@ header::after {
   right: -7.5rem;
   height: 15rem;
   width: 20rem;
-  z-index: -10;
 }
 
 h1 {
@@ -421,8 +421,8 @@ a {
   text-decoration: none;
   font-weight: 700;
   color: #000000;
-  -webkit-transition: bborder-bottom .2s;
-  transition: bborder-bottom .2s;
+  -webkit-transition: border-bottom .2s;
+  transition: border-bottom .2s;
 }
 
 a:hover {
