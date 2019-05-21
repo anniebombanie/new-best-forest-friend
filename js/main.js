@@ -9,7 +9,8 @@ ffApp.results = {
     class: `img-result img-result-bear`,
     alt: `illustration of a bear.`,
     description: `Like your new forest friend, <span="txt-strong">BEAR</span>, you are fearless and confident with a larger-than-life character. Danger in the forest? Pffttp- you laugh in the face of danger.`,
-    counter: 0
+    counter: 0,
+    // print:()=>{}
     },
   rabbit: {
     name: `rabbit`,
