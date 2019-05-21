@@ -6,15 +6,17 @@ ffApp.results = {
   bear: {
     name: `bear`,
     img: `./assets/bear.svg`,
+    class: `img-result`,
     alt: `illustration of a bear.`,
-    description: `Like your new forest friend, <span="txt-strong>BEAR</span>, you are fearless and confident with a larger-than-life character. Danger in the forest? Pffttp- you laugh in the face of danger.`,
+    description: `Like your new forest friend, <span="txt-strong">BEAR</span>, you are fearless and confident with a larger-than-life character. Danger in the forest? Pffttp- you laugh in the face of danger.`,
     counter: 0
     },
   rabbit: {
     name: `rabbit`,
     img: `./assets/rabbit.svg`,
+    class: `img-result`,
     alt: `illustration of a rabbit.`,
-    description: `While navigating thtough the forest, you stay alert and vigilant. Together with your new forest friend, <span="txt-strong>RABBIT</span>, you'll avoid any dangers that might pop up.`,
+    description: `While navigating thtough the forest, you stay alert and vigilant. Together with your new forest friend, <span="txt-strong">RABBIT</span>, you'll avoid any dangers that might pop up.`,
     counter: 0
   }
 };
@@ -122,14 +124,14 @@ ffApp.printResult= () => {
     $(`.container-display-result`).css(`display`, `block`)
       .html(`<div class="wrapper"><p>Your new forest friend is:</p>
       <h2>${ffApp.results.bear.name}</h2>`)
-      .append(`<img src='${ffApp.results.bear.img}' alt='${ffApp.results.bear.alt}' class="img-result"><p>${ffApp.results.bear.description}</p></div>`);
+      .append(`<img src='${ffApp.results.bear.img}' alt='${ffApp.results.bear.alt}' class='${ffApp.results.bear.class}'><p>${ffApp.results.bear.description}</p></div>`);
     $(`.container-reset-quiz`).css(`display`, `block`);
     };
   const printRabbit = () => {
     $(`.container-display-result`).css(`display`, `block`)
       .html(`<div class="wrapper"><p>Your new forest friend is:</p>
       <h2>${ffApp.results.rabbit.name}</h2>`)
-      .append(`<img src='${ffApp.results.rabbit.img}' alt='${ffApp.results.rabbit.alt}'><p>${ffApp.results.rabbit.description}</p></div>`);
+      .append(`<img src='${ffApp.results.rabbit.img}' alt='${ffApp.results.rabbit.alt}' class='${ffApp.results.bear.class}'><p>${ffApp.results.rabbit.description}</p></div>`);
     $(`.container-reset-quiz`).css(`display`, `block`);
     };
   

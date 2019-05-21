@@ -54,11 +54,19 @@ label {
   padding-bottom: 1rem;
 }
 
-.img-display {
-  @include text-shadow (rem-calc(2px), rem-calc(2px), $pink);
+.img-result {
+  position: relative;
+  & ::after {
+    content: '';
+    background: url(./../assets/bird.svg) no-repeat;
+    @include position (absolute, rem-calc(2px), null, null, rem-calc(2px));
+  }
 }
 
-// SUBMIT
+// RESULT
+.container-display-result p:first-of-type {
+  margin-bottom: 0;
+}
 
 
 // FOOTER

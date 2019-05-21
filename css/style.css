@@ -225,6 +225,12 @@ header {
   display: flex;
 }
 
+.container-submit,
+.container-display-result,
+.container-reset-quiz {
+  text-align: center;
+}
+
 .container.container-display-result,
 .container-reset-quiz {
   display: none;
@@ -332,13 +338,13 @@ label {
   padding-bottom: 1rem;
 }
 
-.img-display {
-  text-shadow: 0.1rem 0.1rem #f6b0cf;
+.img-result {
+  -webkit-box-shadow: 0.1rem 0.1rem #f6b0cf;
+          box-shadow: 0.1rem 0.1rem #f6b0cf;
 }
 
-.container-submit,
-.container-display-result {
-  text-align: center;
+.container-display-result p:first-of-type {
+  margin-bottom: 0;
 }
 
 footer {
