@@ -36,6 +36,10 @@ header {
   @include flex-center;
 }
 
+.container-flex {
+  display: flex;
+}
+
 .container.container-display-result,
 .container-reset-quiz {
   display: none;
@@ -45,8 +49,32 @@ header {
   color: $orange;
   font-weight: 700;
   font-style: italic;
+  // align-items: center;
+  i {
+    margin-right: .5rem;
+  }
+  p {
+    margin: 0;
+  }
 }
 
 .txt-strong {
   font-weight: 700;
+}
+
+.bg-green {
+  background-color: $green;
+  color: $beige;
+  .q-num {
+    color: $pink;
+    @include text-shadow (rem-calc(2px), rem-calc(2px), $beige)
+  }
+}
+
+.bg-pink {
+  background-color: $pink;
+  .q-num {
+    color: $green;
+    @include text-shadow (rem-calc(2px), rem-calc(2px), $black)
+  }
 }

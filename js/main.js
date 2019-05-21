@@ -7,14 +7,14 @@ ffApp.results = {
     name: `bear`,
     img: `./assets/bear.svg`,
     alt: `illustration of a bear.`,
-    description: `Like your new forest friend, BEAR, you are fearless and confident with a larger-than-life character. Danger in the forest? Pffttp- you laugh in the face of danger.`,
+    description: `Like your new forest friend, <span="txt-strong>BEAR</span>, you are fearless and confident with a larger-than-life character. Danger in the forest? Pffttp- you laugh in the face of danger.`,
     counter: 0
     },
   rabbit: {
     name: `rabbit`,
     img: `./assets/rabbit.svg`,
     alt: `illustration of a rabbit.`,
-    description: `While navigating thtough the forest, you stay alert and vigilant. Together with your new best forest friend, RABBIT, you'll avoid any dangers that might pop up.`,
+    description: `While navigating thtough the forest, you stay alert and vigilant. Together with your new forest friend, <span="txt-strong>RABBIT</span>, you'll avoid any dangers that might pop up.`,
     counter: 0
   }
 };
@@ -52,7 +52,7 @@ ffApp.showError = function (nextBtnElement) {
     console.log(`SHOW ERROR function has been activated`);
 
     //append this alert AFTER the next button
-    $(nextBtnElement).after(`<div class="alert"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i><p>Please pick an answer!</p></div>`);
+    $(nextBtnElement).after(`<div class="alert container-flex"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i><p>Please pick an answer!</p></div>`);
     console.log(nextBtnElement, `WHAT IS DATA`, $(nextBtnElement).data(`q-num`));
   } else {
     //this clears error message once radio has been selected NOT WORKING ???
@@ -154,7 +154,7 @@ ffApp.printResult= () => {
     } //scroll down to result AFTER it has been populated, not before (or else mini-scroll)
     ffApp.scrollDown();
   } else {
-    $(`input[value="Yes, please!"]`).after(`<i class="fas fa-exclamation-triangle" aria-hidden="true"><p class="alert">Whoops- you're an eager beaver but please answer all the questions above!</p>`);
+    $(`input[value="Yes, please!"]`).after(`<i class="fas fa-exclamation-triangle" aria-hidden="true"><p class="alert container-flex">Whoops- you're an eager beaver but please answer all the questions above!</p>`);
     //removes/resets the error message when clicked again NOT WORKING ???
     $(`input[value="Yes, please!"]`).after(``);  
   }

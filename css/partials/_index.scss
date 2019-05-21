@@ -54,21 +54,8 @@ label {
   padding-bottom: 1rem;
 }
 
-.bg-green {
-  background-color: $green;
-  color: $beige;
-  .q-num {
-    color: $pink;
-    @include text-shadow (rem-calc(2px), rem-calc(2px), $beige)
-  }
-}
-
-.bg-pink {
-  background-color: $pink;
-  .q-num {
-    color: $green;
-    @include text-shadow (rem-calc(2px), rem-calc(2px), $black)
-  }
+.img-display {
+  @include text-shadow (rem-calc(2px), rem-calc(2px), $pink);
 }
 
 // SUBMIT

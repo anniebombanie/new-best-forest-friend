@@ -9,7 +9,6 @@ $black: #000000;
 
 // MIXINS
 @mixin flex-center {
-  display: flex;
   justify-content: center;
   align-items: center;
 }
