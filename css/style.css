@@ -241,6 +241,7 @@ header {
   font-family: "Josefin Slab", serif;
   font-weight: 700;
   font-style: italic;
+  text-align: left;
   letter-spacing: .01rem;
   background-color: #000000;
   padding: .5rem;
@@ -364,6 +365,19 @@ label {
   background: url(./../assets/rabbit.svg) no-repeat;
   width: 23.55rem;
   height: 17.05rem;
+}
+
+.container-submit::after {
+  content: '';
+  display: block;
+  content: '';
+  background: url(./../assets/acorn.svg) no-repeat;
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  height: 20.65rem;
+  width: 30.25rem;
+  z-index: -10;
 }
 
 .container-display-result p:first-of-type {
