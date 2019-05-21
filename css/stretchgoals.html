@@ -13,6 +13,16 @@
     <li>4-6 animals, 5-7 questions</li>
     <li>favicon</li>
     <li>down button</li>
+    <li>proper questions styling [.container-q-diet,
+    .container-q-stranger {
+    justify-content: flex-start;
+    & + .wrapper {
+    flex-direction: column;
+    @include media (580px) {
+    flex-direction: row;
+    }
+    }
+    }]</li>
   </ol4
   <ol>
     <h2>Issues</h2>

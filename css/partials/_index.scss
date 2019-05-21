@@ -17,6 +17,10 @@ header {
     @include position (absolute, rem-calc(-115px), rem-calc(-150px), null, null);
     height: 100%;
     width: rem-calc(400px);
+
+    @include media(454px) {
+      width: rem-calc(450px);
+    }
   } 
 }
 
@@ -96,6 +100,10 @@ label {
     @include position (absolute, rem-calc(-60px), null, null, rem-calc(-80px));
     height: 100%;
     width: rem-calc(330px); 
+
+    @include media(454px) {
+      width: rem-calc(400px);
+    }
   }
 }
 
@@ -115,6 +123,10 @@ label {
     @include position (absolute, 0, rem-calc(-270px), null, null);
     height: 100%;
     width: rem-calc(490px); 
+
+    @include media (454px) {
+    font-size: rem-calc(520px);
+  }
   }
 }
 
