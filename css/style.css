@@ -190,6 +190,12 @@ body {
   font-size: 1.1rem;
 }
 
+@media (min-width: 454px) {
+  body {
+    font-size: 1.2rem;
+  }
+}
+
 p,
 label,
 .legend {
@@ -204,9 +210,16 @@ img {
 
 .wrapper {
   max-width: 900px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
   z-index: 10;
+}
+
+@media (min-width: 454px) {
+  .wrapper {
+    padding: 0 2rem;
+  }
 }
 
 .container,
@@ -306,7 +319,7 @@ header::after {
   position: absolute;
   top: -5.75rem;
   right: -7.5rem;
-  height: 15rem;
+  height: 100%;
   width: 20rem;
 }
 
@@ -319,12 +332,25 @@ h1 {
   text-shadow: 0.1rem 0.1rem #fdb3d0;
 }
 
+@media (min-width: 454px) {
+  h1 {
+    font-size: 2.3rem;
+  }
+}
+
 h2 {
   font-family: "Fascinate Inline", cursive;
   font-size: 2.4rem;
   text-transform: capitalize;
   text-shadow: 0.1rem 0.1rem #fdb3d0;
   margin: 0;
+}
+
+.container-q-diet,
+.container-q-stranger {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .q-num {
@@ -381,8 +407,8 @@ label {
   position: absolute;
   top: -3rem;
   left: -4rem;
-  height: 10rem;
-  width: 30.25rem;
+  height: 100%;
+  width: 16.5rem;
 }
 
 .container-display-result p:first-of-type {
@@ -401,9 +427,9 @@ label {
   background: url(./../assets/mushroom.svg) no-repeat;
   position: absolute;
   top: 0;
-  left: 5rem;
-  height: 27.25rem;
-  width: 36.4rem;
+  right: -13.5rem;
+  height: 100%;
+  width: 24.5rem;
 }
 
 footer {

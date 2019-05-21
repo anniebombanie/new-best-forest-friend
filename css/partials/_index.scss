@@ -15,7 +15,7 @@ header {
     display: block;
     @include bg-img ('bird.svg');
     @include position (absolute, rem-calc(-115px), rem-calc(-150px), null, null);
-    height: rem-calc(300px);
+    height: 100%;
     width: rem-calc(400px);
   } 
 }
@@ -27,6 +27,10 @@ h1{
   text-transform: capitalize;
   font-size: rem-calc(35px);
   @include text-shadow (rem-calc(2px), rem-calc(2px), $pink);
+
+  @include media (454px) {
+    font-size: rem-calc(46px);
+  }
 }
 
 // QUESTIONS
@@ -36,6 +40,11 @@ h2 {
   text-transform: capitalize;
   @include text-shadow (rem-calc(2px), rem-calc(2px), $pink);
   margin: 0;
+}
+
+.container-q-diet,
+.container-q-stranger {
+  justify-content: flex-start;
 }
 
 .q-num {
@@ -85,8 +94,8 @@ label {
     display: block;
     @include bg-img ('acorn.svg');
     @include position (absolute, rem-calc(-60px), null, null, rem-calc(-80px));
-    height: rem-calc(200px);
-    width: rem-calc(605px); 
+    height: 100%;
+    width: rem-calc(330px); 
   }
 }
 
@@ -103,9 +112,9 @@ label {
     content: '';
     display: block;
     @include bg-img ('mushroom.svg');
-    @include position (absolute, 0, null, null, rem-calc(100px));
-    height: rem-calc(545px);
-    width: rem-calc(728px); 
+    @include position (absolute, 0, rem-calc(-270px), null, null);
+    height: 100%;
+    width: rem-calc(490px); 
   }
 }
 

@@ -9,6 +9,10 @@ body {
   font-family: $font-primary;
   background-color: $beige;
   font-size: rem-calc(22px);
+
+  @include media (454px) {
+    font-size: rem-calc(24px);
+  }
 }
 
 p,
@@ -25,10 +29,15 @@ img {
 
 .wrapper {
   max-width: 900px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
   //so background img will never go on top
   z-index: 10;
+
+  @include media (454px) {
+    padding: 0 2rem;
+  }
 }
 
 .container,
