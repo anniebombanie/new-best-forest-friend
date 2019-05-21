@@ -121,8 +121,8 @@ ffApp.printResult= () => {
   const printBear = () => {
     $(`.container-display-result`).css(`display`, `block`)
       .html(`<div class="wrapper"><p>Your new forest friend is:</p>
-      <h2>${ffApp.results.bear.name}!</h2>`)
-      .append(`<img src='${ffApp.results.bear.img}' alt='${ffApp.results.bear.alt}'><p>${ffApp.results.bear.description}</p></div>`);
+      <h2>${ffApp.results.bear.name}</h2>`)
+      .append(`<img src='${ffApp.results.bear.img}' alt='${ffApp.results.bear.alt}' class="img-result"><p>${ffApp.results.bear.description}</p></div>`);
     $(`.container-reset-quiz`).css(`display`, `block`);
     };
   const printRabbit = () => {

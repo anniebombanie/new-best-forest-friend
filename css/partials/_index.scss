@@ -28,12 +28,17 @@ h1{
   text-transform: capitalize;
   font-size: rem-calc(35px);
   @include text-shadow (rem-calc(2px), rem-calc(2px), $pink);
-} 
-
-// SUBMIT
-
+}
 
 // QUESTIONS
+h2 {
+  font-family: $font-secondary;
+  font-size: rem-calc(48px);
+  text-transform: capitalize;
+  @include text-shadow (rem-calc(2px), rem-calc(2px), $pink);
+  margin: 0;
+}
+
 .q-num {
   font-family: $font-secondary;
   font-size: 100px;
@@ -64,6 +69,12 @@ label {
     color: $green;
     @include text-shadow (rem-calc(2px), rem-calc(2px), $black)
   }
+}
+
+// SUBMIT
+.container-submit,
+.container-display-result {
+  text-align: center;
 }
 
 // FOOTER
