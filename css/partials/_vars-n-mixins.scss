@@ -29,6 +29,11 @@ $black: #000000;
   text-shadow: $x $y $color;
 }
 
+@mixin bg-img ($img-name) {
+  content: '';
+  background: url(./../assets/#{$img-name}) no-repeat;
+}
+
 //Adopted from https://thoughtbot.com/blog/sasss-content-directive
 @mixin media($width) {
   @media (min-width: $width) {

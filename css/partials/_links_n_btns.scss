@@ -4,7 +4,7 @@ a {
   font-weight: 700;
   color: $black;
   transition: bborder-bottom .2s;
-  & :hover {
+  &:hover {
     border-bottom: 2px solid $green;
   }
 }
@@ -21,21 +21,21 @@ a {
   width: 100%;
   transition-duration: .2s;
   transition-property: background-color, color, transform;
-  & :active,
-  & :focus {
+  &:active,
+  &:focus {
     transform: translateY(rem-calc(5px));
   }
 }
 
 .btn-dark {
-  & :hover {
+  &:hover {
     background-color: $green;
     color: $beige;
   }
 }
 
 .btn-light {
-  & :hover {
+  &:hover {
     background-color: $pink;
     color: $black;
   }

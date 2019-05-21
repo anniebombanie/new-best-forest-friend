@@ -6,7 +6,7 @@ ffApp.results = {
   bear: {
     name: `bear`,
     img: `./assets/bear.svg`,
-    class: `img-result`,
+    class: `img-result img-result-bear`,
     alt: `illustration of a bear.`,
     description: `Like your new forest friend, <span="txt-strong">BEAR</span>, you are fearless and confident with a larger-than-life character. Danger in the forest? Pffttp- you laugh in the face of danger.`,
     counter: 0
@@ -14,7 +14,7 @@ ffApp.results = {
   rabbit: {
     name: `rabbit`,
     img: `./assets/rabbit.svg`,
-    class: `img-result`,
+    class: `img-result img-result-rabbit`,
     alt: `illustration of a rabbit.`,
     description: `While navigating thtough the forest, you stay alert and vigilant. Together with your new forest friend, <span="txt-strong">RABBIT</span>, you'll avoid any dangers that might pop up.`,
     counter: 0
@@ -121,18 +121,16 @@ ffApp.printResult= () => {
 
   //METHODS: To hold the html results that will be displayed when called
   const printBear = () => {
-    $(`.container-display-result`).css(`display`, `block`)
+    $(`.container-display-result`).css(`display`, `flex`)
       .html(`<div class="wrapper"><p>Your new forest friend is:</p>
-      <h2>${ffApp.results.bear.name}</h2>`)
-      .append(`<img src='${ffApp.results.bear.img}' alt='${ffApp.results.bear.alt}' class='${ffApp.results.bear.class}'><p>${ffApp.results.bear.description}</p></div>`);
-    $(`.container-reset-quiz`).css(`display`, `block`);
+      <h2>${ffApp.results.bear.name}</h2><img src='${ffApp.results.bear.img}' alt='${ffApp.results.bear.alt}' class='${ffApp.results.bear.class}'><p>${ffApp.results.bear.description}</p></div>`);
+    $(`.container-reset-quiz`).css(`display`, `flex`);
     };
   const printRabbit = () => {
-    $(`.container-display-result`).css(`display`, `block`)
+    $(`.container-display-result`).css(`display`, `flex`)
       .html(`<div class="wrapper"><p>Your new forest friend is:</p>
-      <h2>${ffApp.results.rabbit.name}</h2>`)
-      .append(`<img src='${ffApp.results.rabbit.img}' alt='${ffApp.results.rabbit.alt}' class='${ffApp.results.bear.class}'><p>${ffApp.results.rabbit.description}</p></div>`);
-    $(`.container-reset-quiz`).css(`display`, `block`);
+      <h2>${ffApp.results.rabbit.name}</h2><img src='${ffApp.results.rabbit.img}' alt='${ffApp.results.rabbit.alt}' class='${ffApp.results.bear.class}'><p>${ffApp.results.rabbit.description}</p></div>`);
+    $(`.container-reset-quiz`).css(`display`, `flex`);
     };
   
   //if answer has been selected for both questions, show result. Else, display error message
@@ -156,7 +154,7 @@ ffApp.printResult= () => {
     } //scroll down to result AFTER it has been populated, not before (or else mini-scroll)
     ffApp.scrollDown();
   } else {
-    $(`input[value="Yes, please!"]`).after(`<i class="fas fa-exclamation-triangle" aria-hidden="true"><p class="alert container-flex">Whoops- you're an eager beaver but please answer all the questions above!</p>`);
+    $(`input[value="Yes, please!"]`).after(`<div="container-flex"><i class="fas fa-exclamation-triangle" aria-hidden="true"><p class="alert container-flex">Whoops- you're an eager beaver but please answer all the questions above!</p>`);
     //removes/resets the error message when clicked again NOT WORKING ???
     $(`input[value="Yes, please!"]`).after(``);  
   }

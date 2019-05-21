@@ -10,10 +10,10 @@ header {
       margin-bottom: .5rem;
     }
   }
-  & ::after {
+  &::after {
     content: '';
     display: block;
-    background: url(./../assets/bird.svg) no-repeat;
+    @include bg-img ('bird.svg');
     @include position (absolute, rem-calc(-115px), rem-calc(-150px), null, null);
     height: rem-calc(300px);
     width: rem-calc(400px);
@@ -56,11 +56,25 @@ label {
 
 .img-result {
   position: relative;
-  & ::after {
-    content: '';
-    background: url(./../assets/bird.svg) no-repeat;
+  &::after {
     @include position (absolute, rem-calc(2px), null, null, rem-calc(2px));
+    z-index: -10;
+    fill: $pink;
   }
+  .img-result-bear {
+    &::after {
+      @include bg-img ('bear.svg');
+      width: rem-calc(490px);
+      height: rem-calc(327px);
+    }
+  }
+  .img-result-rabbit {
+    &::after {
+      @include bg-img ('rabbit.svg');
+      width: rem-calc(471px);
+      height: rem-calc(341px);
+    }
+  } 
 }
 
 // RESULT

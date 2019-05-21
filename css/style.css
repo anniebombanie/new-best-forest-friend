@@ -238,6 +238,7 @@ header {
 
 .alert {
   color: #f8842d;
+  font-family: "Josefin Slab", serif;
   font-weight: 700;
   font-style: italic;
   letter-spacing: .01rem;
@@ -294,9 +295,10 @@ header .p-strong + p {
   margin-bottom: .5rem;
 }
 
-header ::after {
+header::after {
   content: '';
   display: block;
+  content: '';
   background: url(./../assets/bird.svg) no-repeat;
   position: absolute;
   top: -5.75rem;
@@ -339,8 +341,29 @@ label {
 }
 
 .img-result {
-  -webkit-box-shadow: 0.1rem 0.1rem #f6b0cf;
-          box-shadow: 0.1rem 0.1rem #f6b0cf;
+  position: relative;
+}
+
+.img-result::after {
+  position: absolute;
+  top: 0.1rem;
+  left: 0.1rem;
+  z-index: -10;
+  fill: #f6b0cf;
+}
+
+.img-result .img-result-bear::after {
+  content: '';
+  background: url(./../assets/bear.svg) no-repeat;
+  width: 24.5rem;
+  height: 16.35rem;
+}
+
+.img-result .img-result-rabbit::after {
+  content: '';
+  background: url(./../assets/rabbit.svg) no-repeat;
+  width: 23.55rem;
+  height: 17.05rem;
 }
 
 .container-display-result p:first-of-type {
@@ -366,7 +389,7 @@ a {
   transition: bborder-bottom .2s;
 }
 
-a :hover {
+a:hover {
   border-bottom: 2px solid #696d31;
 }
 
@@ -387,18 +410,17 @@ a :hover {
   transition-property: background-color, color, transform, -webkit-transform;
 }
 
-.btn :active,
-.btn :focus {
+.btn:active, .btn:focus {
   -webkit-transform: translateY(0.25rem);
           transform: translateY(0.25rem);
 }
 
-.btn-dark :hover {
+.btn-dark:hover {
   background-color: #696d31;
   color: #f8f3e1;
 }
 
-.btn-light :hover {
+.btn-light:hover {
   background-color: #f6b0cf;
   color: #000000;
 }
