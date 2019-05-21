@@ -49,23 +49,26 @@ ffApp.nextBtnClicked = function() {
 
 //METHOD: Show error if no radio button selected
 ffApp.showError = function (nextBtnElement) {
+  //storing current question key
+  const qKey = $(nextBtnElement).data(`q-num`);
+  
   //passing parameter here (instead of THIS keyword) because otherwise binded t ???
-  if (!ffApp.noRadioSelected($(nextBtnElement).data(`q-num`))) {
+  if (ffApp.radioSelected(qKey)) {
+    //clear the alert scoped to this container 
+    $(`.container-${qKey} .alert`).remove();
+    console.log(`CLEAR ALERT has been activated`);
+    ffApp.scrollDown();
+  } //check if instance of error already exists(if no alert), if not, append error (stops multiple errors being shown)
+  else if (!$(`.container-${qKey} .alert`).length) {
     console.log(`SHOW ERROR function has been activated`);
-
     //append this alert AFTER the next button
     $(nextBtnElement).after(`<div class="alert container-flex"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i><p>Please pick an answer!</p></div>`);
     console.log(nextBtnElement, `WHAT IS DATA`, $(nextBtnElement).data(`q-num`));
-  } else {
-    //this clears error message once radio has been selected NOT WORKING ???
-    $(nextBtnElement).after(``);
-    console.log(`CLEAR ALERT has been activated`);
-    ffApp.scrollDown();
   }
 };
 
 //METHOD: Checks if the radio button is selected and creates an array out of the question inputs
-ffApp.noRadioSelected = (qKey) => {
+ffApp.radioSelected = (qKey) => {
   console.log(`no radio selcted running- THIS WORKS`);
   //variable to store array of actual html inputs > returns an array-like object $(`input[type=radio]`) and converts to an array using .from
   const radios = Array.from($(`.container-${qKey} input[type=radio]`));
@@ -135,6 +138,7 @@ ffApp.printResult= () => {
   
   //if answer has been selected for both questions, show result. Else, display error message
   if ($('input[name=q-diet]:checked').val() && $('input[name=q-stranger]:checked').val()) {
+    $(`.alert`).remove();
     //display appropriate result onto page based on counter results
     if (ffApp.results.bear.counter > ffApp.results.rabbit.counter) {
       printBear();
@@ -153,15 +157,14 @@ ffApp.printResult= () => {
       }
     } //scroll down to result AFTER it has been populated, not before (or else mini-scroll)
     ffApp.scrollDown();
-  } else {
-    $(`input[value="Yes, please!"]`).after(`<div="container-flex"><i class="fas fa-exclamation-triangle" aria-hidden="true"><p class="alert container-flex">Whoops- you're an eager beaver but please answer all the questions above!</p>`);
-    //removes/resets the error message when clicked again NOT WORKING ???
-    $(`input[value="Yes, please!"]`).after(``);  
+  } else if (!$(`.container-submit .alert`).length) {
+    $(`input[value="Yes, please!"]`).after(`<div class="alert container-flex"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i><p>Whoops- you're an eager beaver but please answer all the questions above!</p>`);
   }
 };
 
 //METHOD: Resets the quiz
 ffApp.resetBtnClicked = () => {
+  console.log(`THIS IS INPUT VALUE:`, $(`input[value="Yes, please!"]`));
   //removes the results and reset btn areas altogether
   $(`.container-display-result`).css(`display`, `none`);
   $(`.container-reset-quiz`).css(`display`, `none`);
