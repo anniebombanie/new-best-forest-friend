@@ -40,6 +40,12 @@ header {
   display: flex;
 }
 
+.container-submit,
+.container-display-result,
+.container-reset-quiz {
+  text-align: center;
+}
+
 .container.container-display-result,
 .container-reset-quiz {
   display: none;
@@ -49,8 +55,12 @@ header {
   color: $orange;
   font-weight: 700;
   font-style: italic;
+  letter-spacing: .01rem;
+  background-color: $black;
+  padding: .5rem;
+  justify-content: center;
   i {
-    margin-right: .5rem;
+    margin-right: .4rem;
   }
   p {
     margin: 0;
