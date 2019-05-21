@@ -64,13 +64,30 @@ h1{
 // QUESTIONS
 .container-q-diet,
 .container-q-stranger {
-  justify-content: flex-start;
+  justify-content: center;
+  & .wrapper.container-flex {
+    flex-direction: column;
+
+    @include media (750px) {
+    flex-direction: row;
+    }
+  }
 }
 
 .q-num {
   font-family: $font-secondary;
-  font-size: 100px;
+  font-size: rem-calc(100px);
   margin-top: rem-calc(-35px);
+
+  @include media (454px) {
+    font-size: rem-calc(125px);
+  }
+
+  @include media (750px) {
+    font-size: rem-calc(150px);
+    margin-right: 2rem;
+    margin-top: -3.5rem;
+  }
 }
 
 label {
