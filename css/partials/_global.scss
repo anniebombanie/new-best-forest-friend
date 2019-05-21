@@ -28,7 +28,7 @@ img {
 }
 
 .wrapper {
-  max-width: 900px;
+  max-width: 755px;
   width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
@@ -37,6 +37,9 @@ img {
 
   @include media (454px) {
     padding: 0 2rem;
+  }
+  @include media(625px) {
+    padding: 0 3.5rem;
   }
 }
 

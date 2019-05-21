@@ -209,7 +209,7 @@ img {
 }
 
 .wrapper {
-  max-width: 900px;
+  max-width: 755px;
   width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
@@ -219,6 +219,12 @@ img {
 @media (min-width: 454px) {
   .wrapper {
     padding: 0 2rem;
+  }
+}
+
+@media (min-width: 625px) {
+  .wrapper {
+    padding: 0 3.5rem;
   }
 }
 
@@ -344,12 +350,10 @@ h1 {
   }
 }
 
-h2 {
-  font-family: "Fascinate Inline", cursive;
-  font-size: 2.4rem;
-  text-transform: capitalize;
-  text-shadow: 0.1rem 0.1rem #fdb3d0;
-  margin: 0;
+@media (min-width: 625px) {
+  h1 {
+    font-size: 3rem;
+  }
 }
 
 .container-q-diet,
@@ -366,12 +370,18 @@ h2 {
 }
 
 label {
-  padding-bottom: .5rem;
+  line-height: 1.6;
 }
 
 .legend {
   font-weight: 700;
   padding-bottom: 1rem;
+}
+
+@media (min-width: 454px) {
+  .legend {
+    font-size: 1.3rem;
+  }
 }
 
 .img-result {
@@ -427,6 +437,20 @@ label {
   margin-bottom: 0;
 }
 
+h2 {
+  font-family: "Fascinate Inline", cursive;
+  font-size: 2.4rem;
+  text-transform: capitalize;
+  text-shadow: 0.1rem 0.1rem #fdb3d0;
+  margin: 0;
+}
+
+@media (min-width: 454px) {
+  h2 {
+    font-size: 3rem;
+  }
+}
+
 .container-reset-quiz {
   position: relative;
   overflow: hidden;
@@ -459,6 +483,12 @@ footer p {
   margin: 0;
   text-align: center;
   font-size: 0.9rem;
+}
+
+@media (min-width: 625px) {
+  footer p {
+    font-size: 1rem;
+  }
 }
 
 a {

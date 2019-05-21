@@ -15,7 +15,7 @@ const ffApp = {
       img: `./assets/rabbit.svg`,
       class: `img-result img-result-rabbit`,
       alt: `illustration of a rabbit.`,
-      description: `While navigating thtough the forest, you stay alert and vigilant. Together with your new forest friend, RABBIT, you'll avoid any dangers that might pop up.`,
+      description: `While navigating through the forest, you stay alert and vigilant. Together with your new forest friend, RABBIT, you'll avoid any dangers that might pop up.`,
       counter: 0
     }
   },

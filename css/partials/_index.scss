@@ -35,17 +35,12 @@ h1{
   @include media (454px) {
     font-size: rem-calc(46px);
   }
+  @include media (625px) {
+    font-size: rem-calc(60px);
+  }
 }
 
 // QUESTIONS
-h2 {
-  font-family: $font-secondary;
-  font-size: rem-calc(48px);
-  text-transform: capitalize;
-  @include text-shadow (rem-calc(2px), rem-calc(2px), $pink);
-  margin: 0;
-}
-
 .container-q-diet,
 .container-q-stranger {
   justify-content: flex-start;
@@ -58,12 +53,16 @@ h2 {
 }
 
 label {
-  padding-bottom: .5rem;
+  line-height: 1.6;
 }
 
 .legend {
   font-weight: 700;
   padding-bottom: 1rem;
+
+  @include media (454px) {
+    font-size: rem-calc(26px);
+  }
 }
 
 .img-result {
@@ -112,6 +111,18 @@ label {
   margin-bottom: 0;
 }
 
+h2 {
+  font-family: $font-secondary;
+  font-size: rem-calc(48px);
+  text-transform: capitalize;
+  @include text-shadow (rem-calc(2px), rem-calc(2px), $pink);
+  margin: 0;
+
+  @include media (454px) {
+    font-size: rem-calc(60px);
+  }
+}
+
 //RESET
 .container-reset-quiz {
   position: relative;
@@ -138,5 +149,9 @@ footer {
     margin: 0;
     text-align: center;
     font-size: rem-calc(18px);
+
+    @include media(625px) {
+      font-size: 1rem;
+    }
   }
 }
