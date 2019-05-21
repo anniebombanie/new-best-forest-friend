@@ -210,7 +210,8 @@ img {
 
 .container,
 header {
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -287,11 +288,11 @@ header {
   overflow: hidden;
 }
 
-header .p-strong {
+header .txt-strong {
   margin-bottom: 0;
 }
 
-header .p-strong + p {
+header .txt-strong + p {
   margin-top: 0;
   margin-bottom: .5rem;
 }
@@ -367,21 +368,42 @@ label {
   height: 17.05rem;
 }
 
-.container-submit::after {
+.container-submit {
+  position: relative;
+  overflow: hidden;
+}
+
+.container-submit::before {
   content: '';
   display: block;
   content: '';
   background: url(./../assets/acorn.svg) no-repeat;
   position: absolute;
-  top: -0.5rem;
-  left: -0.5rem;
-  height: 20.65rem;
+  top: -3rem;
+  left: -4rem;
+  height: 10rem;
   width: 30.25rem;
-  z-index: -10;
 }
 
 .container-display-result p:first-of-type {
   margin-bottom: 0;
+}
+
+.container-reset-quiz {
+  position: relative;
+  overflow: hidden;
+}
+
+.container-reset-quiz::before {
+  content: '';
+  display: block;
+  content: '';
+  background: url(./../assets/mushroom.svg) no-repeat;
+  position: absolute;
+  top: -3rem;
+  left: -4rem;
+  height: 10rem;
+  width: 30.25rem;
 }
 
 footer {
@@ -437,5 +459,21 @@ a:hover {
 .btn-light:hover {
   background-color: #f6b0cf;
   color: #000000;
+}
+
+/* Hide radios so that still on page for accessibilty */
+input[type='radio'] {
+  opacity: 0;
+  position: absolute;
+}
+
+input[type="radio"] ~ label {
+  cursor: pointer;
+}
+
+input[type="radio"] ~ label::before {
+  font-family: 'FontAwesome';
+  display: inline-block;
+  content: "\f111";
 }
 /*# sourceMappingURL=style.css.map */

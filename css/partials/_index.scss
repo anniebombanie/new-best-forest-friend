@@ -3,7 +3,7 @@ header {
   text-align: center;
   position: relative;
   overflow: hidden;
-  .p-strong {
+  .txt-strong {
     margin-bottom: 0;
     & + p {
       margin-top: 0;
@@ -74,19 +74,20 @@ label {
       width: rem-calc(471px);
       height: rem-calc(341px);
     }
-  } 
+  }
 }
 
 //SUBMIT
 .container-submit {
-  &::after {
+  position: relative;
+  overflow: hidden;
+  &::before {
     content: '';
     display: block;
     @include bg-img ('acorn.svg');
-    @include position (absolute, rem-calc(-10px), null, null, rem-calc(-10px));
-    height: rem-calc(413px);
-    width: rem-calc(605px);
-    z-index: -10; 
+    @include position (absolute, rem-calc(-60px), null, null, rem-calc(-80px));
+    height: rem-calc(200px);
+    width: rem-calc(605px); 
   }
 }
 
@@ -95,6 +96,19 @@ label {
   margin-bottom: 0;
 }
 
+//RESET
+.container-reset-quiz {
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: '';
+    display: block;
+    @include bg-img ('mushroom.svg');
+    @include position (absolute, rem-calc(-60px), null, null, rem-calc(-80px));
+    height: rem-calc(200px);
+    width: rem-calc(605px); 
+  }
+}
 
 // FOOTER
 footer {
