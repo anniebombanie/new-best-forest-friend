@@ -234,11 +234,14 @@ header {
   color: #f8842d;
   font-weight: 700;
   font-style: italic;
-  margin: 0;
 }
 
 .alert i {
   margin-right: .5rem;
+}
+
+.alert p {
+  margin: 0;
 }
 
 .txt-strong {
