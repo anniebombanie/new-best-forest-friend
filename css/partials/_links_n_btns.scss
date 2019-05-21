@@ -19,6 +19,7 @@ a {
   font-size: rem-calc(30px);
   font-weight: 700;
   width: 100%;
+  max-width: rem-calc(320px);
   transition-duration: .2s;
   transition-property: background-color, color, transform;
   &:active,
@@ -38,6 +39,24 @@ a {
   &:hover {
     background-color: $pink;
     color: $black;
+  }
+}
+
+// SCROLL DOWN ARROW
+.fa-chevron-down {
+  color: $orange;
+  padding: .5rem;
+  margin-top: -1rem;
+  cursor: pointer;
+  transition-duration: .2s;
+  transition-property: background-color, color, transform;
+  &:hover {
+    color: $green;
+  }
+  &:active,
+  &:focus {
+    color: $green;
+    transform: translateY(rem-calc(5px));
   }
 }
 

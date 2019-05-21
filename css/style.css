@@ -438,6 +438,7 @@ a:hover {
   font-size: 1.5rem;
   font-weight: 700;
   width: 100%;
+  max-width: 16rem;
   -webkit-transition-duration: .2s;
           transition-duration: .2s;
   -webkit-transition-property: background-color, color, -webkit-transform;
@@ -459,6 +460,29 @@ a:hover {
 .btn-light:hover {
   background-color: #fdb3d0;
   color: #000000;
+}
+
+.fa-chevron-down {
+  color: #f8842d;
+  padding: .5rem;
+  margin-top: -1rem;
+  cursor: pointer;
+  -webkit-transition-duration: .2s;
+          transition-duration: .2s;
+  -webkit-transition-property: background-color, color, -webkit-transform;
+  transition-property: background-color, color, -webkit-transform;
+  transition-property: background-color, color, transform;
+  transition-property: background-color, color, transform, -webkit-transform;
+}
+
+.fa-chevron-down:hover {
+  color: #696d31;
+}
+
+.fa-chevron-down:active, .fa-chevron-down:focus {
+  color: #696d31;
+  -webkit-transform: translateY(0.25rem);
+          transform: translateY(0.25rem);
 }
 
 input[type='radio'] {

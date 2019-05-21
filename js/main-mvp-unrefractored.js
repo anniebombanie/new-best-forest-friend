@@ -32,6 +32,7 @@ ffApp.init = () => {
   $(`input[value="Let's Get Started!"]`).on(`click`, ffApp.scrollDown);
   $(`input[value="Next"]`).on(`click`, ffApp.nextBtnClicked);
   $(`input[type=submit]`).on(`click`, ffApp.submitBtnClicked);
+  $(`.fa-chevron-down`).on(`click`, ffApp.scrollDown, console.log(`clicked- this isn't working`));
   $('.btn-reset-quiz').on("click", ffApp.resetBtnClicked);
 };
 
@@ -127,13 +128,13 @@ ffApp.printResult= () => {
   const printBear = () => {
     $(`.container-display-result`).css(`display`, `flex`)
       .html(`<div class="wrapper"><p>Your new forest friend is:</p>
-      <h2>${ffApp.results.bear.name}</h2><img src='${ffApp.results.bear.img}' alt='${ffApp.results.bear.alt}' class='${ffApp.results.bear.class}'><p>${ffApp.results.bear.description}</p></div>`);
+      <h2>${ffApp.results.bear.name}</h2><img src='${ffApp.results.bear.img}' alt='${ffApp.results.bear.alt}' class='${ffApp.results.bear.class}'><i class="fas fa-chevron-down btn-scroll-down" title="click to scroll down"></i><p>${ffApp.results.bear.description}</p></div>`);
     $(`.container-reset-quiz`).css(`display`, `flex`);
     };
   const printRabbit = () => {
     $(`.container-display-result`).css(`display`, `flex`)
       .html(`<div class="wrapper"><p>Your new forest friend is:</p>
-      <h2>${ffApp.results.rabbit.name}</h2><img src='${ffApp.results.rabbit.img}' alt='${ffApp.results.rabbit.alt}' class='${ffApp.results.bear.class}'><p>${ffApp.results.rabbit.description}</p></div>`);
+      <h2>${ffApp.results.rabbit.name}</h2><img src='${ffApp.results.rabbit.img}' alt='${ffApp.results.rabbit.alt}' class='${ffApp.results.bear.class}'><i class="fas fa-chevron-down btn-scroll-down" title="click to scroll down"></i><p>${ffApp.results.rabbit.description}</p></div>`);
     $(`.container-reset-quiz`).css(`display`, `flex`);
     };
   
