@@ -2,42 +2,68 @@
 header {
   text-align: center;
   position: relative;
+  overflow: hidden;
+  .p-strong {
+    margin-bottom: 0;
+    & + p {
+      margin-top: 0;
+      margin-bottom: .5rem;
+    }
+  }
+  & ::after {
+    content: '';
+    display: block;
+    background: url(./../assets/bird.svg) no-repeat;
+    @include position (absolute, rem-calc(-115px), rem-calc(-150px), null, null);
+    height: rem-calc(300px);
+    width: rem-calc(400px);
+    z-index: -10;  
+  } 
 }
 
 h1{
   margin-top: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1.6rem;
   font-family: $font-secondary;
   text-transform: capitalize;
   font-size: rem-calc(35px);
   @include text-shadow (rem-calc(2px), rem-calc(2px), $pink);
 } 
 
-.p-describe-quiz {
-  font-weight: 700;
-  margin-bottom: 0;
-  & + p {
-    margin-top: 0;
-  }
-}
+// SUBMIT
+
 
 // QUESTIONS
-.label {
-  font-weight: 700;
-  padding-bottom: 1rem;
+.q-num {
+  font-family: $font-secondary;
+  font-size: 100px;
+  margin-top: rem-calc(-35px);
 }
 
 label {
   padding-bottom: .5rem;
 }
 
+.legend {
+  font-weight: 700;
+  padding-bottom: 1rem;
+}
+
 .bg-green {
   background-color: $green;
   color: $beige;
+  .q-num {
+    color: $pink;
+    @include text-shadow (rem-calc(2px), rem-calc(2px), $beige)
+  }
 }
 
 .bg-pink {
   background-color: $pink;
+  .q-num {
+    color: $green;
+    @include text-shadow (rem-calc(2px), rem-calc(2px), $black)
+  }
 }
 
 // FOOTER

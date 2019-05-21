@@ -51,9 +51,7 @@ $global-font-size: 100% !default;
   //If no base is defined, defer to the global font size
   @if $base == null {
     $base: $global-font-size;
-  }
- 
-  @if unit($base) == '%' {
+  } @if unit($base) == '%' {
     $base: ($base / 100%) * 20px;
   } // Using rem as base allows correct scaling
   @if unit($base) == 'rem' {
@@ -63,7 +61,7 @@ $global-font-size: 100% !default;
   } @for $i from 1 through $count {
     $rem-values: append($rem-values, -to-rem(nth($values, $i), $base));
   } @return $rem-values;
-};
+}
 
 @function -to-rem($value, $base: null) {
   // Check if the value is a number

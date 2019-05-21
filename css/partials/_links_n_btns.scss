@@ -4,13 +4,14 @@ a {
   font-weight: 700;
   color: $black;
   transition: bborder-bottom .2s;
-  &:hover {
+  & :hover {
     border-bottom: 2px solid $green;
   }
 }
 
 // BUTTONS
 .btn {
+  margin: 1rem 0;
   background-color: $orange;
   padding: 1rem 1.5rem;
   border: none;
@@ -18,18 +19,23 @@ a {
   font-size: rem-calc(30px);
   font-weight: 700;
   width: 100%;
-  transition: background-color .2s, color .2s;
+  transition-duration: .2s;
+  transition-property: background-color, color, transform;
+  & :active,
+  & :focus {
+    transform: translateY(rem-calc(5px));
+  }
 }
 
 .btn-dark {
-  &:hover {
+  & :hover {
     background-color: $green;
     color: $beige;
   }
 }
 
 .btn-light {
-  &:hover {
+  & :hover {
     background-color: $pink;
     color: $black;
   }
