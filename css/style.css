@@ -400,10 +400,10 @@ label {
   content: '';
   background: url(./../assets/mushroom.svg) no-repeat;
   position: absolute;
-  top: -3rem;
-  left: -4rem;
-  height: 10rem;
-  width: 30.25rem;
+  top: 0;
+  left: 5rem;
+  height: 27.25rem;
+  width: 36.4rem;
 }
 
 footer {
@@ -465,8 +465,8 @@ input[type='radio'] {
   opacity: 0;
   position: absolute;
   border: 0px;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 input[type="radio"] {

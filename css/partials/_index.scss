@@ -104,9 +104,9 @@ label {
     content: '';
     display: block;
     @include bg-img ('mushroom.svg');
-    @include position (absolute, rem-calc(-60px), null, null, rem-calc(-80px));
-    height: rem-calc(200px);
-    width: rem-calc(605px); 
+    @include position (absolute, 0, null, null, rem-calc(100px));
+    height: rem-calc(545px);
+    width: rem-calc(728px); 
   }
 }
 
