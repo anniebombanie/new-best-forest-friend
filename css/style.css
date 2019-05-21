@@ -270,12 +270,12 @@ header {
 }
 
 .bg-green .q-num {
-  color: #f6b0cf;
+  color: #fdb3d0;
   text-shadow: 0.1rem 0.1rem #f8f3e1;
 }
 
 .bg-pink {
-  background-color: #f6b0cf;
+  background-color: #fdb3d0;
 }
 
 .bg-pink .q-num {
@@ -316,14 +316,14 @@ h1 {
   font-family: "Fascinate Inline", cursive;
   text-transform: capitalize;
   font-size: 1.75rem;
-  text-shadow: 0.1rem 0.1rem #f6b0cf;
+  text-shadow: 0.1rem 0.1rem #fdb3d0;
 }
 
 h2 {
   font-family: "Fascinate Inline", cursive;
   font-size: 2.4rem;
   text-transform: capitalize;
-  text-shadow: 0.1rem 0.1rem #f6b0cf;
+  text-shadow: 0.1rem 0.1rem #fdb3d0;
   margin: 0;
 }
 
@@ -351,7 +351,7 @@ label {
   top: 0.1rem;
   left: 0.1rem;
   z-index: -10;
-  fill: #f6b0cf;
+  fill: #fdb3d0;
 }
 
 .img-result .img-result-bear::after {
@@ -457,7 +457,7 @@ a:hover {
 }
 
 .btn-light:hover {
-  background-color: #f6b0cf;
+  background-color: #fdb3d0;
   color: #000000;
 }
 
