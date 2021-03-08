@@ -5,18 +5,30 @@ const ffApp = {
     bear: {
       name: `bear`,
       img: `./assets/bear.svg`,
-      class: `img-result img-result-bear`,
-      alt: `illustration of a bear.`,
+      // class: `img-result img-result-bear`,
+      // alt: `illustration of a bear.`,
       description: `Like your new forest friend, BEAR, you are fearless and confident with a larger-than-life character. Danger in the forest? Pffttp- you laugh in the face of danger.`,
       counter: 0,
     },
     rabbit: {
       name: `rabbit`,
       img: `./assets/rabbit.svg`,
-      class: `img-result img-result-rabbit`,
-      alt: `illustration of a rabbit.`,
+      // class: `img-result img-result-rabbit`,
+      // alt: `illustration of a rabbit.`,
       description: `While navigating through the forest, you stay alert and vigilant. Together with your new forest friend, RABBIT, you'll avoid any dangers that might pop up.`,
       counter: 0
+    },
+    fox: {
+      name: `fox`,
+      img: `./assets/fox.svg`,
+      description: ``,
+      counter: 0,
+    },
+    owl: {
+      name: `owl`,
+      img: `./assets/owl.svg`,
+      description: `There's little in the way that gets past your sharp intellect`,
+      counter: 0,
     }
   },
 
