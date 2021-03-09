@@ -32,23 +32,29 @@
       <!-- QUESTION 1 -->
       <div role="group" class="container container-q-diet container-flex bg-green">
         <div class="wrapper container-flex">
-          <div class="q-num">
-            <span>1.</span>
-          </div>
+          <div class="q-num">1.</div>
           <div>
-            <div class="legend legend-q-diet">Which diet is more similar to yours?</div>
-            <div class="inputs inputs-q-diet">
-              <div>
+            <h3 class="legend legend-q-diet">Which diet is most similar to yours?</h3>
+            <ul class="inputs inputs-q-diet">
+              <li>
                 <input type="radio" name="q-diet" id="bear-1" value="bear" required="required">
                 <label for="bear-1">Meat. Delicious meat.</label>
-              </div>
-              <div>
+              </li>
+              <li>
                 <input type="radio" name="q-diet" id="rabbit-1" value="rabbit">
                 <label for="rabbit-1">I'm vegan.</label>
-              </div>
+              </li>
+              <li>
+                <input type="radio" name="q-diet" id="fox-1" value="fox">
+                <label for="fox-1">Anything I can get my hands on.</label>
+              </li>
+              <li>
+                <input type="radio" name="q-diet" id="owl-1" value="owl">
+                <label for="owl-1">Clean, unprocessed, low sugar.</label>
+              </li>
               <input type="button" value="Next" class="btn btn-scroll-down btn-light" data-q-num="q-diet">
               <p class="error-no-radio-selected"></p>
-            </div>
+            </ul>
           </div>
         </div><!-- /.wrapper -->
       </div>
@@ -56,22 +62,144 @@
       <!-- QUESTION 2 -->
       <div role="group" class="container container-q-stranger container-flex bg-pink">
         <div class="wrapper container-flex">
-          <div class="q-num">
-            <span>2.</span>
-          </div>
+          <div class="q-num">2.</div>
           <div>
-            <div class="legend legend-q-stranger">How would you react if a stranger was yelling angrily at you?</div>
-            <div class="inputs inputs-q-diet">
-              <div>
-                <input type="radio" name="q-stranger" id="rabbit-2" value="rabbit" required="required">
-                <label for="rabbit-2">Run away as fast and as far as I could.</label>
-              </div>
-              <div>
+            <h3 class="legend legend-q-stranger">How would you react if a stranger was yelling angrily at you?</h3>
+            <ul class="inputs inputs-q-stranger">
+              <li>
+                <input type="radio" name="q-stranger" id="fox-2" value="fox">
+                <label for="fox-2">Charm my way out.</label>
+              </li>
+              <li>
                 <input type="radio" name="q-stranger" id="bear-2" value="bear">
                 <label for="bear-2">Yell back at them!</label>
-              </div>
+              </li>
+              <li>
+                <input type="radio" name="q-stranger" id="owl-2" value="owl">
+                <label for="owl-2">Calm them down through reasoning.</label>
+              </li>
+              <li>
+                <input type="radio" name="q-stranger" id="rabbit-2" value="rabbit" required="required">
+                <label for="rabbit-2">Run away as fast and as far as I could.</label>
+              </li>
               <input type="button" value="Next" class="btn btn-scroll-down btn-dark" data-q-num="q-stranger">
-            </div>
+            </ul>
+          </div>
+        </div><!-- /.wrapper -->
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div role="group" class="container container-q-stranger container-flex bg-green">
+        <div class="wrapper container-flex">
+          <div class="q-num">3.</div>
+          <div>
+            <h3 class="legend legend-q-movie">What is your favourite movie genre?</h3>
+            <ul class="inputs inputs-q-movie">
+              <li>
+                <input type="radio" name="q-movie" id="owl-3" value="owl">
+                <label for="owl-3">Crime</label>
+              </li>
+              <li>
+                <input type="radio" name="q-movie" id="rabbit-3" value="rabbit" required="required">
+                <label for="rabbit-3">Fantasy</label>
+              </li>
+              <li>
+                <input type="radio" name="q-movie" id="fox-3" value="fox">
+                <label for="fox-3">Comedy</label>
+              </li>
+              <li>
+                <input type="radio" name="q-movie" id="bear-3" value="bear">
+                <label for="bear-3">Action</label>
+              </li>
+              <input type="button" value="Next" class="btn btn-scroll-down btn-light" data-q-num="q-movie">
+            </ul>
+          </div>
+        </div><!-- /.wrapper -->
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div role="group" class="container container-q-stranger container-flex bg-pink">
+        <div class="wrapper container-flex">
+          <div class="q-num">4.</div>
+          <div>
+            <h3 class="legend legend-q-upset">If your friend was upset, how would you cheer them up?</h3>
+            <ul class="inputs inputs-q-upset">
+              <li>
+                <input type="radio" name="q-upset" id="fox-4" value="fox">
+                <label for="fox-4">Suggest fun things to do to take their mind off things. Distraction works wonders.</label>
+              </li>
+              <li>
+                <input type="radio" name="q-upset" id="rabbit-4" value="rabbit" required="required">
+                <label for="rabbit-4">I'd probably cry with them. Their pain is my pain.</label>
+              </li>
+              <li>
+                <input type="radio" name="q-upset" id="bear-4" value="bear">
+                <label for="bear-4">Who dare hurt them? I will destory them!</label>
+              </li>
+              <li>
+                <input type="radio" name="q-upset" id="owl-4" value="owl">
+                <label for="owl-4">Listen sympathically and talk things through.</label>
+              </li>
+              <input type="button" value="Next" class="btn btn-scroll-down btn-dark" data-q-num="q-upset">
+            </ul>
+          </div>
+        </div><!-- /.wrapper -->
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div role="group" class="container container-q-stranger container-flex bg-green">
+        <div class="wrapper container-flex">
+          <div class="q-num">5.</div>
+          <div>
+            <h3 class="legend legend-q-upset">What's a bad habit of yours?</h3>
+            <ul class="inputs inputs-q-upset">
+              <li>
+                <input type="radio" name="q-upset" id="rabbit-5" value="rabbit" required="required">
+                <label for="rabbit-5">I often put others' needs before mine.</label>
+              </li>
+              <li>
+                <input type="radio" name="q-upset" id="bear-5" value="bear">
+                <label for="bear-5">I tend to act before I think.</label>
+              </li>
+              <li>
+                <input type="radio" name="q-upset" id="owl-5" value="owl">
+                <label for="owl-5">I could probably be described as a workaholic.</label>
+              </li>
+              <li>
+                <input type="radio" name="q-upset" id="fox-5" value="fox">
+                <label for="fox-5">I'm not perfect but I'm pretty close!</label>
+              </li>
+              <input type="button" value="Next" class="btn btn-scroll-down btn-light" data-q-num="q-upset">
+            </ul>
+          </div>
+        </div><!-- /.wrapper -->
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div role="group" class="container container-q-stranger container-flex bg-pink">
+        <div class="wrapper container-flex">
+          <div class="q-num">6.</div>
+          <div>
+            <h3 class="legend legend-q-upset">What's your biggest fear in life?</h3>
+            <ul class="inputs inputs-q-upset">
+              <li>
+                <input type="radio" name="q-upset" id="rabbit-6" value="rabbit" required="required">
+                <label for="rabbit-6">To be taken advantage of by others.</label>
+              </li>
+              <li>
+                <input type="radio" name="q-upset" id="bear-6" value="bear">
+                <label for="bear-6">To have to rely on others to take care of me.</label>
+              </li>
+              <li>
+                <input type="radio" name="q-upset" id="owl-6" value="owl">
+                <label for="owl-6">To go crazy and unable to make sense of the world.</label>
+              </li>
+              <li>
+                <input type="radio" name="q-upset" id="fox-6" value="fox">
+                <label for="fox-6">To be frumpy and boring.</label>
+              </li>
+              <input type="button" value="Next" class="btn btn-scroll-down btn-dark" data-q-num="q-upset">
+            </ul>
           </div>
         </div><!-- /.wrapper -->
       </div>
@@ -80,7 +208,7 @@
       <div role="group" class="container container-submit container-flex bg-green">
         <div class="wrapper">
           <p class="txt-strong">Ready to meet your new forest friend?</p>
-          <input type="submit" value="Yes, please!" class="btn btn-scroll-down btn-light">
+          <input type="submit" value="Yes, please!" class="btn btn-scroll-down btn-">
         </div><!-- /.wrapper -->
       </div>
 
@@ -93,10 +221,10 @@
       <div class="container container-reset-quiz container-flex bg-green">
         <div class="wrapper">
           <p>One can never have enough friends, so...</p>
-          <input type="reset" value="Let's Go Again!" class="btn btn-reset-quiz btn-light">
+          <input type="reset" value="Let's Go Again!" class="btn btn-reset-quiz btn-dark">
         </div><!-- /.wrapper -->
       </div>
-    
+
     </form>
   </main>
 

@@ -3,6 +3,7 @@ header {
   text-align: center;
   position: relative;
   overflow: hidden;
+
   .txt-strong {
     margin-bottom: 0;
     & + p {
@@ -29,7 +30,7 @@ header {
     @include media(757px) {
       display: none;
     }
-  } 
+  }
 }
 
 .container-header-content {
@@ -42,7 +43,7 @@ header {
   }
 }
 
-h1{
+h1 {
   margin-top: 0;
   margin-bottom: 1.6rem;
   font-family: $font-secondary;
@@ -105,6 +106,7 @@ label {
 
 .img-result {
   position: relative;
+
   &::after {
     @include position (absolute, rem-calc(2px), null, null, rem-calc(2px));
     z-index: -10;
@@ -130,13 +132,14 @@ label {
 .container-submit {
   position: relative;
   overflow: hidden;
+
   &::before {
     content: '';
     display: block;
     @include bg-img ('acorn.svg');
     @include position (absolute, rem-calc(-60px), null, null, rem-calc(-80px));
     height: 100%;
-    width: rem-calc(330px); 
+    width: rem-calc(330px);
 
     @include media(454px) {
       width: rem-calc(400px);
@@ -177,7 +180,7 @@ h2 {
     @include bg-img ('mushroom.svg');
     @include position (absolute, null, rem-calc(-270px), -1.2rem, null);
     height: 100%;
-    width: rem-calc(490px); 
+    width: rem-calc(490px);
 
     @include media (454px) {
       font-size: rem-calc(520px);

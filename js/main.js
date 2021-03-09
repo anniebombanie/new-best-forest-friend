@@ -27,7 +27,7 @@ const ffApp = {
     owl: {
       name: `owl`,
       img: `./assets/owl.svg`,
-      description: `There's little in the way that gets past your sharp intellect`,
+      description: `There's little in the way that gets past your sharp intellect. The forest is no danger because with your new forest friend, OWL, you'll both patiently problem-solve anything that comes up.`,
       counter: 0,
     }
   },

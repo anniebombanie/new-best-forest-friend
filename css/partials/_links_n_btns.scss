@@ -70,7 +70,7 @@ input[type='radio'] {
   height: 1.5rem;
 }
 
-input[type="radio"] { 
+input[type="radio"] {
   cursor: pointer;
   & ~ label::before {
     font-family: 'Font Awesome 5 Free';

@@ -208,6 +208,12 @@ img {
   min-width: 100%;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
 .wrapper {
   max-width: 850px;
   width: 100%;
@@ -669,4 +675,3 @@ input[type="radio"]:checked ~ label::before {
   content: "\f00c";
   font-weight: 900;
 }
-/*# sourceMappingURL=style.css.map */

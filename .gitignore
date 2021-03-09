@@ -2,3 +2,6 @@
 ./css/style.min.css.map
 ./css/style.min.css
 ./js/main-mvp-unrefractored.js
+.vscode/settings.json
+styles/style.css
+styles/style.min.css
