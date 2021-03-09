@@ -1,37 +1,5 @@
 //NAMESPACE: Stores "Best Forest Friend app" (put everything here from start to decrease mutation)
 const ffApp = {
-  //OBJECT: Holds possible quiz results
-  results: {
-    bear: {
-      name: `bear`,
-      img: `./assets/bear.svg`,
-      // class: `img-result img-result-bear`,
-      // alt: `illustration of a bear.`,
-      description: `Like your new forest friend, BEAR, you are fearless and confident with a larger-than-life character. Danger in the forest? Pffttp- you laugh in the face of danger.`,
-      counter: 0,
-    },
-    rabbit: {
-      name: `rabbit`,
-      img: `./assets/rabbit.svg`,
-      // class: `img-result img-result-rabbit`,
-      // alt: `illustration of a rabbit.`,
-      description: `While navigating through the forest, you stay alert and vigilant. Together with your new forest friend, RABBIT, you'll avoid any dangers that might pop up.`,
-      counter: 0
-    },
-    fox: {
-      name: `fox`,
-      img: `./assets/fox.svg`,
-      description: ``,
-      counter: 0,
-    },
-    owl: {
-      name: `owl`,
-      img: `./assets/owl.svg`,
-      description: `There's little in the way that gets past your sharp intellect. The forest is no danger because with your new forest friend, OWL, you'll both patiently problem-solve anything that comes up.`,
-      counter: 0,
-    }
-  },
-
   // METHOD (INIT): These event handlers run when the quiz has been initialized
   init: () => {
     $(`input[value="Let's Get Started!"]`).on(`click`, ffApp.scrollDown);
@@ -90,12 +58,6 @@ const ffApp = {
   resetCounter: () => {
     ffApp.results.bear.counter = 0;
     ffApp.results.rabbit.counter = 0;
-  },
-
-  //OBJECT: Stores user's choice from questions
-  userChoice: {
-    choice1: $(`input[name=q-diet]:checked`).val(),
-    choice2: $(`input[name=q-stranger]:checked`).val()
   },
 
   // METHOD: Counts user choice
